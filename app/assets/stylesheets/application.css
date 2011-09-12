@@ -1,0 +1,30 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require blueprint/src/reset
+ *= require blueprint/src/typography
+ *= require blueprint/src/forms
+ *= require_self
+ *= require_tree .
+*/
+
+body {
+  background-color: #e0e0e0;
+}
+
+#main {
+  background-color: #f0f0f0;
+  border: 2px solid #777;
+  margin: 1em auto;
+  min-height: 300px;
+  padding: 1em;
+  width: 600px;
+}
+
+input, textarea, select {
+}
+
+textarea {
+  height: 4em;
+}

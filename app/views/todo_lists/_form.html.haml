@@ -1,0 +1,12 @@
+= form_for todo_list do |f|
+  = render :partial => "shared/error_messages", :locals => { :object => todo_list }
+  .field
+    = f.label :name
+  .field
+    = f.text_field :name
+  .field
+    = f.label :description
+  .field
+    = f.text_area :description
+  .actions
+    = f.submit 'Save'

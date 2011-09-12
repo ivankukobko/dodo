@@ -1,0 +1,12 @@
+= form_for todo_item, :url => todo_list_todo_items_path(todo_item.todo_list) do |f|
+  = render :partial => "shared/error_messages", :locals => { :object => todo_item }
+  .field
+    = f.label :title
+  .field
+    = f.text_field :title
+  .field
+    = f.label :description
+  .field
+    = f.text_area :description
+  .actions
+    = f.submit 'Save'

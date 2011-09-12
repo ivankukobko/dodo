@@ -1,0 +1,5 @@
+%ul
+  - todo_lists.each do |todo_list|
+    %li
+      %h3= link_to todo_list.name, todo_list
+= link_to 'New Todo list', new_todo_list_path

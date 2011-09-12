@@ -1,0 +1,8 @@
+%article
+  .title
+    = todo_item.title
+  .actions
+    = link_to 'Show', todo_list_todo_item_path(todo_list, todo_item )
+    = link_to 'Edit', edit_todo_list_todo_item_path(todo_list, todo_item )
+    = link_to 'Destroy', todo_list_todo_item_path(todo_list, todo_item), :confirm => 'Are you sure?', :method => :delete
+
