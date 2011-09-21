@@ -1,0 +1,20 @@
+=form_for user do |f|
+  = render :partial => "shared/error_messages", :locals => { :object => user }
+  .field
+    = f.label :name
+  .field
+    = f.text_field :name
+  .field
+    = f.label :email
+  .field
+    = f.text_field :email
+  .field
+    = f.label :password
+  .field
+    = f.password_field :password
+  .field
+    = f.label :password_confirmation
+  .field
+    = f.password_field :password_confirmation
+  .actions
+    = f.submit
