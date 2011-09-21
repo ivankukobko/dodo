@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
 gem 'mysql2'
+gem 'pg'
 gem 'json'
 
 # Gems used only for assets and not required

@@ -1,0 +1,4 @@
+- if todo_list && !todo_list.new_record?
+  = link_to 'Home', root_url
+  &raquo;
+  = link_to todo_list.title, todo_list_path(todo_list)
