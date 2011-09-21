@@ -6,8 +6,45 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require_tree .
 
 (function(){
   $('html').removeClass('no-js');
+
+
+  $('.sortable').sortable({
+    axis : 'y',
+    items : 'article',
+    cursor : 'crosshair',
+    containment : 'parent',
+    update : function(event, ui){
+      var self = this;
+      var sortedItems = $(self).sortable('serialize', { key: 'todo-item[]' })
+      console.log(sortedItems);
+      $.ajax({
+        url : '/todo_items/sort',
+        type: 'post',
+        dataType: 'script',
+        data : sortedItems,
+        complete: function(){
+          $(self).effect('highlight');
+        }
+      });
+    }
+  });
+
+  $('.todo-item').hover(
+    function(){
+      $(this).addClass('hover');
+    },
+    function(){
+      $(this).removeClass('hover');
+    }
+  );
+
+  $('.todo-item :checkbox').change(function(){
+    $(this).closest('form').submit();
+  });
+
 })(jQuery)

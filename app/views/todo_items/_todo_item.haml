@@ -1,8 +1,10 @@
-%article
-  .title
+%article{ :class => "todo-item #{'complete' if todo_item.is_complete?}", :id => "todo-item_#{todo_item.id}" }
+  .is-complete
+    = form_for todo_item do |f|
+      = f.check_box :is_complete
+  %h4.title
     = todo_item.title
   .actions
-    = link_to 'Show', todo_list_todo_item_path(todo_list, todo_item )
-    = link_to 'Edit', edit_todo_list_todo_item_path(todo_list, todo_item )
-    = link_to 'Destroy', todo_list_todo_item_path(todo_list, todo_item), :confirm => 'Are you sure?', :method => :delete
+    = link_to '[=]', edit_todo_list_todo_item_path(todo_list, todo_item ), :class => 'link-icon icon-edit'
+    = link_to '[X]', todo_list_todo_item_path(todo_list, todo_item), :confirm => 'Are you sure?', :method => :delete, :class => 'link-icon icon-delete'
 

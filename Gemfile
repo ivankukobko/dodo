@@ -16,6 +16,8 @@ end
 gem 'haml'
 gem 'jquery-rails'
 
+gem 'bcrypt-ruby', :require => 'bcrypt'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

@@ -2,8 +2,6 @@ class TodoItemsController < ApplicationController
 
   # TodoItems will definitely be nested resource
 
-  # GET /todo_items
-  # GET /todo_items.json
   def index
     respond_to do |format|
       format.html # index.html.erb
@@ -11,8 +9,6 @@ class TodoItemsController < ApplicationController
     end
   end
 
-  # GET /todo_items/1
-  # GET /todo_items/1.json
   def show
     respond_to do |format|
       format.html # show.html.erb
@@ -20,27 +16,20 @@ class TodoItemsController < ApplicationController
     end
   end
 
-  # GET /todo_items/new
-  # GET /todo_items/new.json
   def new
-    p "item: #{todo_item.inspect}"
-    p "list: #{todo_item.todo_list}"
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => todo_item }
     end
   end
 
-  # GET /todo_items/1/edit
   def edit
   end
 
-  # POST /todo_items
-  # POST /todo_items.json
   def create
     respond_to do |format|
       if todo_item.save
-        format.html { redirect_to todo_item.todo_list, :notice => 'Todo item was successfully created.' }
+        format.html { redirect_to todo_list, :notice => t(:'todo_items.actions.create.success') }
         format.json { render :json => todo_item, :status => :created, :location => todo_item }
       else
         format.html { render :action => "new" }
@@ -49,12 +38,10 @@ class TodoItemsController < ApplicationController
     end
   end
 
-  # PUT /todo_items/1
-  # PUT /todo_items/1.json
   def update
     respond_to do |format|
       if todo_item.update_attributes(params[:todo_item])
-        format.html { redirect_to todo_item, :notice => 'Todo item was successfully updated.' }
+        format.html { redirect_to todo_item.todo_list, :notice => t(:'todo_items.actions.update.success') }
         format.json { head :ok }
       else
         format.html { render :action => "edit" }
@@ -63,14 +50,47 @@ class TodoItemsController < ApplicationController
     end
   end
 
-  # DELETE /todo_items/1
-  # DELETE /todo_items/1.json
   def destroy
     todo_item.destroy
     respond_to do |format|
       format.html { redirect_to todo_list }
       format.json { head :ok }
     end
+  end
+
+  def complete
+    respond_to do |format|
+      if todo_item.complete!
+        format.html { redirect_to todo_item.todo_list, :notice => t(:'todo_items.actions.complete.success') }
+
+        format.json { head :ok }
+      else
+        format.html { redirect_to todo_item.todo_list, :error =>  t(:'todo_items.actions.complete.error') }
+        format.json { render :json => todo_item.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def incomplete
+    respond_to do |format|
+      if todo_item.incomplete!
+        format.html { redirect_to todo_item.todo_list, :notice => t(:'todo_items.actions.incomplete.success') }
+        format.json { head :ok }
+      else
+        format.html { redirect_to todo_item.todo_list, :error =>  t(:'todo_items.actions.incomplete.error')}
+        format.json { render :json => todo_item.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def sort
+    params[:'todo-item'].each_with_index do |item, index|
+      #todo_list.todo_items.update_all :order => index, :id => item
+      # TODO: remove dangerous mass-assignment
+      todo_item = TodoItem.find(item)
+      todo_item.update_attribute :position, index
+    end if params[:'todo-item']
+    render :nothing => true
   end
 
   private

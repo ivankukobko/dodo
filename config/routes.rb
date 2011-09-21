@@ -1,9 +1,28 @@
 Dodo::Application.routes.draw do
 
+  resources :sessions, :only => [:new, :create]
+  get '/sessions/destroy'
+
   root :to => 'todo_lists#index'
 
+  resources :users
+
   resources :todo_lists do
-    resources :todo_items
+    resources :todo_items do
+      collection do
+        post :sort
+      end
+    end
+  end
+
+  resources :todo_items, :only => [:update, :destroy] do
+    member do
+      get :complete
+      get :incomplete
+    end
+    collection do
+      post :sort
+    end
   end
 
   # The priority is based upon order of creation:

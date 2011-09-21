@@ -1,6 +1,4 @@
 class TodoListsController < ApplicationController
-  # GET /todo_lists
-  # GET /todo_lists.json
   def index
     respond_to do |format|
       format.html # index.html.erb
@@ -8,8 +6,6 @@ class TodoListsController < ApplicationController
     end
   end
 
-  # GET /todo_lists/1
-  # GET /todo_lists/1.json
   def show
     respond_to do |format|
       format.html # show.html.erb
@@ -17,8 +13,6 @@ class TodoListsController < ApplicationController
     end
   end
 
-  # GET /todo_lists/new
-  # GET /todo_lists/new.json
   def new
     respond_to do |format|
       format.html # new.html.erb
@@ -26,16 +20,14 @@ class TodoListsController < ApplicationController
     end
   end
 
-  # GET /todo_lists/1/edit
   def edit
   end
 
-  # POST /todo_lists
-  # POST /todo_lists.json
   def create
     respond_to do |format|
+      params[:todo_list][:user_id] = current_user.id
       if todo_list.save
-        format.html { redirect_to todo_list, :notice => 'Todo list was successfully created.' }
+        format.html { redirect_to todo_list, :notice => t(:'todo_lists.actions.create.success') }
         format.json { render :json => todo_list, :status => :created, :location => todo_list }
       else
         format.html { render :action => "new" }
@@ -44,12 +36,10 @@ class TodoListsController < ApplicationController
     end
   end
 
-  # PUT /todo_lists/1
-  # PUT /todo_lists/1.json
   def update
     respond_to do |format|
       if todo_list.update_attributes(params[:todo_list])
-        format.html { redirect_to todo_list, :notice => 'Todo list was successfully updated.' }
+        format.html { redirect_to todo_list, :notice =>  t(:'todo_lists.actions.update.success') }
         format.json { head :ok }
       else
         format.html { render :action => "edit" }
@@ -58,8 +48,6 @@ class TodoListsController < ApplicationController
     end
   end
 
-  # DELETE /todo_lists/1
-  # DELETE /todo_lists/1.json
   def destroy
     todo_list.destroy
     respond_to do |format|
@@ -71,7 +59,7 @@ class TodoListsController < ApplicationController
   private
 
   def todo_lists
-    @todo_lists = TodoList.all
+    @todo_lists = current_user.todo_lists
   end
   helper_method :todo_lists
 

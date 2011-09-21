@@ -2,4 +2,56 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+
+  todo_lists:
+    actions:
+      create:
+        success: 'Todo list was successfully created!'
+      update:
+        success: 'Todo list was successfully updated!'
+
+  todo_items:
+    actions:
+      create:
+        success: 'Todo item was successfully created!'
+      update:
+        success: 'Todo item was successfully updated!'
+      complete:
+        success: 'Task complete!'
+        error: 'Could not complete todo item!'
+      incomplete:
+        success: 'Task incomplete!'
+        error: 'Could not incomplete todo item!'
+
+  users:
+    create:
+      success: 'User has been successfully created!'
+
+  sessions:
+    create:
+      success: 'Successfully logged in!'
+      error: "Couldn\'t log in"
+
+  helpers:
+    submit:
+      create: "Create a %{model}"
+      update: "Confirm changes to %{model}"
+
+  activerecord:
+    models:
+      user: "user"
+      todo_list: "todo list"
+      todo_item: "todo item"
+    attributes:
+      todo_list:
+        title: 'Title'
+        description: 'Description'
+      todo_item:
+        title: 'Title'
+        description: 'Description'
+      user:
+        name: "Name"
+        nickname: "Nickname"
+        email: "E-Mail"
+
+

@@ -25,6 +25,7 @@
   #page
     #main.container
       .flash= render 'shared/flash_messages'
+      .breadcrumbs= render 'shared/breadcrumbs'
       = yield
 
   = javascript_include_tag 'application'

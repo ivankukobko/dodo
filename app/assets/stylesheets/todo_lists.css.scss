@@ -2,8 +2,33 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.todo-list.complete {
+  text-decoration: line-through;
+}
+
 .todo-items {
   background: #fff;
   border: 1px solid #ccc;
   padding: 1em;
+
+  .todo-item{
+    .is-complete, .title{
+      display: inline-block;
+    }
+    .actions{
+      display: none;
+    }
+  }
+
+  .todo-item.complete {
+    .title{
+      text-decoration: line-through;
+    }
+  }
+
+  .todo-item.hover{
+    .actions{
+      display: inline-block;
+    }
+  }
 }
