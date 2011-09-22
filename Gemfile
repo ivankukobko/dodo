@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
 gem 'mysql2'
-gem 'pg'
+
 gem 'json'
 
 # Gems used only for assets and not required
@@ -19,12 +19,10 @@ gem 'jquery-rails'
 
 gem 'bcrypt-ruby', :require => 'bcrypt'
 
-# Use unicorn as the web server
-# gem 'unicorn'
+group :production do
+  gem 'pg'
+  gem 'thin'
+end
 
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
 # gem 'ruby-debug'
 
