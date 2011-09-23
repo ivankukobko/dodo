@@ -5,6 +5,7 @@
  *= require blueprint/src/reset
  *= require blueprint/src/typography
  *= require blueprint/src/forms
+ *= require 1140cssgrid/1140.css
  *= require_self
  *= require_tree .
 */
@@ -13,13 +14,17 @@ body {
   background-color: #e0e0e0;
 }
 
+header {
+  min-height: 5em;
+}
+
 #main {
+  padding: 2em 0;
   background-color: #f8f8f8;
-  border: 2px solid #777;
-  margin: 1em auto;
+}
+
+#content {
   min-height: 300px;
-  padding: 1em;
-  width: 600px;
 }
 
 input, textarea, select {

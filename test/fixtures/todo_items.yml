@@ -3,9 +3,9 @@
 one:
   title: MyString
   description: MyText
-  references: 
+  todo_list: one
 
 two:
   title: MyString
   description: MyText
-  references: 
+  todo_list: two

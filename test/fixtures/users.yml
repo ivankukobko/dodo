@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
 
 one:
-  name: MyString
-  password_salt: MyString
-  password_hash: MyString
+  email: user1@mail.com
+  #password: 'password'
+  password_hash: $2a$10$TTE8iTu30tg9.d6BbRTUluAzviOs0CYf4d4ecovXZoNJnYFHU01na
+  password_salt: $2a$10$TTE8iTu30tg9.d6BbRTUlu
 
 two:
-  name: MyString
-  password_salt: MyString
-  password_hash: MyString
+  email: user2@mail.com
+  #password: 'password'
+  password_hash: $2a$10$TTE8iTu30tg9.d6BbRTUluAzviOs0CYf4d4ecovXZoNJnYFHU01na
+  password_salt: $2a$10$TTE8iTu30tg9.d6BbRTUlu

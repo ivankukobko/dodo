@@ -11,7 +11,6 @@ class SessionsController < ApplicationController
       session[:user_id] = current_user.id # should get rid of this
       redirect_to root_url, :notice => t(:'sessions.create.success')
     else
-      p 'no session'
       redirect_to new_session_url, :error => t(:'sessions.create.error')
     end
   end
@@ -19,7 +18,7 @@ class SessionsController < ApplicationController
   def destroy
     current_user = nil
     reset_session
-    redirect_to root_url, :notice => 'Logged out'
+    redirect_to root_url, :notice => t(:'sessions.destroy.success')
   end
 
 end

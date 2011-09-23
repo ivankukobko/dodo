@@ -14,10 +14,6 @@ class TodoListsController < ApplicationController
   end
 
   def new
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render :json => todo_list }
-    end
   end
 
   def edit

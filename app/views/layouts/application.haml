@@ -17,15 +17,22 @@
   %link{:href => "/favicon.ico", :rel => "shortcut icon"}/
   %link{:href => "/apple-touch-icon.png", :rel => "apple-touch-icon"}/
 
-  = stylesheet_link_tag "application"
+  = stylesheet_link_tag 'application'
   /[if IE]
     %script{ :src => "http://html5shiv.googlecode.com/svn/trunk/html5.js" }
   = csrf_meta_tags
 %body
   #page
-    #main.container
-      .flash= render 'shared/flash_messages'
-      .breadcrumbs= render 'shared/breadcrumbs'
-      = yield
+    %header
+      .container
+        .row
+          .flash= render 'shared/flash_messages'
+    #main
+      .container
+        .row
+          .breadcrumbs= render 'shared/breadcrumbs'
+        #content.row
+          = yield
+    %footer.container footer
 
   = javascript_include_tag 'application'

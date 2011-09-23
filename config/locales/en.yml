@@ -31,6 +31,8 @@ en:
     create:
       success: 'Successfully logged in!'
       error: "Couldn\'t log in"
+    destroy:
+      success: 'Logged out, bye!'
 
   helpers:
     submit:
