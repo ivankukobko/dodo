@@ -7,8 +7,7 @@ class SessionsController < ApplicationController
 
   def create
     email, password = params[:user][:email], params[:user][:password]
-    if current_user = User.authenticate(email, password)
-      session[:user_id] = current_user.id # should get rid of this
+    if self.current_user = User.authenticate(email, password)
       redirect_to root_url, :notice => t(:'sessions.create.success')
     else
       redirect_to new_session_url, :error => t(:'sessions.create.error')
@@ -16,7 +15,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    current_user = nil
+    self.current_user = nil
     reset_session
     redirect_to root_url, :notice => t(:'sessions.destroy.success')
   end

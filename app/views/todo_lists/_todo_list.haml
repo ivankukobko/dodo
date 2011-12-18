@@ -1,0 +1,10 @@
+%li
+  %article{ :class => "todo-list #{'complete' if todo_list.is_complete?}" }
+    %h3.title
+      = link_to todo_list.title, todo_list
+      - if todo_list.todo_items.count > 0
+        = "(#{todo_list.todo_items.complete.count}/#{todo_list.todo_items.count})"
+    .actions
+      = link_to '[=]', edit_todo_list_path(todo_list), :class => 'link-icon icon-edit'
+      = link_to '[X]', todo_list_path(todo_list), :confirm => 'Are you sure?', :method => :delete, :class => 'link-icon icon-delete'
+

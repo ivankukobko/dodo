@@ -1,0 +1,7 @@
+.fourcol
+  = render :partial => 'todo_lists/form', :locals => { :todo_list => TodoList.new }
+  %ul{ :id => 'todo-lists' }
+    = render todo_lists
+.eightcol.last
+  #todo-lists-container.hide
+    %ul{ :id => 'todo-items' }

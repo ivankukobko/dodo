@@ -1,0 +1,5 @@
+- if current_user
+  Welcome,
+  = link_to current_user, me_path
+- else
+  =link_to 'Login', new_session_path

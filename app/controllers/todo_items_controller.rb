@@ -1,24 +1,22 @@
 class TodoItemsController < ApplicationController
 
-  # TodoItems will definitely be nested resource
-
   def index
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.json { render :json => todo_items }
     end
   end
 
   def show
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
       format.json { render :json => todo_item }
     end
   end
 
   def new
     respond_to do |format|
-      format.html # new.html.erb
+      format.html
       format.json { render :json => todo_item }
     end
   end
@@ -85,8 +83,6 @@ class TodoItemsController < ApplicationController
 
   def sort
     params[:'todo-item'].each_with_index do |item, index|
-      #todo_list.todo_items.update_all :order => index, :id => item
-      # TODO: remove dangerous mass-assignment
       todo_item = TodoItem.find(item)
       todo_item.update_attribute :position, index
     end if params[:'todo-item']
@@ -96,17 +92,23 @@ class TodoItemsController < ApplicationController
   private
 
   def todo_list
-    @todo_list = TodoList.find(params[:todo_list_id])
+    @todo_list ||= if params[:todo_list_id]
+      TodoList.find(params[:todo_list_id])
+    end
   end
   helper_method :todo_list
 
   def todo_items
-    @todo_items = todo_list.todo_items
+    @todo_items ||= if todo_list
+      todo_list.todo_items
+    else
+      current_user.todo_items
+    end
   end
   helper_method :todo_items
 
   def todo_item
-    @todo_item = if params[:id]
+    @todo_item ||= if params[:id]
       TodoItem.find params[:id]
     else
       todo_list.todo_items.build params[:todo_item]

@@ -1,5 +1,6 @@
 - if current_user
-  - if todo_list && !todo_list.new_record?
-    = link_to 'Home', root_url
-    &raquo;
-    = link_to todo_list.title, todo_list_path(todo_list)
+  = link_to 'Home', root_url
+  -#- if todo_list
+    -#- if !todo_list.new_record?
+      -#&raquo;
+      -#= link_to todo_list.title, todo_list_path(todo_list)

@@ -38,6 +38,9 @@ en:
     submit:
       create: "Create a %{model}"
       update: "Confirm changes to %{model}"
+    placeholder:
+      todo_list:
+        title: 'Name of new list...'
 
   activerecord:
     models:
@@ -46,7 +49,7 @@ en:
       todo_item: "todo item"
     attributes:
       todo_list:
-        title: 'Title'
+        title: 'The name of the list'
         description: 'Description'
       todo_item:
         title: 'Title'

@@ -12,23 +12,39 @@
   padding: 1em;
 
   .todo-item{
-    .is-complete, .title{
-      display: inline-block;
-    }
-    .actions{
-      display: none;
-    }
+    margin-bottom: 4px;
   }
 
-  .todo-item.complete {
-    .title{
-      text-decoration: line-through;
-    }
-  }
 
-  .todo-item.hover{
-    .actions{
-      display: inline-block;
-    }
+}
+
+.hover, .todo-list:hover, .todo-item:hover{
+  .actions{
+    display: inline-block;
+  }
+}
+
+.complete {
+  .title{
+    text-decoration: line-through;
+  }
+}
+
+
+.drag-handle, .is-complete, .title{
+  display: inline-block;
+}
+
+.drag-handle {
+  background: #f1f1f1;
+  border: 1px solid #d2d2d2;
+  height: 1.75em;
+  vertical-align: top;
+  width: 4px;
+}
+
+.todo-list, .todo-item {
+  .actions{
+    display: none;
   }
 }

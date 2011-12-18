@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
   has_many :todo_lists
+  has_many :todo_items, :through => :todo_lists
 
   attr_accessor :password
 
@@ -10,6 +11,10 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password, :on => :create
   validates_presence_of   :email
   validates_uniqueness_of :email
+
+  def to_s
+    name
+  end
 
   def encrypt_password
     if password.present?

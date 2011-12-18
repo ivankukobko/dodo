@@ -10,26 +10,77 @@
  *= require_tree .
 */
 
+/*@import url('http://fonts.googleapis.com/css?family=Marmelad&subset=latin,cyrillic');*/
+@font-face {
+  font-family: 'Marmelad';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Marmelad'), local('Marmelad-Regular'), url('http://themes.googleusercontent.com/static/fonts/marmelad/v2/xpbXuAKcTwQ5l3JD46hcvQ.woff') format('woff');
+}
+
 body {
-  background-color: #e0e0e0;
+  /*background-color: #f0f0f0;*/
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Marmelad', sans-serif;
 }
 
 header {
+  background: #f1f1f1;
+  border-bottom: 1px solid #d2d2d2;
   min-height: 5em;
 }
 
+header h1#logo {
+  color: #f1f1f1;
+  font-size: 5em;
+  font-weight: normal;
+  letter-spacing: -0.2em;
+  text-shadow: 0 -2px 1px #777;
+  text-transform: uppercase;
+}
+
 #main {
+  /*border-top: 1px solid #f0f0f0;*/
+  /*border-bottom: 1px solid #f0f0f0;*/
   padding: 2em 0;
-  background-color: #f8f8f8;
+  /*background-color: #fefefe;*/
 }
 
 #content {
   min-height: 300px;
 }
 
+footer {
+  text-align: center;
+}
+
+#ajax {
+  border: 1px solid #fff;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+/* FORMS */
 input, textarea, select {
 }
 
 textarea {
   height: 4em;
+}
+
+#new_todo_list input {
+  display: block;
+  font-size: 1.5em;
+  width: 99%;
+}
+
+.flash-message {
+  position: fixed;
+  width: 400px;
+  top: 20px;
+  right: 20px;
+  opacity: 0.85;
 }

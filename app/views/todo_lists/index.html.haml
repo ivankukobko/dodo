@@ -1,5 +1,3 @@
-%ul
-  - todo_lists.each do |todo_list|
-    %li
-      %h3{ :class => "todo-list #{'complete' if todo_list.is_complete?}" }= link_to todo_list.title, todo_list
-= link_to 'New Todo list', new_todo_list_path
+= render :partial => 'form'
+%ul{ :id => 'todo-lists' }
+  = render todo_lists
