@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
 
   has_many :todo_lists
+  has_many :collaborators
+  has_many :projects, :through => :collaborators
   has_many :todo_items, :through => :todo_lists
 
   attr_accessor :password

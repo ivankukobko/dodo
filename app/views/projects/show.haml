@@ -1,0 +1,11 @@
+- if project.users.include? current_user
+  = link_to 'Edit', edit_project_path(project)
+  %hr/
+%h2= project
+.description= project.description
+.fourcol
+  %ul#users
+    = render project.users
+.eightcol.last
+  %ul#todo_lists
+    = render project.todo_lists
