@@ -22,6 +22,7 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 group :production do
   gem 'pg'
   gem 'thin'
+  gem 'therubyracer'
 end
 
 # gem 'ruby-debug'
