@@ -1,6 +1,4 @@
-.actions
 
-%hr/
 %h2
   = todo_list.title
   - if todo_list.user === current_user
@@ -8,13 +6,19 @@
       %span.icon.icon-pencil
     = link_to todo_list_path(todo_list), :method => :delete, :confirm => 'Are you sure?' do
       %span.icon.icon-slash
-
+%hr/
 .description
   = todo_list.description
 
 .todo-items.sortable
-  = render todo_list.todo_items
-  = link_to 'New Todo Item', new_todo_list_todo_item_path(todo_list)
+  - unless todo_list.todo_items.empty?
+    = render todo_list.todo_items
+  - else
+    .notice
+      = t :'todo_items.messages.no_todo_items_added'
+  = link_to new_todo_list_todo_item_path(todo_list), :class => 'link-button' do
+    %span.icon.icon-plus-circle
+    New Todo Item
 
 - if todo_list.project
   = link_to todo_list.project do
