@@ -83,7 +83,7 @@ textarea {
 }
 
 .flash-message.notice {
-  background-image: image-url('fugue-icons/information.png');
+  background-image: url('fugue-icons/information.png');
 }
 
 /* ICONS */
@@ -124,6 +124,10 @@ textarea {
 
 .icon-door-out {
   background-image: url('fugue-icons/door-open-out.png');
+}
+
+.icon-door-in {
+  background-image: url('fugue-icons/door-open-in.png');
 }
 /* /ICONS */
 /* BUTTONS */

@@ -9,4 +9,6 @@
     %span.icon.icon-door-out
     Logout
 - else
-  =link_to 'Login', new_session_path
+  =link_to new_session_path do
+    %span.icon.icon-door-in
+    Login

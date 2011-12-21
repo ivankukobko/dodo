@@ -9,6 +9,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
+    project.users = [current_user]
     if project.save
       redirect_to project, :notice => 'project created'
     else
@@ -38,7 +39,9 @@ class ProjectsController < ApplicationController
     @project ||= if params[:id]
       current_user.projects.find params[:id]
     else
-      current_user.projects.build params[:project]
+      # FIXME: find a way to build project with user
+      #current_user.projects.build params[:project]
+      Project.new params[:project]
     end
   end
   helper_method :project

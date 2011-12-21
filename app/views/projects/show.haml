@@ -12,5 +12,14 @@
     %span.icon.icon-plus-circle
     Invite user
 .eightcol.last
-  %ul#todo_lists
-    = render project.todo_lists
+  %h3 Todo Lists
+  %hr/
+  - unless project.todo_lists.empty?
+    %ul#todo_lists
+      = render project.todo_lists
+  - else
+    .notice
+      =t :'todo_lists.messages.no_todo_lists_added'
+  = link_to new_project_todo_list_path(project), :class => 'link-button' do
+    %span.icon.icon-plus-circle
+    Add todo list

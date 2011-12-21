@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  rescue_from 'ActiveRecord::RecordNotFound', :with => :redirect_404
+  #rescue_from 'ActiveRecord::RecordNotFound', :with => :redirect_404
 
   before_filter :require_authentication
 
