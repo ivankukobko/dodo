@@ -5,7 +5,8 @@
       %span.icon.icon-pencil
 %hr/
 .fourcol
-  .description= project.description
+  %blockquote.description= project.description
+  %h3 Members
   %ul#users
     = render project.users
   = link_to new_project_collaborator_path(project), :class => 'link-button' do
@@ -13,9 +14,8 @@
     Invite user
 .eightcol.last
   %h3 Todo Lists
-  %hr/
-  - unless project.todo_lists.empty?
-    %ul#todo_lists
+  - if project.todo_lists.any?
+    %ul#todo-lists
       = render project.todo_lists
   - else
     .notice

@@ -9,7 +9,7 @@
     %span.icon.icon-plus-circle
     Add new project
 .fourcol
-  %h2 Your todo lists
+  %h2 Your personal todo lists
   -#= render :partial => 'todo_lists/form', :locals => { :todo_list => TodoList.new }
   %ul{ :id => 'todo-lists' }
     = render todo_lists
