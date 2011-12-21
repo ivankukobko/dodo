@@ -9,7 +9,9 @@ class CollaboratorsController < ApplicationController
   end
 
   def destroy
+  end
 
+  def accept
   end
 
   def collaborator
