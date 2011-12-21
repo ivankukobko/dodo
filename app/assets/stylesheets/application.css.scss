@@ -1,0 +1,142 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require blueprint/src/reset
+ *= require blueprint/src/typography
+ *= require blueprint/src/forms
+ *= require 1140cssgrid/1140.css
+ *= require_self
+ *= require_tree .
+*/
+
+body {
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Georgia', serif;
+}
+
+header {
+  background: #f1f1f1;
+  border-bottom: 1px solid #d2d2d2;
+  min-height: 5em;
+}
+
+header h1#logo {
+  color: #f1f1f1;
+  font-size: 5em;
+  font-weight: normal;
+  letter-spacing: -0.2em;
+  text-shadow: 0 -2px 1px #777;
+  text-transform: uppercase;
+}
+
+#main {
+  padding: 2em 0;
+}
+
+#content {
+  min-height: 300px;
+}
+
+footer {
+  text-align: center;
+}
+
+#ajax {
+  border: 1px solid #fff;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+/* FORMS */
+input, textarea, select {
+}
+
+textarea {
+  height: 4em;
+}
+
+#new_todo_list input {
+  display: block;
+  font-size: 1.5em;
+  width: 99%;
+}
+/* /FORMS */
+
+.flash-message {
+  //background-color: transparent;
+  background-position: 1em 50%;
+  background-repeat: no-repeat;
+  border-left: 0;
+  border-right: 0;
+  font-size: 150%;
+  left: 0;
+  opacity: 0.95;
+  padding-left: 3em;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  width: 100%;
+}
+
+.flash-message.notice {
+  background-image: image-url('fugue-icons/information.png');
+}
+
+/* ICONS */
+.icon {
+  background-color: transparent;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 16px;
+  margin-right: .25em;
+  vertical-align: middle;
+  width: 16px;
+}
+
+.icon-home {
+  background-image: image-url('fugue-icons/home.png');
+}
+
+.icon-user {
+  background-image: image-url('fugue-icons/user-silhouette.png');
+}
+
+.icon-user-question {
+  background-image: image-url('fugue-icons/user-silhouette-question.png');
+}
+
+.icon-plus-circle {
+  background-image: image-url('fugue-icons/plus-circle.png');
+}
+
+.icon-pencil {
+  background-image: image-url('fugue-icons/pencil.png');
+}
+
+.icon-slash {
+  background-image: image-url('fugue-icons/slash.png');
+}
+
+.icon-door-out {
+  background-image: image-url('fugue-icons/door-open-out.png');
+}
+/* /ICONS */
+/* BUTTONS */
+.link-button{
+  background: #f1f1f1;
+  background: linear-gradient(top, #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%);
+  border: 1px solid #d2d2d2;
+  border-radius: 1em;
+  display: inline-block;
+  text-decoration: none;
+  padding: .25em 1em .25em .5em;
+}
+/* /BUTTONS */
+.login-bar {
+  margin: 1.5em 0;
+}

@@ -1,11 +1,16 @@
-- if project.users.include? current_user
-  = link_to 'Edit', edit_project_path(project)
-  %hr/
-%h2= project
-.description= project.description
+%h2
+  = project
+  - if project.users.include? current_user
+    = link_to edit_project_path(project) do
+      %span.icon.icon-pencil
+%hr/
 .fourcol
+  .description= project.description
   %ul#users
     = render project.users
+  = link_to new_project_collaborator_path(project), :class => 'link-button' do
+    %span.icon.icon-plus-circle
+    Invite user
 .eightcol.last
   %ul#todo_lists
     = render project.todo_lists

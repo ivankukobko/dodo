@@ -2,9 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.todo-list.complete {
-  text-decoration: line-through;
+#todo-lists{
+  list-style: none;
 }
+
+//.todo-list.complete {
+  //text-decoration: line-through;
+//}
 
 .todo-items {
   background: #fff;
@@ -24,7 +28,7 @@
   }
 }
 
-.complete {
+.todo-list.complete {
   .title{
     text-decoration: line-through;
   }
@@ -44,6 +48,7 @@
 }
 
 .todo-list, .todo-item {
+  margin-bottom: 1em;
   .actions{
     display: none;
   }

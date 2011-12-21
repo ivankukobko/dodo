@@ -23,7 +23,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_user=
 
   def redirect_404
-    redirect_to root_url, :error => 'Not found!'
+    flash[:error] = 'Not found!'
+    redirect_to root_url
   end
 
   def require_authentication

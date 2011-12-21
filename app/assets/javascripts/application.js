@@ -9,11 +9,22 @@
 //= require jquery-ui
 //= require_tree .
 //= require ICanHaz.min
-/*= require jquery.tmpl.min*/
-/*= require knockout-1.2.1*/
+
+// default flashes display
+function showFlash() {
+  $('.flash-message').stop(true, true).hide();
+  $('.flash-message').slideDown('slow');
+  setTimeout(
+    function(){
+      $('.flash-message').slideUp('slow');
+    },
+    5000
+  );
+}
 
 (function(){
   $('html').removeClass('no-js');
+  showFlash();
 
   $.ajaxSetup({
     beforeSend: function(e) {
@@ -38,10 +49,10 @@
         url : '/todo_items/sort',
         type: 'post',
         dataType: 'script',
-        data : sortedItems//,
-        //complete: function(){
-          //$(self).effect('highlight');
-        //}
+        data : sortedItems,
+        complete: function(){
+          $(self).effect('highlight');
+        }
       });
     }
   });

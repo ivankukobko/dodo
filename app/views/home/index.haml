@@ -1,7 +1,19 @@
 .fourcol
-  = render :partial => 'todo_lists/form', :locals => { :todo_list => TodoList.new }
+  -#= render :partial => 'todo_lists/form', :locals => { :todo_list => TodoList.new }
+  %h2
+    Your projects
+
+  %ul{ :id => 'projects' }
+    = render projects
+  = link_to new_project_path, :class => 'link-button' do
+    %span.icon.icon-plus-circle
+    Add new project
+.fourcol
+  %h2 Your todo lists
+  -#= render :partial => 'todo_lists/form', :locals => { :todo_list => TodoList.new }
   %ul{ :id => 'todo-lists' }
     = render todo_lists
-.eightcol.last
-  #todo-lists-container.hide
-    %ul{ :id => 'todo-items' }
+.fourcol.last
+  %h2 Your unfinished tasks
+  %ul{ :id => 'todo-items' }
+  \...

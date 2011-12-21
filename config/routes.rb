@@ -1,11 +1,11 @@
 Dodo::Application.routes.draw do
 
-  resources :projects
-
   root :to => "home#index"
-  #root :to => "todo_lists#index"
 
-  resources :sessions, :only => [:new, :create, :destroy]
+  resources :sessions, :only => [:new, :create] do
+    #get :destroy, :on => :collection
+  end
+  match '/logout' => 'sessions#destroy', :as => :logout
 
   resources :users do
     collection do
@@ -15,6 +15,13 @@ Dodo::Application.routes.draw do
 
   match 'me' => 'users#me', :as => :me
   match 'me/edit' => 'users#edit', :as => :edit_me
+
+  resources :collaborators, :only => [ :new, :create, :destroy ]
+
+  resources :projects do
+    resources :todo_lists
+    resources :collaborators, :only => [ :new, :create, :destroy ]
+  end
 
   resources :todo_items do
     member do

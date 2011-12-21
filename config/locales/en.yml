@@ -43,6 +43,8 @@ en:
         name: 'Name of new project...'
       todo_list:
         title: 'Name of new list...'
+      collaborator:
+        email: 'E-mail...'
 
   activerecord:
     models:

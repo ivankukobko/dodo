@@ -1,3 +1,11 @@
 %li
   %article
-    = link_to user, user
+    = link_to user do
+      -if !project.nil?
+        - if user.accepted_project?(project)
+          %span.icon.icon-user
+        - else
+          %span.icon.icon-user-question
+      - else
+        %span.icon.icon-user
+      = user

@@ -1,5 +1,8 @@
 - if current_user
-  = link_to 'Home', root_url
+  = link_to root_url do
+    %span.icon.icon-home
+    Dashboard
+
   -#- if todo_list
     -#- if !todo_list.new_record?
       -#&raquo;

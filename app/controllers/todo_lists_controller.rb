@@ -26,6 +26,9 @@ class TodoListsController < ApplicationController
 
   def create
     params[:todo_list][:user_id] = current_user.id
+    if params[:project_id]
+      params[:todo_list][:project_id] = project.id
+    end
     respond_to do |format|
       if todo_list.save
         format.html { redirect_to todo_list, :notice => t(:'todo_lists.actions.create.success') }
@@ -60,7 +63,7 @@ class TodoListsController < ApplicationController
   private
 
   def todo_lists
-    @todo_lists = current_user.todo_lists.order('created_at DESC')
+    @todo_lists ||= current_user.todo_lists.order('created_at DESC')
   end
   helper_method :todo_lists
 
@@ -72,4 +75,12 @@ class TodoListsController < ApplicationController
     end
   end
   helper_method :todo_list
+
+  def project
+    @project ||= if params[:project_id]
+      current_user.projects.find params[:project_id]
+    end
+  end
+  helper_method :project
+
 end

@@ -36,4 +36,15 @@ class User < ActiveRecord::Base
     self[:name] || self[:email]
   end
 
+  def invite_collaborator target_email, project
+    if target_user = User.find_by_email(target_email)
+      project.collaborators.create(:user => target_user, :invited_by => self.id )
+    end
+  end
+
+  def accepted_project? project
+    collaborator = collaborators.find_by_project_id(project.id)
+    collaborator.owner? || !collaborator.accepted_at.nil?
+  end
+
 end

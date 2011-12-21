@@ -1,5 +1,12 @@
 - if current_user
   Welcome,
-  = link_to current_user, me_path
+  = link_to me_path do
+    %span.icon.icon-user
+    = current_user
+  \|
+
+  = link_to logout_path do
+    %span.icon.icon-door-out
+    Logout
 - else
   =link_to 'Login', new_session_path

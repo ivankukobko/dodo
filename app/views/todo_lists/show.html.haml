@@ -1,10 +1,13 @@
 .actions
-  = link_to 'Edit', edit_todo_list_path(todo_list)
-  \|
-  = link_to 'Destroy', todo_list_path(todo_list), :method => :delete, :confirm => 'Are you sure?'
+
 %hr/
 %h2
   = todo_list.title
+  - if todo_list.user === current_user
+    = link_to edit_todo_list_path(todo_list) do
+      %span.icon.icon-pencil
+    = link_to todo_list_path(todo_list), :method => :delete, :confirm => 'Are you sure?' do
+      %span.icon.icon-slash
 
 .description
   = todo_list.description
@@ -13,5 +16,10 @@
   = render todo_list.todo_items
   = link_to 'New Todo Item', new_todo_list_todo_item_path(todo_list)
 
-= link_to 'All lists', todo_lists_path
+- if todo_list.project
+  = link_to todo_list.project do
+    &larr;
+    = todo_list.project
+- else
+  = link_to 'All lists', todo_lists_path
 
