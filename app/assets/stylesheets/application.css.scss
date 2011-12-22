@@ -131,12 +131,24 @@ input[type=submit] {
   background-image: url('fugue-icons/plus-circle.png');
 }
 
+.icon-cross {
+  background-image: url('fugue-icons/cross.png');
+}
+
+.icon-cross-circle {
+  background-image: url('fugue-icons/cross-circle.png');
+}
+
 .icon-pencil {
   background-image: url('fugue-icons/pencil.png');
 }
 
 .icon-slash {
   background-image: url('fugue-icons/slash.png');
+}
+
+.icon-slash-button {
+  background-image: url('fugue-icons/slash-button.png');
 }
 
 .icon-door-out {
@@ -169,6 +181,22 @@ input[type=submit] {
 
 .icon-document-list {
   background-image: url('fugue-icons/blue-document-list.png');
+}
+
+.icon-document-task {
+  background-image: url('fugue-icons/blue-document-task.png');
+}
+
+.icon-tick {
+  background-image: url('fugue-icons/tick.png');
+}
+
+.icon-tick-button {
+  background-image: url('fugue-icons/tick-button.png');
+}
+
+.icon-tick-circle {
+  background-image: url('fugue-icons/tick-circle.png');
 }
 /* /ICONS */
 /* BUTTONS */

@@ -9,12 +9,12 @@ class CollaboratorsController < ApplicationController
   end
 
   def destroy
-    collaborator.destroy
+    invitation.destroy
     redirect_to root_url
   end
 
   def accept
-    if invitation.accept
+    if invitation.accept!
       flash[:success] = t :'collaborator.invitations.accept.success'
       redirect_to invitation.project
     else

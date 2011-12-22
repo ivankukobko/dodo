@@ -2,7 +2,10 @@
   %article{ :class => "todo-list #{'complete' if todo_list.is_complete?}" }
     %h3.title
       = link_to todo_list do
-        %span.icon.icon-document-list
+        - if todo_list.is_complete?
+          %span.icon.icon-document-task
+        - else
+          %span.icon.icon-document-list
         =todo_list.title
       - unless todo_list.todo_items.empty?
         = "(#{todo_list.todo_items.complete.count}/#{todo_list.todo_items.count})"

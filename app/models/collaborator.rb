@@ -5,11 +5,11 @@ class Collaborator < ActiveRecord::Base
 
   PROJECT_ROLES = %w(owner collaborator)
 
-  def owner?
+  def is_owner?
     role_id == PROJECT_ROLES.index('owner')
   end
 
-  def accept
+  def accept!
     self.accepted_at = Time.now.utc
     save
   end

@@ -109,7 +109,11 @@ class TodoItemsController < ApplicationController
 
   def todo_item
     @todo_item ||= if params[:id]
-      TodoItem.find params[:id]
+      if todo_list
+        todo_list.todo_items.find params[:id]
+      else
+        current_user.todo_items.find params[:id]
+      end
     else
       todo_list.todo_items.build params[:todo_item]
     end

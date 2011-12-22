@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
 
   def accepted_project? project
     if collaborator = collaborators.find_by_project_id(project.id)
-      collaborator.owner? || !collaborator.accepted_at.nil?
+      collaborator.is_owner? || !collaborator.accepted_at.nil?
     else
       false
     end

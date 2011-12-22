@@ -9,9 +9,11 @@ class ProjectsController < ApplicationController
   end
 
   def create
+    # FIXME: make more obvious and incapsulated
+    # way to assign project owner
     project.users = [current_user]
     if project.save
-      redirect_to project, :notice => 'project created'
+      redirect_to project, :notice => t(:'projects.actions.create.success')
     else
       render :new
     end
@@ -19,7 +21,7 @@ class ProjectsController < ApplicationController
 
   def update
     if project.update_attributes params[:project]
-      redirect_to project, :notice => 'project updated'
+      redirect_to project, :notice => t(:'projects.actions.update.success')
     else
       render :edit
     end
@@ -27,7 +29,7 @@ class ProjectsController < ApplicationController
 
   def destroy
     project.destroy
-    redirect_to :index, :notice => 'project destroyed'
+    redirect_to root_url, :notice => t(:'projects.actions.destroy.success')
   end
 
   def projects

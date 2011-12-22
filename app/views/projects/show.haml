@@ -1,8 +1,10 @@
 %h2
   = project
-  - if project.users.include? current_user
+  - if project.collaborators.where(:user_id => current_user).first.is_owner?
     = link_to edit_project_path(project) do
       %span.icon.icon-pencil
+    = link_to project_path(project), :method => :delete, :confirm => 'Are you sure?' do
+      %span.icon.icon-cross-circle
 %hr/
 .fourcol
   %blockquote.description= project.description

@@ -8,7 +8,6 @@
     Add new project
 .fourcol
   %h2{ :title => 'Only you can see and manage your private todo lists' } Your private todo lists
-  -#= render :partial => 'todo_lists/form', :locals => { :todo_list => TodoList.new }
   - if todo_lists.any?
     %ul#todo-lists
       = render todo_lists
@@ -23,11 +22,19 @@
   -if current_user.invitations.any?
     %h3 You've been invited to these projects:
     %ul#invitations
-    - for invitation in current_user.invitations do
-      %li
-        %span.icon.icon-block-small
-        %strong= invitation.project
-        by
-        %em= invitation.inviter
-        %br/
-        = link_to 'Accept', accept_collaborator_path( invitation)
+      - for invitation in current_user.invitations do
+        %li
+          %article.invitation
+            %strong
+              %span.icon.icon-block-small
+              = link_to invitation.project, invitation.project
+            by
+            %em= invitation.inviter
+            %br/
+            = link_to accept_collaborator_path(invitation) do
+              %span.icon.icon-tick-button
+              Accept
+            \|
+            = link_to collaborator_path(invitation), :method => :delete, :confirm => 'Are you sure?' do
+              %span.icon.icon-slash-button
+              Decline

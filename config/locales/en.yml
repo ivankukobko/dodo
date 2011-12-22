@@ -5,7 +5,7 @@ en:
 
   site:
     copyright: 'Copyleft 2011 | Designed and developed by Ivan Kukobko'
-    info: 'Dodo is project and task management tool for personal and shared use. Inspired by Basacamp, Todoist and many others. It is in development process and still far from release. '
+    info: 'Dodo is project and task management tool for personal and shared use. Inspired by Basecamp, Todoist and many others. It is in development process and still far from release. '
 
   todo_lists:
     actions:
@@ -27,6 +27,17 @@ en:
       incomplete:
         success: 'Task incomplete!'
         error: 'Could not incomplete todo item!'
+    messages:
+      no_todo_items_added: "Here's no todo items added at the moment. You can add one by clicking on the link below"
+
+  projects:
+    actions:
+      create:
+        success: 'Project was successfully created!'
+      update:
+        success: 'Project was successfully updated!'
+      destroy:
+        success: 'Project was deleted!'
     messages:
       no_todo_items_added: "Here's no todo items added at the moment. You can add one by clicking on the link below"
 

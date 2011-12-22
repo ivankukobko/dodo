@@ -5,10 +5,19 @@
     = link_to edit_todo_list_path(todo_list) do
       %span.icon.icon-pencil
     = link_to todo_list_path(todo_list), :method => :delete, :confirm => 'Are you sure?' do
-      %span.icon.icon-slash
+      %span.icon.icon-cross
 %hr/
 .description
   = todo_list.description
+
+
+- if todo_list.project
+  = link_to todo_list.project do
+    &larr;
+    = todo_list.project
+- else
+  = link_to root_url do
+    &larr; Back to Dashboard
 
 .todo-items.sortable
   - unless todo_list.todo_items.empty?
@@ -25,5 +34,6 @@
     &larr;
     = todo_list.project
 - else
-  = link_to 'Back', root_url
+  = link_to root_url do
+    &larr; Back to Dashboard
 
