@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    redirect_to me_path
+    #redirect_to me_path
   end
 
   def edit
@@ -34,7 +34,11 @@ class UsersController < ApplicationController
   end
 
   def user
-    @user ||= current_user || User.new(params[:user])
+    @user ||= if params[:id]
+      User.find params[:id]
+    else
+      current_user || User.new(params[:user])
+    end
   end
   helper_method :user
 end

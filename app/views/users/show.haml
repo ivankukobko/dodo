@@ -1,5 +1,16 @@
-- if current_user === user
-  = link_to 'Edit', edit_me_path
-  %hr/
-%h1=user.name
+%h1
+  =user.name
+  - if current_user === user
+    = link_to edit_me_path do
+      %span.icon.icon-pencil
+%hr/
+%p
+  E-mail:
+  - if current_user === user
+    = user.email
+  - else
+    [hidden]
+%p
+  Joined:
+  = l user.created_at, :format => :short
 
