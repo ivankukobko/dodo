@@ -1,7 +1,7 @@
 %article{ :class => "todo-item #{'complete' if todo_item.is_complete?}", :id => "todo-item_#{todo_item.id}" }
   .drag-handle
   .is-complete
-    = form_for todo_item do |f|
+    = form_for [todo_list, todo_item] do |f|
       = f.check_box :is_complete
   %h3.title
     = todo_item.title

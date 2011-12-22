@@ -10,10 +10,6 @@
   margin: 1em 0;
 }
 
-//.todo-list.complete {
-  //text-decoration: line-through;
-//}
-
 .todo-items {
   background: #fff;
   border: 1px solid #ccc;
@@ -32,7 +28,14 @@
   }
 }
 
-.todo-list.complete {
+.todo-list, .todo-item {
+  margin-bottom: 1em;
+  .actions{
+    display: none;
+  }
+}
+
+.todo-list.complete, .todo-item.complete {
   .title{
     text-decoration: line-through;
   }
@@ -51,9 +54,4 @@
   width: 4px;
 }
 
-.todo-list, .todo-item {
-  margin-bottom: 1em;
-  .actions{
-    display: none;
-  }
-}
+
