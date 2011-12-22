@@ -2,7 +2,9 @@
   %article
     = link_to user do
       -if !project.nil?
-        - if user.accepted_project?(project)
+        - if user.is_owner?(project)
+          %span.icon.icon-user-boss
+        - elsif user.accepted_project?(project)
           %span.icon.icon-user
         - else
           %span.icon.icon-user-question

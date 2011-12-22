@@ -51,4 +51,20 @@ class User < ActiveRecord::Base
     end
   end
 
+  def is_owner? project
+    if collaborator = collaborators.find_by_project_id(project.id)
+      collaborator.is_owner?
+    else
+      false
+    end
+  end
+
+  def is_collaborator? project
+    if collaborator = collaborators.find_by_project_id(project.id)
+      collaborator.is_collaborator?
+    else
+      false
+    end
+  end
+
 end

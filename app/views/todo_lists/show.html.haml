@@ -1,5 +1,11 @@
-
 %h2
+  - if todo_list.project
+    = link_to todo_list.project do
+      &larr;
+  - else
+    = link_to root_url do
+      &larr;
+
   = todo_list.title
   - if todo_list.user === current_user
     = link_to edit_todo_list_path(todo_list) do
@@ -11,13 +17,6 @@
   = todo_list.description
 
 
-- if todo_list.project
-  = link_to todo_list.project do
-    &larr;
-    = todo_list.project
-- else
-  = link_to root_url do
-    &larr; Back to Dashboard
 
 .todo-items.sortable
   - unless todo_list.todo_items.empty?

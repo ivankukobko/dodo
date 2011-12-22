@@ -39,7 +39,11 @@ class ProjectsController < ApplicationController
 
   def project
     @project ||= if params[:id]
-      current_user.projects.find params[:id]
+      begin
+        current_user.projects.find(params[:id])
+      rescue
+        current_user.invitations.find_by_project_id(params[:id]).project
+      end
     else
       # FIXME: find a way to build project with user
       #current_user.projects.build params[:project]

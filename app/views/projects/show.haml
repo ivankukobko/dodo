@@ -1,4 +1,6 @@
 %h2
+  = link_to root_url do
+    &larr;
   = project
   - if project.collaborators.where(:user_id => current_user).first.is_owner?
     = link_to edit_project_path(project) do
