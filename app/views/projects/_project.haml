@@ -1,11 +1,15 @@
 %li
   %article.project
-    %h3= link_to project, project
+    %h3
+      %span.icon.icon-block
+      = link_to project, project
     .description= project.description
     - unless project.users.empty?
       %hr/
       .users
-        %h4 Shared with:
+        %h4
+          %span.icon.icon-block-share
+          Shared with:
         - for user in project.users
           = link_to user do
             - if user.accepted_project?(project)

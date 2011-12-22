@@ -41,7 +41,9 @@ header h1#logo {
 }
 
 footer {
-  text-align: center;
+  border-top: 1px solid #f1f1f1;
+  padding-top: 1em;
+  //text-align: center;
 }
 
 #ajax {
@@ -60,9 +62,16 @@ textarea {
 }
 
 #new_todo_list input {
-  display: block;
+  //display: block;
   font-size: 1.5em;
-  width: 99%;
+  //width: 99%;
+}
+
+input[type=submit] {
+  background-image: url('fugue-icons/disk-black.png');
+  background-position: .25em 50%;
+  background-repeat: no-repeat;
+  padding-left: 1.75em;
 }
 /* /FORMS */
 
@@ -110,6 +119,14 @@ textarea {
   background-image: url('fugue-icons/user-silhouette-question.png');
 }
 
+.icon-user-plus {
+  background-image: url('fugue-icons/user--plus.png');
+}
+
+.icon-users {
+  background-image: url('fugue-icons/users.png');
+}
+
 .icon-plus-circle {
   background-image: url('fugue-icons/plus-circle.png');
 }
@@ -128,6 +145,30 @@ textarea {
 
 .icon-door-in {
   background-image: url('fugue-icons/door-open-in.png');
+}
+
+.icon-block {
+  background-image: url('fugue-icons/block.png');
+}
+
+.icon-block-small {
+  background-image: url('fugue-icons/block-small.png');
+}
+
+.icon-block-share {
+  background-image: url('fugue-icons/block-share.png');
+}
+
+.icon-document {
+  background-image: url('fugue-icons/blue-document.png');
+}
+
+.icon-document-plus {
+  background-image: url('fugue-icons/blue-document--plus.png');
+}
+
+.icon-document-list {
+  background-image: url('fugue-icons/blue-document-list.png');
 }
 /* /ICONS */
 /* BUTTONS */

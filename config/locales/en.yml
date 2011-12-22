@@ -3,6 +3,10 @@
 
 en:
 
+  site:
+    copyright: 'Copyleft 2011 | Designed and developed by Ivan Kukobko'
+    info: 'Dodo is project and task management tool for personal and shared use. Inspired by Basacamp, Todoist and many others. It is in development process and still far from release. '
+
   todo_lists:
     actions:
       create:

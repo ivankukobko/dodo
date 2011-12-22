@@ -17,7 +17,7 @@
     .notice
       = t :'todo_items.messages.no_todo_items_added'
   = link_to new_todo_list_todo_item_path(todo_list), :class => 'link-button' do
-    %span.icon.icon-plus-circle
+    %span.icon.icon-document-plus
     New Todo Item
 
 - if todo_list.project
@@ -25,5 +25,5 @@
     &larr;
     = todo_list.project
 - else
-  = link_to 'All lists', todo_lists_path
+  = link_to 'Back', root_url
 

@@ -10,7 +10,7 @@
   %ul#users
     = render project.users
   = link_to new_project_collaborator_path(project), :class => 'link-button' do
-    %span.icon.icon-plus-circle
+    %span.icon.icon-user-plus
     Invite user
 .eightcol.last
   %h3 Todo Lists
@@ -21,5 +21,5 @@
     .notice
       =t :'todo_lists.messages.no_todo_lists_added'
   = link_to new_project_todo_list_path(project), :class => 'link-button' do
-    %span.icon.icon-plus-circle
+    %span.icon.icon-document-plus
     Add todo list
