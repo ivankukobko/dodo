@@ -17,6 +17,14 @@
     %span.icon.icon-plus-circle
     Add new todo list
 .fourcol.last
-  %h2 Your unfinished tasks
-  %ul{ :id => 'todo-items' }
-  \...
+  %h2 Your events
+  -if current_user.invitations.any?
+    %h3 You've been invited to these projects:
+    %ul#invitations
+    - for invitation in current_user.invitations do
+      %li
+        = invitation.project
+        by
+        = invitation.inviter
+        %br/
+        = link_to 'Accept', accept_collaborator_path( invitation)

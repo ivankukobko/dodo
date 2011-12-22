@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
 
-  has_many :todo_lists
-  has_many :collaborators
+  has_many :todo_lists#, :conditions => [ 'project_id IS ?', nil]
+  has_many :collaborators, :conditions => [ 'accepted_at is not null' ]
+  has_many :invitations, :class_name => 'Collaborator', :conditions => [ 'accepted_at is null' ]
   has_many :projects, :through => :collaborators
   has_many :todo_items, :through => :todo_lists
 
@@ -43,8 +44,11 @@ class User < ActiveRecord::Base
   end
 
   def accepted_project? project
-    collaborator = collaborators.find_by_project_id(project.id)
-    collaborator.owner? || !collaborator.accepted_at.nil?
+    if collaborator = collaborators.find_by_project_id(project.id)
+      collaborator.owner? || !collaborator.accepted_at.nil?
+    else
+      false
+    end
   end
 
 end

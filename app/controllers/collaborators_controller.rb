@@ -9,9 +9,18 @@ class CollaboratorsController < ApplicationController
   end
 
   def destroy
+    collaborator.destroy
+    redirect_to root_url
   end
 
   def accept
+    if invitation.accept
+      flash[:success] = t :'collaborator.invitations.accept.success'
+      redirect_to invitation.project
+    else
+      flash[:error] = t :'collaborator.invitations.accept.error'
+      redirect_to root_url
+    end
   end
 
   def collaborator
@@ -19,6 +28,12 @@ class CollaboratorsController < ApplicationController
       if params[:collaborator]
         Collaborator.new params[:collaborator]
       end
+    end
+  end
+
+  def invitation
+    @invitation ||= if params[:id]
+      current_user.invitations.find(params[:id])
     end
   end
 

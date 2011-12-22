@@ -16,7 +16,7 @@ Dodo::Application.routes.draw do
   match 'me' => 'users#me', :as => :me
   match 'me/edit' => 'users#edit', :as => :edit_me
 
-  resources :collaborators, :only => [ :new, :create, :destroy ] do
+  resources :collaborators do #, :only => [ :new, :create, :destroy ] do
     member do
       get :accept
     end
