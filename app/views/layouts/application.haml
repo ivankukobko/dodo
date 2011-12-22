@@ -14,7 +14,8 @@
   / Mobile viewport optimized: j.mp/bplateviewport
   %meta{:name => "viewport", :content => "width=device-width; initial-scale=1.0; maximum-scale=1.0;"}
   / Place favicon.ico and apple-touch-icon.png in the root of your domain and delete these references
-  %link{:href => "/favicon.ico", :rel => "shortcut icon"}/
+  -#%link{:href => "/favicon.ico", :rel => "shortcut icon", :type => 'image/vnd.microsoft.icon' }/
+  %link{:href => "/favicon.png", :rel => "shortcut icon", :type => 'image/png' }/
   %link{:href => "/apple-touch-icon.png", :rel => "apple-touch-icon"}/
 
   = stylesheet_link_tag 'application'
