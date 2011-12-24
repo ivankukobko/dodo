@@ -35,6 +35,7 @@ Dodo::Application.routes.draw do
     collection do
       post :sort
     end
+    resources :comments
   end
 
   resources :todo_lists do

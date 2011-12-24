@@ -1,0 +1,5 @@
+= form_for :comment, :url => todo_item_comments_path(todo_item) do |f|
+  .field
+    = f.text_area :body
+  .actions
+    = f.submit 'Comment'

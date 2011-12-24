@@ -1,5 +1,12 @@
-%h3= todo_item.title
+%h2
+  = link_to todo_list_path(todo_item.todo_list) do
+    &larr;
+  = todo_item.title
 .description
   = todo_item.description
+%hr/
+#comments
+  = render todo_item.comments
+= render :partial => 'comments/form'
 
-=link_to 'back', todo_list_path(todo_item.todo_list)
+=link_to raw("&larr;#{todo_list.title}"), todo_list_path(todo_item.todo_list)

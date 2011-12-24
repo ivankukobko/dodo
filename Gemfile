@@ -19,6 +19,8 @@ gem 'jquery-rails'
 
 gem 'bcrypt-ruby', :require => 'bcrypt'
 
+gem 'paper_trail'
+
 group :production do
   gem 'pg'
   gem 'thin'

@@ -1,10 +1,12 @@
 class User < ActiveRecord::Base
 
-  has_many :todo_lists#, :conditions => [ 'project_id IS ?', nil]
-  has_many :collaborators, :conditions => [ 'accepted_at is not null' ]
-  has_many :invitations, :class_name => 'Collaborator', :conditions => [ 'accepted_at is null' ]
+  has_many :todo_lists#, :conditions => [ '`project_id` IS ?', nil]
+  has_many :collaborators, :conditions => [ '`collaborators`.`accepted_at` is not null' ]
+  has_many :invitations, :class_name => 'Collaborator', :conditions => [ '`collaborators`.`accepted_at` is null' ]
   has_many :projects, :through => :collaborators
   has_many :todo_items, :through => :todo_lists
+
+  has_many :co_workers, :through => :projects, :source => :users, :uniq => true
 
   attr_accessor :password
 
@@ -65,6 +67,10 @@ class User < ActiveRecord::Base
     else
       false
     end
+  end
+
+  def news
+
   end
 
 end

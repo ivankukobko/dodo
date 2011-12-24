@@ -52,6 +52,14 @@ en:
     destroy:
       success: 'Logged out, bye!'
 
+  home:
+    titles:
+      your_projects: 'Your projects'
+      your_todo_lists: 'Your private todo lists'
+      events: 'Your recent events'
+      invites: "You've been invited to these projects"
+      co_workers: 'Your associates'
+
   helpers:
     submit:
       create: "Create a %{model}"

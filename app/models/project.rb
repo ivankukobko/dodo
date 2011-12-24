@@ -6,6 +6,8 @@ class Project < ActiveRecord::Base
 
   after_create :assign_owner
 
+  has_paper_trail
+
   def to_s
     name
   end
