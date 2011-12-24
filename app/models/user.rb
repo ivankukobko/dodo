@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
 
   has_many :todo_lists#, :conditions => [ '`project_id` IS ?', nil]
-  has_many :collaborators, :conditions => [ '`collaborators`.`accepted_at` is not null' ]
-  has_many :invitations, :class_name => 'Collaborator', :conditions => [ '`collaborators`.`accepted_at` is null' ]
+  has_many :collaborators, :conditions => [ 'collaborators.accepted_at is not null' ]
+  has_many :invitations, :class_name => 'Collaborator', :conditions => [ 'collaborators.accepted_at is null' ]
   has_many :projects, :through => :collaborators
   has_many :todo_items, :through => :todo_lists
 

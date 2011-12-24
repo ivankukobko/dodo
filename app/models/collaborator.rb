@@ -3,7 +3,7 @@ class Collaborator < ActiveRecord::Base
   belongs_to :project
   belongs_to :inviter, :class_name => 'User', :foreign_key => 'invited_by'
 
-  default_scope order('`collaborators`.`accepted_at` ASC')
+  default_scope order('collaborators.accepted_at ASC')
 
   PROJECT_ROLES = %w(owner collaborator)
 
