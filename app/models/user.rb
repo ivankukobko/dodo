@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :invitations, :class_name => 'Collaborator', :conditions => [ 'collaborators.accepted_at is null' ]
   has_many :projects, :through => :collaborators
   has_many :todo_items, :through => :todo_lists
+  #has_many :shared_todo_items, :through => :projects
 
   has_many :co_workers, :through => :projects, :source => :users, :uniq => true
 
