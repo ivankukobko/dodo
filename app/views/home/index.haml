@@ -24,14 +24,14 @@
     %ul#invitations
       = render current_user.invitations
 
-  -#-if current_user.co_workers.any?
-    -#%h2= t :'home.titles.co_workers'
-    -#%ul#co-workers
-      -#-# FIXME: remove current user from collection in model
-      -#- for co_worker in (current_user.co_workers - [current_user]) do
-        -#%li
-          -#%article.co-worker
-            -#= link_to co_worker do
-              -#%span.icon.icon-user
-              -#= co_worker
+  -if current_user.co_workers.any?
+    %h2= t :'home.titles.co_workers'
+    %ul#co-workers
+      -# FIXME: remove current user from collection in model
+      - for co_worker in (current_user.co_workers - [current_user]) do
+        %li
+          %article.co-worker
+            = link_to co_worker do
+              %span.icon.icon-user
+              = co_worker
 
