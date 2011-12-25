@@ -39,9 +39,12 @@ class CommentsController < ApplicationController
   end
   helper_method :comments
 
+  # FIXME: This one is unsafe! User can post comment to any todo item he
+  # enters in params
   def todo_item
     @todo_item ||= if params[:todo_item_id]
-      current_user.todo_items.find params[:todo_item_id]
+      #current_user.todo_items.find params[:todo_item_id]
+      TodoItem.find params[:todo_item_id]
     end
   end
 end
