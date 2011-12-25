@@ -10,19 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111224205448) do
+ActiveRecord::Schema.define(:version => 20111225114014) do
 
   create_table "collaborators", :force => true do |t|
     t.integer  "user_id"
     t.integer  "project_id"
-    t.integer  "role_id",     :default => 0
-    t.integer  "invited_by"
-    t.integer  "accepted_at"
+    t.integer  "role_id",    :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "collaborators", ["invited_by"], :name => "index_collaborators_on_invited_by"
   add_index "collaborators", ["project_id"], :name => "index_collaborators_on_project_id"
   add_index "collaborators", ["user_id"], :name => "index_collaborators_on_user_id"
 
@@ -38,6 +35,19 @@ ActiveRecord::Schema.define(:version => 20111224205448) do
   add_index "comments", ["parent_id"], :name => "index_comments_on_parent_id"
   add_index "comments", ["todo_item_id"], :name => "index_comments_on_todo_item_id"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
+  create_table "invitations", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.integer  "invited_by",  :null => false
+    t.datetime "accepted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "invitations", ["invited_by"], :name => "index_invitations_on_invited_by"
+  add_index "invitations", ["project_id"], :name => "index_invitations_on_project_id"
+  add_index "invitations", ["user_id"], :name => "index_invitations_on_user_id"
 
   create_table "projects", :force => true do |t|
     t.string   "name"

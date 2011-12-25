@@ -13,9 +13,12 @@
   %h3 Associates
   %ul#users
     = render project.users
-  = link_to new_project_collaborator_path(project), :class => 'link-button' do
+  = link_to new_project_invitation_path(project), :class => 'link-button' do
     %span.icon.icon-user-plus
     Invite user
+  - unless project.collaborator(current_user).is_owner?
+    = link_to [project, project.collaborator(current_user) ], :method => :delete, :confirm => 'Are you sure?' do
+      Abandon project
 .eightcol.last
   %h3 Todo Lists
   - if project.todo_lists.any?

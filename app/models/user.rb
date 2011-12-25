@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
 
-  has_many :todo_lists#, :conditions => [ '`project_id` IS ?', nil]
-  has_many :collaborators, :conditions => [ 'collaborators.accepted_at is not null' ]
-  has_many :invitations, :class_name => 'Collaborator', :conditions => [ 'collaborators.accepted_at is null' ]
+  has_many :todo_lists#, :conditions => [ 'project_id IS ?', nil]
+  has_many :collaborators#, :conditions => [ 'collaborators.accepted_at is not null' ]
+  has_many :invitations, :conditions => [ 'accepted_at is null' ]
   has_many :projects, :through => :collaborators
   has_many :todo_items, :through => :todo_lists
   #has_many :shared_todo_items, :through => :projects
@@ -40,18 +40,20 @@ class User < ActiveRecord::Base
     self[:name] || self[:email]
   end
 
-  def invite_collaborator target_email, project
+  #def invite_collaborator target_email, project
+    #if target_user = User.find_by_email(target_email)
+      #project.collaborators.create(:user => target_user, :invited_by => self.id, :role_id => Collaborator::PROJECT_ROLES.index('collaborator') )
+    #end
+  #end
+
+  def invite_user_to_project target_email, project
     if target_user = User.find_by_email(target_email)
-      project.collaborators.create(:user => target_user, :invited_by => self.id, :role_id => Collaborator::PROJECT_ROLES.index('collaborator') )
+      project.invitations.create(:user => target_user, :invited_by => self.id)
     end
   end
 
   def accepted_project? project
-    if collaborator = collaborators.find_by_project_id(project.id)
-      collaborator.is_owner? || !collaborator.accepted_at.nil?
-    else
-      false
-    end
+    collaborators.find_by_project_id(project.id)
   end
 
   def is_owner? project

@@ -13,7 +13,8 @@ class ProjectsController < ApplicationController
     # way to assign project owner
     project.users = [current_user]
     if project.save
-      redirect_to project, :notice => t(:'projects.actions.create.success')
+      flash[:success] = t(:'projects.actions.create.success')
+      redirect_to project
     else
       render :new
     end
@@ -21,7 +22,8 @@ class ProjectsController < ApplicationController
 
   def update
     if project.update_attributes params[:project]
-      redirect_to project, :notice => t(:'projects.actions.update.success')
+      flash[:success] = t(:'projects.actions.update.success')
+      redirect_to project
     else
       render :edit
     end

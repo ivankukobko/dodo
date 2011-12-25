@@ -2,21 +2,14 @@ Dodo::Application.routes.draw do
 
   root :to => "home#index"
 
-  resources :sessions, :only => [:new, :create] do
-    #get :destroy, :on => :collection
-  end
+  resources :sessions, :only => [:new, :create]
   match '/logout' => 'sessions#destroy', :as => :logout
 
-  resources :users do
-    collection do
-      get :me
-    end
-  end
-
+  resources :users
   match 'me' => 'users#me', :as => :me
   match 'me/edit' => 'users#edit', :as => :edit_me
 
-  resources :collaborators do #, :only => [ :new, :create, :destroy ] do
+  resources :invitations do
     member do
       get :accept
     end
@@ -24,7 +17,12 @@ Dodo::Application.routes.draw do
 
   resources :projects do
     resources :todo_lists
-    resources :collaborators, :only => [ :new, :create, :destroy ]
+    resources :collaborators, :only => [ :create, :update, :destroy ]
+    resources :invitations, :only => [ :new, :create, :destroy ] do
+      member do
+        get :accept
+      end
+    end
   end
 
   resources :todo_items do
@@ -43,9 +41,12 @@ Dodo::Application.routes.draw do
       collection do
         post :sort
       end
+      member do
+        get :complete
+        get :incomplete
+      end
     end
   end
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

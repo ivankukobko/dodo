@@ -16,18 +16,16 @@
 .description
   = todo_list.description
 
-
-
-.todo-items.sortable
+#todo-items.todo-items.sortable
   - unless todo_list.todo_items.empty?
     = render todo_list.todo_items
   - else
     .notice
       = t :'todo_items.messages.no_todo_items_added'
-  = link_to new_todo_list_todo_item_path(todo_list), :class => 'link-button' do
-    %span.icon.icon-document-plus
-    New Todo Item
-
+= link_to new_todo_list_todo_item_path(todo_list), :class => 'link-button' do
+  %span.icon.icon-document-plus
+  New Todo Item
+%hr/
 - if todo_list.project
   = link_to todo_list.project do
     &larr;

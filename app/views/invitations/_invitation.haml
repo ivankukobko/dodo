@@ -4,12 +4,12 @@
       %span.icon.icon-block-small
       = link_to invitation.project, invitation.project
     by
-    %em= invitation.inviter
+    %em= link_to invitation.inviter, invitation.inviter
     %br/
-    = link_to accept_collaborator_path(invitation) do
+    = link_to accept_invitation_path(invitation) do
       %span.icon.icon-tick-button
       Accept
     \|
-    = link_to collaborator_path(invitation), :method => :delete, :confirm => 'Are you sure?' do
+    = link_to invitation_path(invitation), :method => :delete, :confirm => 'Are you sure?' do
       %span.icon.icon-slash-button
       Decline
