@@ -49,6 +49,19 @@ footer {
   //text-align: center;
 }
 
+nav{
+  ul{
+    list-style: none;
+    li {
+      display: inline-block;
+      margin-left: 1em;
+    }
+    li:first-child{
+      border-left: none;
+      margin-left: 0;
+    }
+  }
+}
 #ajax {
   border: 1px solid #fff;
   display: block;
@@ -108,6 +121,10 @@ input[type=submit] {
   margin-right: .25em;
   vertical-align: middle;
   width: 16px;
+}
+
+a .icon {
+  text-decoration: none;
 }
 
 .icon-home {

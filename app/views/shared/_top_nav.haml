@@ -1,8 +1,14 @@
 - if current_user
-  = link_to root_url do
-    %span.icon.icon-home
-    Dashboard
-  \|
-  = link_to projects_url do
-    %span.icon.icon-block
-    Projects
+  %ul
+    %li
+      = link_to root_url do
+        %span.icon.icon-home
+        Dashboard
+    %li
+      = link_to projects_url do
+        %span.icon.icon-block
+        Projects
+    %li
+      = link_to todo_lists_url do
+        %span.icon.icon-document-task
+        Todo Lists

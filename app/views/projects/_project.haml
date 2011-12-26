@@ -4,6 +4,16 @@
       %span.icon.icon-block
       = link_to project, project
     .description= project.description
+    .progress
+      completed
+      = project.todo_items.complete.count
+      from
+      = project.todo_items.count
+      tasks
+      in
+      = project.todo_lists.count
+      lists
+
     - unless project.users.empty?
       %hr/
       .users
