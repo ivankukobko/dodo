@@ -1,3 +1,5 @@
-= link_to 'Start new project', new_project_path
+= link_to new_project_path, :class => 'link-button' do
+  %span.icon.icon-document-plus
+  Start new project
 %ul{ :id => 'projects' }
   = render projects

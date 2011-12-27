@@ -3,21 +3,20 @@
     %h3
       %span.icon.icon-block
       = link_to project, project
-    .description= project.description
+    -#.description= project.description
     .progress
-      completed
+      Completed
       = project.todo_items.complete.count
       from
       = project.todo_items.count
-      tasks
-      in
+      tasks in
       = project.todo_lists.count
       lists
 
     - unless project.users.empty?
       %hr/
       .users
-        %h4
+        %h5
           %span.icon.icon-block-share
           Shared with:
         - for user in project.users

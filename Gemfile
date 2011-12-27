@@ -20,6 +20,7 @@ gem 'jquery-rails'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 
 gem 'paper_trail'
+gem 'redcarpet'
 
 group :production do
   gem 'pg'

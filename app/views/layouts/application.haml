@@ -28,15 +28,14 @@
     %header
       .container
         .row
-          .threecol
+          .fourcol
             %h1#logo Dodo
-          .ninecol.last
+          .fourcol
+            %nav.top-nav= render 'shared/top_nav'
+          .fourcol.last
             .login-bar= render 'shared/login_bar'
     #main
       .container
-        .row
-          %nav.top-nav= render 'shared/top_nav'
-          %hr/
         #content.row
           = yield
     %footer.container
@@ -45,6 +44,8 @@
           = t :'site.copyright'
         .fourcol
           = t :'site.info'
+        .fourcol.last
+          (:
   = image_tag 'ajax.gif', :id => 'ajax', :style => 'display: none;'
 
   -#= render 'shared/templates'

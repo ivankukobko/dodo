@@ -2,6 +2,8 @@ Dodo::Application.routes.draw do
 
   root :to => "home#index"
 
+  resources :info, :controller => 'InfoPages'
+
   resources :sessions, :only => [:new, :create]
   match '/logout' => 'sessions#destroy', :as => :logout
 

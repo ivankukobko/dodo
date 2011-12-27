@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111225114014) do
+ActiveRecord::Schema.define(:version => 20111227202213) do
 
   create_table "collaborators", :force => true do |t|
     t.integer  "user_id"
@@ -35,6 +35,18 @@ ActiveRecord::Schema.define(:version => 20111225114014) do
   add_index "comments", ["parent_id"], :name => "index_comments_on_parent_id"
   add_index "comments", ["todo_item_id"], :name => "index_comments_on_todo_item_id"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
+  create_table "info_pages", :force => true do |t|
+    t.string   "title"
+    t.string   "permalink"
+    t.text     "body"
+    t.integer  "parent_id"
+    t.boolean  "promote_to_home", :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "info_pages", ["parent_id"], :name => "index_info_pages_on_parent_id"
 
   create_table "invitations", :force => true do |t|
     t.integer  "user_id"
