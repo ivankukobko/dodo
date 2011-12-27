@@ -24,7 +24,17 @@
     %ul#invitations
       = render current_user.invitations
 
-  -#-if current_user.co_workers.any?
+  -#%h3 News
+  -#%ul#news
+    -#- for item in current_user.news do
+      -#%li
+        -#= item.id #{item.item_type}
+        -#= link_to User.find(item.whodunnit), User.find(item.whodunnit)
+        -#= item.event + 'd'
+        -#-#= link_to item.item_type.classify.constantize.find(item.item_id)
+        -#= item.item_type
+
+    -#-if current_user.co_workers.any?
     -#%h2= t :'home.titles.co_workers'
     -#%ul#co-workers
       -#-# FIXME: remove current user from collection in model

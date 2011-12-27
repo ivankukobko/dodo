@@ -3,7 +3,7 @@ class Project < ActiveRecord::Base
   has_many :users, :through => :collaborators
   has_many :todo_lists, :dependent => :destroy
   has_many :todo_items, :through => :todo_lists
-  has_many :invitations
+  has_many :invitations, :dependent => :destroy
 
   after_create :assign_owner
 

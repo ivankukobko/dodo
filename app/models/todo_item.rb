@@ -8,6 +8,10 @@ class TodoItem < ActiveRecord::Base
 
   has_paper_trail
 
+  def to_s
+    title
+  end
+
   def complete!
     self.is_complete = true
     self.save
