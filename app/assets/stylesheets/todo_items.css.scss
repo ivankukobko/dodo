@@ -2,11 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #todo-items{
-  background: #f1f1f1;
-  border: 1px solid #d2d2d2;
+  //background: #f1f1f1;
+  //border: 1px solid #d2d2d2;
   margin: 1em 0;
-  padding: 1em;
+  //padding: 1em;
 }
+
+.todo-items {
+  //background: #f1f1f1;
+  //border: 1px solid #d2d2d2;
+  //padding: 1em;
+  margin-bottom: 1em;
+  .todo-item{
+    margin-bottom: 4px;
+  }
+}
+
 .todo-item{
   .comments{
     //color: #777;

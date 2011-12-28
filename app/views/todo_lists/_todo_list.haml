@@ -14,11 +14,5 @@
         %span.icon.icon-pencil-small
       = link_to todo_list_path(todo_list), :confirm => 'Are you sure?', :method => :delete, :class => 'link-icon' do
         %span.icon.icon-cross-small
-
-  = render todo_list.todo_items.incomplete
-
-  -#- if todo_list.user && !todo_list.is_unattached?
-    -#.user
-      -#= link_to todo_list.user do
-        -#%span.icon.icon-user
-        -#= todo_list.user
+  .todo-items
+    = render todo_list.todo_items.incomplete
