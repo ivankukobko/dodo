@@ -3,8 +3,6 @@ source 'http://rubygems.org'
 gem 'rails', '3.1.0'
 gem 'mysql2'
 
-gem 'json'
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -14,6 +12,7 @@ group :assets do
   gem 'uglifier'
 end
 
+gem 'json'
 gem 'haml'
 gem 'jquery-rails'
 

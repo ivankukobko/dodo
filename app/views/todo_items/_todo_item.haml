@@ -1,16 +1,16 @@
 %article{ :class => "todo-item #{'complete' if todo_item.is_complete?}", :id => "todo-item_#{todo_item.id}" }
   .drag-handle
   .is-complete
-    = form_for [todo_list, todo_item] do |f|
+    = form_for [todo_item.todo_list, todo_item] do |f|
       = f.check_box :is_complete
-  %h3.title= todo_item.title
-  = link_to todo_list_todo_item_path(todo_list, todo_item), :title => 'Leave a comment' do
+  %h4.title= todo_item.title
+  = link_to [todo_item.todo_list, todo_item], :title => 'Leave a comment' do
     %span.icon.icon-balloon-small
     - if todo_item.comments.any?
       %span.comments= todo_item.comments.count
   .actions
-    = link_to edit_todo_list_todo_item_path(todo_list, todo_item), :class => 'link-icon' do
+    = link_to [todo_item.todo_list, todo_item], :class => 'link-icon' do
       %span.icon.icon-pencil-small
-    = link_to todo_list_todo_item_path(todo_list, todo_item), :confirm => 'Are you sure?', :method => :delete, :class => 'link-icon' do
+    = link_to [todo_item.todo_list, todo_item], :confirm => 'Are you sure?', :method => :delete, :class => 'link-icon' do
       %span.icon.icon-cross-small
   .description= todo_item.description
