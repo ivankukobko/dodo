@@ -27,16 +27,29 @@ header {
   background: #f1f1f1;
   border-bottom: 1px solid #d2d2d2;
   min-height: 5em;
+
+  h1#logo {
+    color: #f1f1f1;
+    font-size: 5em;
+    font-weight: normal;
+    letter-spacing: -0.2em;
+    position: relative;
+    text-shadow: 0 -2px 1px #777;
+    text-transform: uppercase;
+
+    #beta-sign{
+      color: #c00;
+      font-size: .2em;
+      line-height: .2em;
+      left: 10em;
+      letter-spacing: normal;
+      position: absolute;
+      text-transform: none;
+      top: 1.5em;
+    }
+  }
 }
 
-header h1#logo {
-  color: #f1f1f1;
-  font-size: 5em;
-  font-weight: normal;
-  letter-spacing: -0.2em;
-  text-shadow: 0 -2px 1px #777;
-  text-transform: uppercase;
-}
 
 #main {
   background: #fff;
@@ -115,6 +128,7 @@ input[type=submit] {
   text-align: center;
   top: 0;
   width: 100%;
+  z-index: 100;
 }
 
 .flash-message.notice {
