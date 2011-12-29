@@ -2,7 +2,7 @@ class TodoItem < ActiveRecord::Base
   belongs_to :todo_list#, :dependent => :destroy
   has_many :comments, :dependent => :destroy
 
-  default_scope order('position ASC, created_at DESC')
+  default_scope order('is_complete ASC, position ASC, created_at DESC')
   scope :complete, :conditions => { :is_complete => true }
   scope :incomplete, :conditions => { :is_complete => false }
 
