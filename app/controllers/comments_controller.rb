@@ -5,13 +5,25 @@ class CommentsController < ApplicationController
   def new
   end
 
+  def edit
+  end
+
   def create
     comment.user = current_user
     comment.todo_item = todo_item
     if comment.save
-      flash[:notice] = 'Comment added'
+      flash[:notice] = 'comment added'
     else
-      flash[:error] = 'Cannot create comment'
+      flash[:error] = 'cannot create comment'
+    end
+    redirect_to todo_list_todo_item_path(todo_item.todo_list, todo_item)
+  end
+
+  def update
+    if comment.update_attributes(params[:comment])
+      flash[:notice] = 'comment updated'
+    else
+      flash[:error] = 'cannot update comment'
     end
     redirect_to todo_list_todo_item_path(todo_item.todo_list, todo_item)
   end
@@ -37,7 +49,7 @@ class CommentsController < ApplicationController
       Comment.new params[:comment]
     end
   end
-  helper_method :comments
+  helper_method :comment
 
   # FIXME: This one is unsafe! User can post comment to any todo item he
   # enters in params
@@ -47,4 +59,6 @@ class CommentsController < ApplicationController
       TodoItem.find params[:todo_item_id]
     end
   end
+  helper_method :todo_item
+
 end
