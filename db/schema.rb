@@ -10,7 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111227202213) do
+ActiveRecord::Schema.define(:version => 20120104201534) do
+
+  create_table "assignees", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "todo_item_id"
+    t.integer  "assigned_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "assignees", ["assigned_by"], :name => "index_assignees_on_assigned_by"
+  add_index "assignees", ["todo_item_id"], :name => "index_assignees_on_todo_item_id"
+  add_index "assignees", ["user_id"], :name => "index_assignees_on_user_id"
 
   create_table "collaborators", :force => true do |t|
     t.integer  "user_id"

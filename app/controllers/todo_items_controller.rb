@@ -15,6 +15,9 @@ class TodoItemsController < ApplicationController
   end
 
   def new
+    unless todo_item.assignee
+      todo_item.build_assignee
+    end
     respond_to do |format|
       format.html
       format.json { render :json => todo_item }
@@ -22,9 +25,16 @@ class TodoItemsController < ApplicationController
   end
 
   def edit
+    unless todo_item.assignee
+      todo_item.build_assignee
+    end
   end
 
   def create
+    # TODO: clean this up
+    if params[:todo_item][:assignee_attributes]
+      params[:todo_item][:assignee_attributes][:assigned_by] = current_user.id
+    end
     respond_to do |format|
       if todo_item.save
         format.html { redirect_to todo_list, :notice => t(:'todo_items.actions.create.success') }
@@ -37,6 +47,10 @@ class TodoItemsController < ApplicationController
   end
 
   def update
+    # TODO: clean this up
+    if params[:todo_item][:assignee_attributes]
+      params[:todo_item][:assignee_attributes][:assigned_by] = current_user.id
+    end
     respond_to do |format|
       if todo_item.update_attributes(params[:todo_item])
         format.html { redirect_to todo_item.todo_list, :notice => t(:'todo_items.actions.update.success') }

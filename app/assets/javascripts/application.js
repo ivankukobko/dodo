@@ -8,7 +8,7 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require_tree .
-//= require ICanHaz.min
+//require ICanHaz.min
 
 // default flashes display
 function showFlash() {
@@ -18,7 +18,7 @@ function showFlash() {
     function(){
       $('.flash-message').slideUp('slow');
     },
-    5000
+    7000
   );
 }
 
