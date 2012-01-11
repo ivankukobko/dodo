@@ -7,6 +7,10 @@ class TodoList < ActiveRecord::Base
 
   has_paper_trail
 
+  def to_s
+    title
+  end
+
   def is_complete?
      todo_items.count > 0 &&
        ( todo_items.find(:all, :conditions => { :is_complete => true }).count == todo_items.count )

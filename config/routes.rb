@@ -3,6 +3,7 @@ Dodo::Application.routes.draw do
   root :to => "home#index"
 
   resources :info, :controller => 'InfoPages'
+  resources :worklogs
 
   resources :sessions, :only => [:new, :create]
   match '/logout' => 'sessions#destroy', :as => :logout
@@ -36,6 +37,7 @@ Dodo::Application.routes.draw do
       post :sort
     end
     resources :comments
+    resources :worklogs
   end
 
   resources :todo_lists do

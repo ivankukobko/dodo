@@ -1,3 +1,4 @@
+= render :partial => 'shared/breadcrumbs', :locals => { :breadcrumb_items => [todo_item.todo_list.project, todo_item.todo_list, todo_item].compact }
 %h2
   = link_to todo_list_path(todo_item.todo_list) do
     &larr;

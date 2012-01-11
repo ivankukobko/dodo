@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120104201534) do
+ActiveRecord::Schema.define(:version => 20120105082451) do
 
   create_table "assignees", :force => true do |t|
     t.integer  "user_id"
@@ -121,5 +121,17 @@ ActiveRecord::Schema.define(:version => 20120104201534) do
   end
 
   add_index "versions", ["item_type", "item_id"], :name => "index_versions_on_item_type_and_item_id"
+
+  create_table "worklogs", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "todo_item_id"
+    t.date     "log_date"
+    t.integer  "duration"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "worklogs", ["todo_item_id"], :name => "index_worklogs_on_todo_item_id"
+  add_index "worklogs", ["user_id"], :name => "index_worklogs_on_user_id"
 
 end

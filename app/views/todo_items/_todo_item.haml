@@ -13,6 +13,8 @@
     - if todo_item.comments.any?
       %span.comments= todo_item.comments.count
   .actions
+    = link_to todo_item_worklogs_path(todo_item), :class => 'link-icon' do
+      %span.icon.icon-clock-small
     = link_to edit_todo_list_todo_item_path(todo_item.todo_list, todo_item), :class => 'link-icon' do
       %span.icon.icon-pencil-small
     = link_to [todo_item.todo_list, todo_item], :confirm => 'Are you sure?', :method => :delete, :class => 'link-icon' do

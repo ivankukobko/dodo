@@ -19,4 +19,21 @@ module ApplicationHelper
     link_to_function(name, ("add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")"))
   end
 
+  # TODO: find adequate algorithm
+  def minutes_to_units minutes
+    hh, mm = minutes.divmod(60)
+    dd, hh = hh.divmod(24)
+    res = ''
+    if (dd > 0)
+      res << "#{dd} days"
+    end
+    if (hh > 0)
+      res << "#{hh} hours"
+    end
+    if (mm > 0)
+      res << "#{mm} minutes"
+    end
+    res
+  end
+
 end

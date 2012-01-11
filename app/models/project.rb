@@ -4,6 +4,8 @@ class Project < ActiveRecord::Base
   has_many :todo_lists, :dependent => :destroy
   has_many :todo_items, :through => :todo_lists
   has_many :invitations, :dependent => :destroy
+  # make proper query for project worklogs
+  has_many :worklogs, :through => :users
 
   after_create :assign_owner
 

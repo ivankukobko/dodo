@@ -2,10 +2,11 @@
   = link_to root_url do
     %span.icon.icon-home
     Dashboard
-  - if !@project.nil?
-    project
-  - if !@todo_list.nil?
-    todo_list
+  - if breadcrumb_items
+    - for item in breadcrumb_items do
+      \/
+      = link_to item, item
+  %hr
   -#- if todo_list
     -#- if !todo_list.new_record?
       -#&raquo;

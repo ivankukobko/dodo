@@ -6,6 +6,8 @@
  *= require blueprint/src/typography
  *= require blueprint/src/forms
  *= require 1140cssgrid/1140.css
+ * require dodo/typography
+ * require dodo/utils
  *= require_self
  *= require_tree .
 */
@@ -16,6 +18,7 @@ body {
 
 h1, h2, h3, h4, h5, h6{
   font-family: 'Georgia', serif;
+  font-weight: normal;
 }
 
 hr{
@@ -33,9 +36,15 @@ header {
     font-size: 5em;
     font-weight: normal;
     letter-spacing: -0.2em;
+    margin-bottom: 0;
     position: relative;
     text-shadow: 0 -2px 1px #777;
     text-transform: uppercase;
+
+    a{
+      color: #f1f1f1;
+      text-decoration: none;
+    }
 
     #beta-sign{
       color: #c00;
@@ -50,7 +59,6 @@ header {
     }
   }
 }
-
 
 #main {
   background: #fff;
@@ -175,6 +183,10 @@ a .icon {
   background-image: url('fugue-icons/users.png');
 }
 
+.icon-plus {
+  background-image: url('fugue-icons/plus.png');
+}
+
 .icon-plus-circle {
   background-image: url('fugue-icons/plus-circle.png');
 }
@@ -261,6 +273,18 @@ a .icon {
 
 .icon-balloon-small {
   background-image: url('fugue-icons/balloon-small-left.png');
+}
+
+.icon-clock {
+  background-image: url('fugue-icons/clock.png');
+}
+
+.icon-clock-history {
+  background-image: url('fugue-icons/clock-history.png');
+}
+
+.icon-clock-small {
+  background-image: url('fugue-icons/clock-small.png');
 }
 /* /ICONS */
 /* BUTTONS */

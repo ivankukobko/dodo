@@ -1,0 +1,38 @@
+
+/* Success, info, notice and error/alert boxes
+-------------------------------------------------------------- */
+
+.error,
+.alert,
+.notice,
+.success,
+.info 			{ padding: 0.8em; margin-bottom: 1em; border: 2px solid #ddd; }
+
+.error, .alert { background: #fbe3e4; color: #8a1f11; border-color: #fbc2c4; }
+.notice     { background: #fff6bf; color: #514721; border-color: #ffd324; }
+.success    { background: #e6efc2; color: #264409; border-color: #c6d880; }
+.info 			{ background: #d5edf8; color: #205791; border-color: #92cae4; }
+.error a, .alert a { color: #8a1f11; }
+.notice a   { color: #514721; }
+.success a  { color: #264409; }
+.info a			{ color: #205791; }
+
+/* Clearing floats without extra markup
+   Based on How To Clear Floats Without Structural Markup by PiE
+   [http://www.positioniseverything.net/easyclearing.html] */
+
+.clearfix:after, .container:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+  overflow:hidden;
+}
+.clearfix, .container {display: block;}
+
+/* Regular clearing
+   apply to column that should drop below previous ones. */
+
+.clear { clear:both; }
+

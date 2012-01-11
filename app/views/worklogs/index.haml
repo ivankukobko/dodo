@@ -1,0 +1,13 @@
+%table
+  %thead
+    %tr
+      %th Date
+      %th Duration
+      %th Task
+      %th User
+  - for worklog in worklogs do
+    %tr
+      %td= l worklog.log_date, :format => :short
+      %td= minutes_to_units worklog.duration
+      %td= worklog.todo_item
+      %td= worklog.user
