@@ -14,11 +14,12 @@ class WorklogsController < ApplicationController
 
   # get worklogs for current_project or
   def worklogs
-    @worklogs ||= if todo_item
-      todo_item.worklogs
-    else
-      current_user.worklogs
-    end
+    @worklogs ||= Worklog.all
+    #if todo_item
+      #todo_item.worklogs
+    #else
+      #current_user.worklogs
+    #end
   end
   helper_method :worklogs
 

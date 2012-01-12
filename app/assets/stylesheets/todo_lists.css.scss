@@ -38,6 +38,7 @@
 
 .is-complete, .title{
   display: inline-block;
+  margin-bottom: 0;
 }
 
 .drag-handle {
@@ -53,5 +54,10 @@
 .sortable {
   .drag-handle{
     display: inline-block;
+  }
+}
+#todo-list{
+  .item-title{
+    margin-bottom: 0;
   }
 }

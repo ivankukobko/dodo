@@ -131,15 +131,19 @@ input[type=submit] {
   background-repeat: no-repeat;
   border-left: 0;
   border-right: 0;
-  font-size: 150%;
+  //font-size: 150%;
+  font-weight: bold;
   left: 0;
   opacity: 0.95;
-  padding-left: 3em;
+  //padding-left: 3em;
+  padding: 0;
   position: fixed;
   text-align: center;
-  top: 0;
+  //top: 0;
+  top: -2px;
   width: 100%;
   z-index: 100;
+  box-shadow: 0 2px 4px #444;
 }
 
 .flash-message.notice {

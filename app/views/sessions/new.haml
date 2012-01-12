@@ -1,8 +1,15 @@
-.fourcol
-  = render 'form'
-.fourcol
+.threecol
   %h2 Hey, what's this?
   %p Dodo is a task management tool, inspired by popular services, like Basecamp, Todoist or Megaplan. I'ts main goal is to provide very simple, intuitive and useful service &laquo;for blondies&raquo;.
-.fourcol.last
-  %h2 More info...
-
+.threecol
+  %h2 Why should I use it?
+  %ul
+    %li You need a simple yet functional tool to track your tasks
+    %li You're working on some project yourself or with your friends
+    %li You tried some other task-management tools and they seem too complicated
+.threecol
+  %h2 Is it done?
+  %p Dodo is in status of beta-version and has lots of bugs (but still keeps doing what it ought to do), so don't hesitate to report about them.
+.threecol.last
+  %h2 Let's do it!
+  = render 'form'

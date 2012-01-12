@@ -1,10 +1,10 @@
 %table
   %thead
     %tr
-      %th Date
-      %th Duration
+      %th{ :width => '60'} Date
+      %th{ :width => '100'} Duration
       %th Task
-      %th User
+      %th{ :width => '100'} User
   - for worklog in worklogs do
     %tr
       %td= l worklog.log_date, :format => :short

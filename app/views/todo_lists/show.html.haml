@@ -1,37 +1,38 @@
 = render :partial => 'shared/breadcrumbs', :locals => { :breadcrumb_items => [todo_list.project, todo_list].compact }
-%h2
+%section#todo-list
+  %h2.item-title
+    - if todo_list.project
+      = link_to todo_list.project do
+        &larr;
+    - else
+      = link_to root_url do
+        &larr;
+
+    = todo_list.title
+    - if todo_list.user === current_user
+      = link_to edit_todo_list_path(todo_list) do
+        %span.icon.icon-pencil
+      = link_to todo_list_path(todo_list), :method => :delete, :confirm => 'Are you sure?' do
+        %span.icon.icon-cross
+  %hr/
+  .description
+    = todo_list.description
+
+  #todo-items.todo-items.sortable
+    - unless todo_list.todo_items.empty?
+      = render todo_list.todo_items
+    - else
+      .notice
+        = t :'todo_items.messages.no_todo_items_added'
+  = link_to new_todo_list_todo_item_path(todo_list), :class => 'link-button' do
+    %span.icon.icon-document-plus
+    New Todo Item
+  %hr/
   - if todo_list.project
     = link_to todo_list.project do
       &larr;
+      = todo_list.project
   - else
     = link_to root_url do
-      &larr;
-
-  = todo_list.title
-  - if todo_list.user === current_user
-    = link_to edit_todo_list_path(todo_list) do
-      %span.icon.icon-pencil
-    = link_to todo_list_path(todo_list), :method => :delete, :confirm => 'Are you sure?' do
-      %span.icon.icon-cross
-%hr/
-.description
-  = todo_list.description
-
-#todo-items.todo-items.sortable
-  - unless todo_list.todo_items.empty?
-    = render todo_list.todo_items
-  - else
-    .notice
-      = t :'todo_items.messages.no_todo_items_added'
-= link_to new_todo_list_todo_item_path(todo_list), :class => 'link-button' do
-  %span.icon.icon-document-plus
-  New Todo Item
-%hr/
-- if todo_list.project
-  = link_to todo_list.project do
-    &larr;
-    = todo_list.project
-- else
-  = link_to root_url do
-    &larr; Back to Dashboard
+      &larr; Back to Dashboard
 
