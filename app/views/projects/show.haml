@@ -9,9 +9,9 @@
     = link_to project_path(project), :method => :delete, :confirm => 'Are you sure?' do
       %span.icon.icon-cross-circle
 %hr/
-.fourcol
+.threecol
   - if project.description
-    %blockquote.description= markdown project.description
+    .description= markdown project.description
   %h3 Associates
   %ul#users
     = render project.users
@@ -21,7 +21,7 @@
   - unless project.collaborator(current_user).is_owner?
     = link_to [project, project.collaborator(current_user) ], :method => :delete, :confirm => 'Are you sure?' do
       Abandon project
-.eightcol.last
+.ninecol.last
   %h3 Todo Lists
   - if project.todo_lists.any?
     %ul#todo-lists

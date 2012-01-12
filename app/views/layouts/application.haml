@@ -28,13 +28,13 @@
     %header
       .container
         .row
-          .fourcol
+          .threecol
             %h1#logo
               = link_to 'Dodo', root_url
               #beta-sign βετα
-          .fourcol
+          .sixcol
             %nav.top-nav= render 'shared/top_nav'
-          .fourcol.last
+          .threecol.last
             .login-bar= render 'shared/login_bar'
     #main
       .container
@@ -42,11 +42,11 @@
           = yield
     %footer.container
       .row
-        .fourcol
+        .threecol
           = t :'site.copyright'
-        .fourcol
+        .sixcol
           = t :'site.info'
-        .fourcol.last
+        .threecol.last
           (:
   = image_tag 'ajax.gif', :id => 'ajax', :style => 'display: none;'
 

@@ -1,4 +1,4 @@
-.fourcol
+.threecol
   -#= render :partial => 'todo_lists/form', :locals => { :todo_list => TodoList.new }
   %h2{ :title => 'You may invite other users to your projects or be invited to theirs'}= t :'home.titles.your_projects'
   %ul#projects
@@ -6,7 +6,7 @@
   = link_to new_project_path, :class => 'link-button' do
     %span.icon.icon-plus-circle
     Add new project
-.fourcol
+.sixcol
   %h2{ :title => 'Only you can see and manage your private todo lists' }= t :'home.titles.your_todo_lists'
   - if todo_lists.any?
     %ul#todo-lists
@@ -17,7 +17,7 @@
   = link_to new_todo_list_path, :class => 'link-button' do
     %span.icon.icon-document-plus
     Add new todo list
-.fourcol.last
+.threecol.last
   %h2= t :'home.titles.events'
   -if current_user.invitations.any?
     %h3= t :'home.titles.invites'
