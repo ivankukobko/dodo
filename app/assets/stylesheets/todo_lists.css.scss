@@ -13,14 +13,15 @@
   }
 }
 
-.hover, .todo-list:hover, .todo-item:hover{
-  .actions{
-    display: inline-block;
-  }
-}
-
 .todo-list{
   margin-bottom: 1em;
+}
+
+
+.todo-list.complete, .todo-item.complete {
+  .title{
+    text-decoration: line-through;
+  }
 }
 
 .todo-list, .todo-item {
@@ -29,11 +30,21 @@
   }
 }
 
-.todo-list.complete, .todo-item.complete {
-  .title{
-    text-decoration: line-through;
+.hover, .todo-list:hover, .todo-item:hover{
+  .actions{
+    display: inline-block;
+    a{
+      text-decoration: none;
+    }
+    .new-worklog-form {
+      display: inline;
+      input[type=text]{
+        width: 3em;
+      }
+    }
   }
 }
+
 
 
 .is-complete, .title{
@@ -56,6 +67,7 @@
     display: inline-block;
   }
 }
+
 #todo-list{
   .item-title{
     margin-bottom: 0;

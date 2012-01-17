@@ -13,4 +13,4 @@
   = render todo_item.comments
 = render :partial => 'comments/form', :locals => { :comment => todo_item.comments.build }
 
-=link_to raw("&larr;#{todo_list.title}"), todo_list_path(todo_item.todo_list)
+=link_to raw("&larr;#{todo_item.todo_list.title}"), todo_list_path(todo_item.todo_list)
