@@ -126,7 +126,11 @@ class TodoItemsController < ApplicationController
       if todo_list
         todo_list.todo_items.find params[:id]
       else
-        current_user.todo_items.find params[:id]
+        begin
+          current_user.todo_items.find params[:id]
+        rescue ActiveRecord::RecordNotFound
+          current_user.todo_items_in_projects.find params[:id]
+        end
       end
     else
       todo_list.todo_items.build params[:todo_item]

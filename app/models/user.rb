@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :todo_items,  :through => :todo_lists
   has_many :collaborators, :include => :project
   has_many :projects,    :through => :collaborators
+  has_many :todo_items_in_projects, :through => :projects, :source => :todo_items
   has_many :invitations, :conditions => [ 'accepted_at is null' ]
   has_many :assignees
   has_many :assigned_todo_items, :through => :assignees, :source => :todo_item
