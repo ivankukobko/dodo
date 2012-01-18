@@ -4,8 +4,7 @@ class Project < ActiveRecord::Base
   has_many :todo_lists, :dependent => :destroy
   has_many :todo_items, :through => :todo_lists
   has_many :invitations, :dependent => :destroy
-  # make proper query for project worklogs
-  has_many :worklogs, :through => :users
+  has_many :worklogs, :through => :todo_items
 
   after_create :assign_owner
 
@@ -15,9 +14,9 @@ class Project < ActiveRecord::Base
     name
   end
 
-  def assign_owner
-    #collaborators.first.update_attributes( :accepted_at => time.now.utc )
-  end
+  #def assign_owner
+    ##collaborators.first.update_attributes( :accepted_at => time.now.utc )
+  #end
 
   def collaborator user
     collaborators.find_by_user_id user.id

@@ -32,4 +32,13 @@ class ApplicationController < ActionController::Base
       redirect_to new_session_url
     end
   end
+
+  def require_authorization
+    unless current_user
+      unless current_user.administrator?
+        flash[:error] = 'Unauthorized!'
+        redirect_to root_url
+      end
+    end
+  end
 end

@@ -4,6 +4,8 @@
     = link_to root_url do
       &larr;
     = project
+    = link_to project_worklogs_path(project) do
+      %span.icon.icon-clock
     - if project.collaborators.where(:user_id => current_user).first.is_owner?
       = link_to edit_project_path(project) do
         %span.icon.icon-pencil

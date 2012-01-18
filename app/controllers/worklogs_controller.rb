@@ -17,13 +17,15 @@ class WorklogsController < ApplicationController
     end
   end
 
-  # get worklogs for current_project or
+  # get worklogs for current_project or current_user
   def worklogs
     @worklogs ||= if todo_item
       todo_item.worklogs
+    elsif project
+      project.worklogs
     else
-      #current_user.worklogs
-      Worklog.all
+      current_user.worklogs
+      #Worklog.all
     end
   end
   helper_method :worklogs
@@ -31,6 +33,12 @@ class WorklogsController < ApplicationController
   def todo_item
     @todo_item ||= if params[:todo_item_id]
       TodoItem.find params[:todo_item_id]
+    end
+  end
+
+  def project
+    @project ||= if params[:project_id]
+      current_user.projects.find params[:project_id]
     end
   end
 

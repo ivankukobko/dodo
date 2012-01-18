@@ -46,6 +46,10 @@ class User < ActiveRecord::Base
     self[:name] || self[:email]
   end
 
+  def administrator?
+    !!administrator
+  end
+
   #def invite_collaborator target_email, project
     #if target_user = User.find_by_email(target_email)
       #project.collaborators.create(:user => target_user, :invited_by => self.id, :role_id => Collaborator::PROJECT_ROLES.index('collaborator') )

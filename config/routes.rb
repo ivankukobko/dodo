@@ -26,6 +26,7 @@ Dodo::Application.routes.draw do
         get :accept
       end
     end
+    resources :worklogs
   end
 
   resources :todo_items do
