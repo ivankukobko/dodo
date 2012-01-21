@@ -1,0 +1,5 @@
+= form_for info_page do |f|
+  = render :partial => 'shared/error_messages', :locals => { :object => info_page }
+
+  .actions
+    = f.submit

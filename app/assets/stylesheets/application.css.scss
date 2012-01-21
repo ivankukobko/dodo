@@ -58,6 +58,15 @@ header {
       top: 4em;
     }
   }
+  .login-bar{
+    text-align: right;
+    .auth-links{
+      list-style: none;
+      li{
+        display: inline-block;
+      }
+    }
+  }
 }
 
 #main {
@@ -163,6 +172,14 @@ input[type=submit] {
 
 a .icon {
   text-decoration: none;
+}
+
+.icon-facebook {
+  background-image: url('social/facebook.png');
+}
+
+.icon-google {
+  background-image: url('social/google.png');
 }
 
 .icon-home {
