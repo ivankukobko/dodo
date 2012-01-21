@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   has_many :assigned_todo_items, :through => :assignees, :source => :todo_item
   has_many :comments
   has_many :worklogs
+  has_one  :administrator
+  has_many :authentications, :dependent => :destroy
 
   #has_many :shared_todo_items, :through => :projects
   # TODO: find out how to make it work with postgre
@@ -19,13 +21,25 @@ class User < ActiveRecord::Base
 
   before_save :encrypt_password
 
-  validates_presence_of     :password, :password_confirmation, :on => :create
-  validates_confirmation_of :password, :on => :create
-  validates_presence_of   :email
+  #validates_presence_of :name
+  #validates_presence_of     :password, :password_confirmation, :on => :create
+  validates_confirmation_of :password#, :on => :create
+  #validates_presence_of   :email
   validates_uniqueness_of :email
 
   def to_s
     name
+  end
+
+  def self.create_from_hash!(hash)
+    user = find_or_initialize_by_email(hash['info']['email'])
+    user[:name] ||= hash['info']['name']
+    user.save!
+    user
+    #create( :name => hash['info']['name'],
+            #:email => hash['info']['email']
+            #:nickname => hash['info']['nickname']
+          #)
   end
 
   def encrypt_password

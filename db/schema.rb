@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120105082451) do
+ActiveRecord::Schema.define(:version => 20120121142511) do
+
+  create_table "administrators", :force => true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "administrators", ["user_id"], :name => "index_administrators_on_user_id"
 
   create_table "assignees", :force => true do |t|
     t.integer  "user_id"
@@ -23,6 +32,16 @@ ActiveRecord::Schema.define(:version => 20120105082451) do
   add_index "assignees", ["assigned_by"], :name => "index_assignees_on_assigned_by"
   add_index "assignees", ["todo_item_id"], :name => "index_assignees_on_todo_item_id"
   add_index "assignees", ["user_id"], :name => "index_assignees_on_user_id"
+
+  create_table "authentications", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "uid"
+    t.string   "provider"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "authentications", ["user_id"], :name => "index_authentications_on_user_id"
 
   create_table "collaborators", :force => true do |t|
     t.integer  "user_id"

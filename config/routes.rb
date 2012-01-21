@@ -7,6 +7,9 @@ Dodo::Application.routes.draw do
 
   resources :sessions, :only => [:new, :create]
   match '/logout' => 'sessions#destroy', :as => :logout
+  match '/auth/:provider/callback', :to => 'sessions#create'
+  match '/auth/failure', :to => 'sessions#failure'
+
 
   resources :users
   match 'me' => 'users#me', :as => :me

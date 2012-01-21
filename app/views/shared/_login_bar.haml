@@ -12,3 +12,11 @@
   =link_to new_session_path do
     %span.icon.icon-door-in
     Login
+  %ul.auth-links
+    %li
+      = link_to "Facebook", "/auth/facebook"
+    %li
+      = link_to "Вконтакте", "/auth/vkontakte"
+    %li
+      = link_to "Google", "/auth/google"
+

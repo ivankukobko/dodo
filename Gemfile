@@ -21,6 +21,14 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'paper_trail'
 gem 'redcarpet'
 
+gem 'oauth'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-vkontakte'
+gem 'omniauth-openid'
+gem 'ruby-openid'
+
 group :production do
   gem 'pg'
   gem 'thin'
