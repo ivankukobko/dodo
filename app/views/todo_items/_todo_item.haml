@@ -16,8 +16,8 @@
     = link_to todo_item_worklogs_path(todo_item), :class => 'link-icon' do
       %span.icon.icon-clock-small
     = render :partial => 'worklogs/form', :locals => { :todo_item => todo_item, :worklog => Worklog.new }
-    = link_to edit_todo_list_todo_item_path(todo_item.todo_list, todo_item), :class => 'link-icon' do
+    = link_to edit_todo_list_todo_item_path(todo_item.todo_list, todo_item), :class => 'link-icon', :title => 'Edit' do
       %span.icon.icon-pencil-small
-    = link_to [todo_item.todo_list, todo_item], :confirm => 'Are you sure?', :method => :delete, :class => 'link-icon' do
+    = link_to [todo_item.todo_list, todo_item], :confirm => 'Are you sure?', :method => :delete, :class => 'link-icon', :title => 'Delete' do
       %span.icon.icon-cross-small
   -#.description= todo_item.description

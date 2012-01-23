@@ -2,7 +2,7 @@ Dodo::Application.routes.draw do
 
   root :to => "home#index"
 
-  resources :info, :controller => 'InfoPages'
+  resources :help, :controller => 'InfoPages'
   resources :worklogs
 
   resources :sessions, :only => [:new, :create]
@@ -55,6 +55,11 @@ Dodo::Application.routes.draw do
       end
     end
   end
+
+  namespace :admin do
+    resources :help, :controller => :info_pages
+  end
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

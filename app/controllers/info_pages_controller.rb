@@ -20,6 +20,7 @@ class InfoPagesController < ApplicationController
   def info_pages
     @info_pages ||= InfoPage.all
   end
+  helper_method :info_pages
 
   def info_page
     @info_page ||= if params[:id]
@@ -28,4 +29,5 @@ class InfoPagesController < ApplicationController
       InfoPage.new params[:info_page]
     end
   end
+  helper_method :info_page
 end

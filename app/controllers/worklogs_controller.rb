@@ -1,11 +1,9 @@
 class WorklogsController < ApplicationController
 
   def index
-
   end
 
   def new
-
   end
 
   def create
@@ -14,6 +12,8 @@ class WorklogsController < ApplicationController
         format.html { redirect_to [worklog.todo_item.todo_list, worklog.todo_item] }
         format.json { render :json => worklog }
       end
+    else
+      render :new
     end
   end
 

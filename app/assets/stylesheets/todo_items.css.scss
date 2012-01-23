@@ -24,6 +24,12 @@
     //color: #777;
     font-size: 75%;
   }
+  .action{
+    input[type="text"] {
+      margin: 0;
+      vertical-align: baseline;
+    }
+  }
 
 }
 #todo-item{

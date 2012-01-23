@@ -39,7 +39,9 @@
     .new-worklog-form {
       display: inline;
       input[type=text]{
-        width: 3em;
+        margin: 0;
+        vertical-align: baseline;
+        width: 4em;
       }
     }
   }

@@ -1,5 +1,18 @@
-= form_for info_page do |f|
+= form_for info_page, :url => ( info_page.new_record? ? admin_help_index_path : admin_help_path(info_page) ) do |f|
   = render :partial => 'shared/error_messages', :locals => { :object => info_page }
-
+  .field
+    = f.text_field :title, :placeholder => :title
+  .field
+    = f.text_field :permalink, :placeholder => :permalink
+  .field
+    = f.text_area :body, :placeholder => :body
+  .field
+    = f.label :parent_id
+    = f.select :parent_id, info_pages.collect{|p| [p.title, p.id]}, { :include_blank => true }
+  .field
+    = f.label :promote_to_home
+    = f.check_box :promote_to_home
   .actions
     = f.submit
+    or
+    = link_to 'cancel', admin_help_index_path

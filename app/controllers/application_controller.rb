@@ -41,4 +41,9 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+
+  def help_links
+    @help_links ||= InfoPage.promoted
+  end
+  helper_method :help_links
 end
