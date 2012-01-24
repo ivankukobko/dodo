@@ -13,4 +13,22 @@
 %p
   Joined:
   = l user.created_at, :format => :short
+- if current_user === user
+  %h3 Connected accounts:
+  %ul
+    - for provider in Authentication::PROVIDERS do
+      %li
+        - if user.authentications.map(&:provider).include? provider
+          %span{ :class=>"icon icon-tick" }
+        - else
+          = link_to "/auth/#{provider}" do
+            %span{ :class=>"icon icon-plus-circle" }
+        %span{ :class=>"icon icon-#{provider}" }
+        = provider.capitalize
+        -#- if user.authentications.map(&:provider).include? provider
+          -#= link_to authentication_path(user.authentications.find_by_provider(provider)), :method => :delete do
+            -#%span{ :class=>"icon icon-cross-small" }
+        -#- else
+          -#= link_to "/auth/#{provider}" do
+            -#%span{ :class=>"icon icon-plus-circle" }
 

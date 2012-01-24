@@ -12,6 +12,10 @@ en:
       todo_lists: 'Todo Lists'
       time_logs: 'Time Logs'
 
+  or: 'or'
+  actions:
+    return: 'go back'
+
   todo_lists:
     actions:
       create:
