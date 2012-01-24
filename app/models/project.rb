@@ -6,7 +6,7 @@ class Project < ActiveRecord::Base
   has_many :invitations, :dependent => :destroy
   has_many :worklogs, :through => :todo_items
 
-  after_create :assign_owner
+  #after_create :assign_owner
 
   has_paper_trail
 
