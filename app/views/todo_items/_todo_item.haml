@@ -1,4 +1,4 @@
-%article{ :class => "todo-item #{'complete' if todo_item.is_complete?}", :id => "todo-item_#{todo_item.id}" }
+%article{ :class => "todo-item #{'complete' if todo_item.is_complete?} #{'expired' if todo_item.expired?}", :id => "todo-item_#{todo_item.id}" }
   .drag-handle
   .is-complete
     = form_for [todo_item.todo_list, todo_item] do |f|
@@ -8,6 +8,10 @@
     %span.assignee
       %span.icon.icon-user
       = todo_item.assignee.user
+  - if todo_item.due_date
+    %span.due-date
+      %span.icon.icon-clock-small
+      = due_date_in_words todo_item.due_date
   = link_to [todo_item.todo_list, todo_item], :title => 'Leave a comment' do
     %span.icon.icon-balloon-small
     - if todo_item.comments.any?

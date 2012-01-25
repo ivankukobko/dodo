@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120121142511) do
+ActiveRecord::Schema.define(:version => 20120125092136) do
 
   create_table "administrators", :force => true do |t|
     t.integer  "user_id"
@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(:version => 20120121142511) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "position",     :default => 0,     :null => false
+    t.datetime "due_date"
   end
 
   create_table "todo_lists", :force => true do |t|

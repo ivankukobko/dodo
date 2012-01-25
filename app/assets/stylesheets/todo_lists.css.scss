@@ -24,6 +24,12 @@
   }
 }
 
+.todo-item.expired{
+  .title{
+    color: red;
+  }
+}
+
 .todo-list, .todo-item {
   .actions{
     display: none;
