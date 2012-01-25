@@ -26,7 +26,7 @@ class TodoItem < ActiveRecord::Base
   end
 
   def expired?
-    if self.due_date
+    if self.due_date && !self.is_complete
       self.due_date < Time.now
     end
   end
