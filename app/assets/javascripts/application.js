@@ -88,6 +88,10 @@ function add_fields(link, association, content) {
     return false;
   });
 
+  $('.datepicker').datepicker({
+    'dateFormat': 'yy-mm-dd',
+    'showOn': 'both'
+  });
   //$('.link-show').live('click', function(){
     //$.getJSON( $(this).attr('href') + '/todo_items', function(data){
       //var TodoItems = data;
