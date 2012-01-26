@@ -38,7 +38,9 @@ module ApplicationHelper
 
   def due_date_in_words date
     now = Time.now
-    if (date < (now + 5.days)) && (date > (now - 5.days))
+    if (date < (now + 1.days)) && ( date > (now - 1.days ))
+      t :today
+    elsif (date < (now + 5.days)) && (date > (now - 5.days))
       date.strftime "%A"
     else
       l date, :format => "%A %d %b"
