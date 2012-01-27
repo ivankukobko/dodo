@@ -50,9 +50,10 @@ class User < ActiveRecord::Base
   end
 
   def self.authenticate(email, password)
-    user = find_by_email(email)
-    if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
-      user
+    if !password.blank? && (user = find_by_email(email))
+      if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
+        user
+      end
     end
   end
 
@@ -70,6 +71,12 @@ class User < ActiveRecord::Base
     #end
   #end
 
+  # Invite user to project by email.
+  # If user is registered in system, just creating an :invitaion: object,
+  # if not --- create user account and send invitation email
+  # TODO: users in the future will be able to register with
+  # social network account and might have an empty email.
+  # Find a solution for this case.
   def invite_user_to_project target_email, project
     if target_user = User.find_by_email(target_email)
       project.invitations.create(:user => target_user, :invited_by => self.id)

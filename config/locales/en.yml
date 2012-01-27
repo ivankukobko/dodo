@@ -57,7 +57,7 @@ en:
   sessions:
     create:
       success: 'Successfully logged in!'
-      error: "Couldn\'t log in"
+      error: "Couldn\'t log in. Check you email/password combination"
     destroy:
       success: 'Logged out, bye!'
 

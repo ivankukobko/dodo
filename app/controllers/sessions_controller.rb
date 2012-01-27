@@ -12,7 +12,8 @@ class SessionsController < ApplicationController
       if self.current_user = User.authenticate(email, password)
         flash[:success] = t(:'sessions.create.success')
       else
-        redirect_to new_session_url, :error => t(:'sessions.create.error') and return
+        flash[:error] = t(:'sessions.create.error')
+        redirect_to new_session_url and return
       end
     # Login through oauth
     elsif auth_hash
