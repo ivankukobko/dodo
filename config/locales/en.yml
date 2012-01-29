@@ -11,6 +11,8 @@ en:
       proects: 'Projects'
       todo_lists: 'Todo Lists'
       time_logs: 'Time Logs'
+    email_notifications:
+      registration: 'Welcome to DoDo project!'
 
   or: 'or'
   actions:

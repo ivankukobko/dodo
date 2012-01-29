@@ -49,6 +49,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.generate_password email
+    Digest::SHA2.hexdigest("--#{email}--#{Time.now.to_s}--")[0..8]
+  end
+
   def self.authenticate(email, password)
     if !password.blank? && (user = find_by_email(email))
       if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
@@ -79,6 +83,9 @@ class User < ActiveRecord::Base
   # Find a solution for this case.
   def invite_user_to_project target_email, project
     if target_user = User.find_by_email(target_email)
+      project.invitations.create(:user => target_user, :invited_by => self.id)
+    else
+      target_user = User.new(:email => target_email, :password => User.generate_password(target_email))
       project.invitations.create(:user => target_user, :invited_by => self.id)
     end
   end

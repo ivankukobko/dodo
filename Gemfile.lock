@@ -169,6 +169,7 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   json
+  mail
   mysql2
   oauth
   omniauth

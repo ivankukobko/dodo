@@ -28,6 +28,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-vkontakte'
 gem 'omniauth-openid'
 gem 'ruby-openid'
+gem 'mail'
 
 group :production do
   gem 'pg'
