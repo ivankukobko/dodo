@@ -1,7 +1,18 @@
 %h1= "Greetings, #{@user}!"
 %p
+  %strong= @inviter
+  invited You to join his project
+  %strong= raw "&laquo;#{@project}&raquo;"
+  on DoDo service.
+%p
+  We've automatically created a user account for you. Go to
+  = root_url
+  and use credentials below to login and start collaborating.
+%p
+
   Login:
   = @user.email
 %p
   Password:
   = @user.password
+  (you can change it on your profile page when you log in)
