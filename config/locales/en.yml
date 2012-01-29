@@ -13,6 +13,7 @@ en:
       time_logs: 'Time Logs'
     email_notifications:
       registration: 'Welcome to DoDo project!'
+      invitation_to_project: 'You have been invited to project!'
 
   or: 'or'
   actions:

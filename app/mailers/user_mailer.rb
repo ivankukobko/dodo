@@ -15,7 +15,7 @@ class UserMailer < ActionMailer::Base
     @inviter = invitation.inviter
     mail(
       :to => @user.email,
-      :subject => t(:'site.email_notifications.registration')
+      :subject => t(:'site.email_notifications.invitation_to_project')
     )
   end
 

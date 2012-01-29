@@ -1,5 +1,5 @@
 %h1= "Greetings, #{@user}!"
 %p
-  = @inviter
+  %strong= @inviter
   invited you to his project
-  = @project
+  %strong= raw "&laquo;#{@project}&raquo;"
