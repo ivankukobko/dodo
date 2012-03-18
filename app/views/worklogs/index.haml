@@ -7,11 +7,13 @@
       %th List
       %th Project
       %th{ :width => '100'} User
+      %th{ :width => '100'} Actions
   - for worklog in worklogs do
     %tr
       %td= l worklog.log_date, :format => :short
       %td= minutes_to_units worklog.duration
-      %td= link_to worklog.todo_item, worklog.todo_item
-      %td= link_to worklog.todo_item.todo_list, worklog.todo_item.todo_list
-      %td= link_to(worklog.todo_item.todo_list.project, worklog.todo_item.todo_list.project) if worklog.todo_item.todo_list.project
+      %td= link_to(worklog.todo_item, worklog.todo_item)
+      %td= link_to(worklog.todo_item.todo_list, worklog.todo_item.todo_list) if worklog.todo_item
+      %td= link_to(worklog.todo_item.todo_list.project, worklog.todo_item.todo_list.project) if (worklog.todo_item && worklog.todo_item.todo_list.project)
       %td= worklog.user
+      %td= link_to '[X]', worklog, :method => :delete, :confirm => "#{t('confirm')}"

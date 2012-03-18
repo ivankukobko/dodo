@@ -8,7 +8,7 @@ en:
     info: 'Dodo is project and task management tool for personal and shared use. Inspired by Basecamp, Todoist and many others. It is in development process and still far from release. '
     nav:
       home: 'Dashboard'
-      proects: 'Projects'
+      projects: 'Projects'
       todo_lists: 'Todo Lists'
       time_logs: 'Time Logs'
     email_notifications:

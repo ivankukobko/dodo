@@ -13,7 +13,8 @@ class TodoList < ActiveRecord::Base
 
   def is_complete?
      todo_items.count > 0 &&
-       ( todo_items.find(:all, :conditions => { :is_complete => true }).count == todo_items.count )
+       #( todo_items.find(:all, :conditions => { :is_complete => true }).count == todo_items.count )
+       ( todo_items.complete.count == todo_items.count )
   end
 
   def is_unattached?

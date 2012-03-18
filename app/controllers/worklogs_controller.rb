@@ -17,6 +17,22 @@ class WorklogsController < ApplicationController
     end
   end
 
+  def update
+    if worklog.update_attributes(params[:worklog])
+      flash[:success] = t('worklog.update.success')
+    else
+      flash[:error] = t('worklog.update.error')
+    end
+    redirect_to 'index'
+  end
+
+  def destroy
+    if worklog.destroy
+      flash[:success] = t('worklog.destroy.success')
+    end
+    redirect_to 'index'
+  end
+
   # get worklogs for current_project or current_user
   def worklogs
     @worklogs ||= if todo_item

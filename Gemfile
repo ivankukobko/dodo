@@ -7,7 +7,7 @@ gem 'mysql2'
 # in production environments by default.
 group :assets do
   gem 'haml-rails'
-  gem 'sass-rails', "  ~> 3.1.0"
+  gem 'sass-rails', "~> 3.1.0"
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
 end
@@ -30,11 +30,12 @@ gem 'omniauth-openid'
 gem 'ruby-openid'
 gem 'mail'
 
+gem 'russian'
+gem 'ukrainian', :git => 'git://github.com/ivankukobko/ukrainian.git'
+
 group :production do
   gem 'pg'
   gem 'thin'
   gem 'therubyracer'
 end
-
-# gem 'ruby-debug'
 
