@@ -107,7 +107,12 @@ class TodoItemsController < ApplicationController
 
   def todo_list
     @todo_list ||= if params[:todo_list_id]
-      TodoList.find(params[:todo_list_id])
+      # not allowing to access todo_list directly
+      begin
+        current_user.todo_lists_in_projects.find(params[:todo_list_id])
+      rescue ActiveRecord::RecordNotFound
+        current_user.todo_lists.find(params[:todo_list_id])
+      end
     end
   end
   helper_method :todo_list

@@ -33,6 +33,14 @@ gem 'mail'
 gem 'russian'
 gem 'ukrainian', :git => 'git://github.com/ivankukobko/ukrainian.git'
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'rack-test'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'database_cleaner'
+end
+
 group :production do
   gem 'pg'
   gem 'thin'
