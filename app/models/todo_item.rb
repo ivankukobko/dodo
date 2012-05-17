@@ -17,18 +17,18 @@ class TodoItem < ActiveRecord::Base
 
   def complete!
     self.is_complete = true
-    self.save
+    save
   end
 
   def incomplete!
     self.is_complete = false
-    self.save
+    save
   end
 
   def expired?
-    if self.due_date && !self.is_complete
+    if due_date && !is_complete
       p "#{title} - #{due_date} - #{Time.now + 1.days}"
-      self.due_date < (Time.now - 1.days)
+      due_date < (Time.now - 1.days)
     end
   end
 end

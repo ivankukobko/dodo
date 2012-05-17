@@ -14,7 +14,6 @@ class User < ActiveRecord::Base
   has_one  :administrator
   has_many :authentications, :dependent => :destroy
 
-  #has_many :shared_todo_items, :through => :projects
   # TODO: find out how to make it work with postgre
   #has_many :co_workers, :through => :projects, :source => :users, :uniq => true
 
@@ -22,10 +21,9 @@ class User < ActiveRecord::Base
 
   before_save :encrypt_password
 
-  #validates_presence_of :name
+  # XXX: if user registers through oauth, we don't have his email and password
   #validates_presence_of     :password, :password_confirmation, :on => :create
-  validates_confirmation_of :password#, :on => :create
-  #validates_presence_of   :email
+  validates_confirmation_of :password
   validates_uniqueness_of :email
 
   def to_s
@@ -37,10 +35,6 @@ class User < ActiveRecord::Base
     user[:name] ||= hash['info']['name']
     user.save!
     user
-    #create( :name => hash['info']['name'],
-            #:email => hash['info']['email']
-            #:nickname => hash['info']['nickname']
-          #)
   end
 
   def encrypt_password
@@ -69,12 +63,6 @@ class User < ActiveRecord::Base
   def administrator?
     !!administrator
   end
-
-  #def invite_collaborator target_email, project
-    #if target_user = User.find_by_email(target_email)
-      #project.collaborators.create(:user => target_user, :invited_by => self.id, :role_id => Collaborator::PROJECT_ROLES.index('collaborator') )
-    #end
-  #end
 
   # Invite user to project by email.
   # If user is registered in system, just creating an :invitaion: object,

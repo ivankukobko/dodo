@@ -4,6 +4,7 @@ class InfoPage < ActiveRecord::Base
 
   scope :promoted, where(:promote_to_home => true)
   scope :roots, where(:parent_id => nil)
+
   validates_presence_of :permalink
   validates_uniqueness_of :permalink
 

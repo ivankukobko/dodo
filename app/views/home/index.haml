@@ -34,11 +34,10 @@
         -#-#= link_to item.item_type.classify.constantize.find(item.item_id)
         -#= item.item_type
 
-    -#-if current_user.co_workers.any?
+  -#-if current_user.co_workers.any?
     -#%h2= t :'home.titles.co_workers'
     -#%ul#co-workers
-      -#-# FIXME: remove current user from collection in model
-      -#- for co_worker in (current_user.co_workers - [current_user]) do
+      -#- for co_worker in current_user.co_workers do
         -#%li
           -#%article.co-worker
             -#= link_to co_worker do
