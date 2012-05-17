@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(:version => 20120125092136) do
 
   create_table "administrators", :force => true do |t|
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "administrators", ["user_id"], :name => "index_administrators_on_user_id"
@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(:version => 20120125092136) do
     t.integer  "user_id"
     t.integer  "todo_item_id"
     t.integer  "assigned_by"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   add_index "assignees", ["assigned_by"], :name => "index_assignees_on_assigned_by"
@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(:version => 20120125092136) do
     t.integer  "user_id"
     t.string   "uid"
     t.string   "provider"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "authentications", ["user_id"], :name => "index_authentications_on_user_id"
@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(:version => 20120125092136) do
     t.integer  "user_id"
     t.integer  "project_id"
     t.integer  "role_id",    :default => 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   add_index "collaborators", ["project_id"], :name => "index_collaborators_on_project_id"
@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(:version => 20120125092136) do
     t.integer  "todo_item_id"
     t.integer  "parent_id"
     t.text     "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   add_index "comments", ["parent_id"], :name => "index_comments_on_parent_id"
@@ -73,8 +73,8 @@ ActiveRecord::Schema.define(:version => 20120125092136) do
     t.text     "body"
     t.integer  "parent_id"
     t.boolean  "promote_to_home", :default => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
   add_index "info_pages", ["parent_id"], :name => "index_info_pages_on_parent_id"
@@ -84,8 +84,8 @@ ActiveRecord::Schema.define(:version => 20120125092136) do
     t.integer  "project_id"
     t.integer  "invited_by",  :null => false
     t.datetime "accepted_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   add_index "invitations", ["invited_by"], :name => "index_invitations_on_invited_by"
@@ -95,8 +95,8 @@ ActiveRecord::Schema.define(:version => 20120125092136) do
   create_table "projects", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "todo_items", :force => true do |t|
@@ -104,8 +104,8 @@ ActiveRecord::Schema.define(:version => 20120125092136) do
     t.text     "description"
     t.integer  "todo_list_id"
     t.boolean  "is_complete",  :default => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.integer  "position",     :default => 0,     :null => false
     t.datetime "due_date"
   end
@@ -114,8 +114,8 @@ ActiveRecord::Schema.define(:version => 20120125092136) do
     t.string   "title"
     t.text     "description"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "project_id"
   end
 
@@ -127,8 +127,8 @@ ActiveRecord::Schema.define(:version => 20120125092136) do
     t.string   "email"
     t.string   "password_salt"
     t.string   "password_hash"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "versions", :force => true do |t|
@@ -147,8 +147,8 @@ ActiveRecord::Schema.define(:version => 20120125092136) do
     t.integer  "todo_item_id"
     t.date     "log_date"
     t.integer  "duration"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   add_index "worklogs", ["todo_item_id"], :name => "index_worklogs_on_todo_item_id"
