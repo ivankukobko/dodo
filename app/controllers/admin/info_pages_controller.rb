@@ -9,7 +9,7 @@ class Admin::InfoPagesController < ApplicationController
 
   def create
     if info_page.save
-      redirect_to todo_list, :notice => t(:'info_pages.actions.create.success')
+      redirect_to help_path(info_page), :notice => t(:'info_pages.actions.create.success')
     else
       render :action => "new"
     end

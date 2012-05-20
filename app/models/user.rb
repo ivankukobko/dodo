@@ -99,8 +99,8 @@ class User < ActiveRecord::Base
     end
   end
 
-  def news
-    Version.where(:whodunnit => self.co_workers.collect{|c| c.id if c.id != self.id}).order('created_at DESC').limit(10)
-  end
+  #def news
+    #Version.where(:whodunnit => self.co_workers.collect{|c| c.id if c.id != self.id}).order('created_at DESC').limit(10)
+  #end
 
 end

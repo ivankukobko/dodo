@@ -42,6 +42,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # TODO: move this somewhere outta here!
   def help_links
     @help_links ||= InfoPage.promoted
   end

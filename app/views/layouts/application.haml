@@ -48,10 +48,11 @@
         .sixcol
           = raw(t :'site.info')
         .threecol.last
-          - unless help_links.empty?
-            %ul.unstyled
-              - for page in help_links do
-                %li= link_to page, help_path(page)
+          = render_cell :help_link, :display
+          -#- unless help_links.empty?
+            -#%ul.unstyled
+              -#- for page in help_links do
+                -#%li= link_to page, help_path(page)
           (:
   = image_tag 'ajax.gif', :id => 'ajax', :style => 'display: none;'
 
