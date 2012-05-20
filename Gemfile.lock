@@ -46,6 +46,9 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
       xpath (~> 0.1.4)
+    cells (3.8.5)
+      actionpack (~> 3.0)
+      railties (~> 3.0)
     childprocess (0.3.2)
       ffi (~> 1.0.6)
     coffee-rails (3.2.2)
@@ -213,6 +216,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt-ruby
   capybara
+  cells
   coffee-rails (~> 3.2)
   database_cleaner
   factory_girl_rails

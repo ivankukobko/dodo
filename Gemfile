@@ -33,6 +33,8 @@ gem 'mail'
 gem 'russian'
 gem 'ukrainian', :git => 'git://github.com/ivankukobko/ukrainian.git'
 
+gem 'cells'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'rack-test'
