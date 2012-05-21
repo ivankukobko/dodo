@@ -43,8 +43,8 @@ class ApplicationController < ActionController::Base
   end
 
   # TODO: move this somewhere outta here!
-  def help_links
-    @help_links ||= InfoPage.promoted
-  end
-  helper_method :help_links
+  #def help_links
+    #@help_links ||= InfoPage.promoted
+  #end
+  #helper_method :help_links
 end
