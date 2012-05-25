@@ -38,6 +38,7 @@ gem 'cells'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'rspec-cells'
   gem 'rack-test'
   gem 'factory_girl_rails'
   gem 'capybara'
