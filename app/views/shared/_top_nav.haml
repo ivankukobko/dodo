@@ -1,0 +1,18 @@
+- if current_user
+  %ul
+    %li
+      = link_to root_url do
+        %span.icon.icon-home
+        = t :'site.nav.home'
+    %li
+      = link_to projects_url do
+        %span.icon.icon-block
+        = t :'site.nav.projects'
+    %li
+      = link_to todo_lists_url do
+        %span.icon.icon-document-task
+        = t :'site.nav.todo_lists'
+    %li
+      = link_to worklogs_url do
+        %span.icon.icon-clock
+        = t :'site.nav.time_logs'

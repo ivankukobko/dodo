@@ -1,0 +1,5 @@
+= form_tag project_invitations_path(project) do
+  .field
+    = text_field_tag :email, '', :placeholder => t(:'helpers.placeholder.collaborator.email')
+  .actions
+    = submit_tag 'Invite'

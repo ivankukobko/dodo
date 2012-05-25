@@ -1,0 +1,16 @@
+= render :partial => 'shared/breadcrumbs', :locals => { :breadcrumb_items => [todo_item.todo_list.project, todo_item.todo_list, todo_item].compact }
+%section#todo-item
+  %h2.item-title
+    = link_to todo_list_path(todo_item.todo_list) do
+      &larr;
+    = todo_item.title
+  %hr/
+  - if !todo_item.description.blank?
+    .description
+      = todo_item.description
+    %hr/
+#comments
+  = render todo_item.comments
+= render :partial => 'comments/form', :locals => { :comment => todo_item.comments.build }
+
+=link_to raw("&larr;#{todo_item.todo_list.title}"), todo_list_path(todo_item.todo_list)

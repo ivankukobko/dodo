@@ -1,0 +1,46 @@
+.threecol
+  -#= render :partial => 'todo_lists/form', :locals => { :todo_list => TodoList.new }
+  %h2{ :title => 'You may invite other users to your projects or be invited to theirs'}= t :'home.titles.your_projects'
+  %ul#projects
+    = render projects
+  = link_to new_project_path, :class => 'link-button' do
+    %span.icon.icon-plus-circle
+    Add new project
+.sixcol
+  %h2{ :title => 'Only you can see and manage your private todo lists' }= t :'home.titles.your_todo_lists'
+  - if todo_lists.any?
+    %ul#todo-lists
+      = render todo_lists
+  - else
+    .notice
+      =t :'todo_lists.messages.no_todo_lists_added'
+  = link_to new_todo_list_path, :class => 'link-button' do
+    %span.icon.icon-document-plus
+    Add new todo list
+.threecol.last
+  %h2= t :'home.titles.events'
+  -if current_user.invitations.any?
+    %h3= t :'home.titles.invites'
+    %ul#invitations
+      = render current_user.invitations
+
+  -#%h3 News
+  -#%ul#news
+    -#- for item in current_user.news do
+      -#%li
+        -#= item.id #{item.item_type}
+        -#= link_to User.find(item.whodunnit), User.find(item.whodunnit)
+        -#= item.event + 'd'
+        -#-#= link_to item.item_type.classify.constantize.find(item.item_id)
+        -#= item.item_type
+
+  -#-if current_user.co_workers.any?
+    -#%h2= t :'home.titles.co_workers'
+    -#%ul#co-workers
+      -#- for co_worker in current_user.co_workers do
+        -#%li
+          -#%article.co-worker
+            -#= link_to co_worker do
+              -#%span.icon.icon-user
+              -#= co_worker
+

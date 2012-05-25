@@ -1,0 +1,26 @@
+%ul.auth-links
+  - if current_user
+    %li
+      Welcome,
+      = link_to me_path do
+        %span.icon.icon-user
+        = current_user
+    %li
+      = link_to logout_path do
+        %span.icon.icon-door-out
+        Logout
+  - else
+    %li
+      =link_to new_session_path do
+        %span.icon.icon-door-in
+        Login
+      or connect with
+    %li
+      = link_to "/auth/facebook" do
+        %span.icon.icon-facebook
+    -#%li
+      -#= link_to "Вконтакте", "/auth/vkontakte"
+    %li
+      = link_to "/auth/google" do
+        %span.icon.icon-google
+

@@ -1,0 +1,351 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require blueprint/src/reset
+ *= require blueprint/src/typography
+ *= require blueprint/src/forms
+ *= require 1140cssgrid/1140.css
+ * require dodo/typography
+ * require dodo/utils
+ *= require_self
+ *= require_tree .
+*/
+
+body {
+  background: #f8f8f8;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Georgia', serif;
+  font-weight: normal;
+}
+
+hr{
+  border: none;
+  border-bottom: 1px solid #d2d2d2;
+}
+
+header {
+  background: #f1f1f1;
+  border-bottom: 1px solid #d2d2d2;
+  min-height: 5em;
+
+  h1#logo {
+    color: #f1f1f1;
+    font-size: 5em;
+    font-weight: normal;
+    letter-spacing: -0.2em;
+    margin-bottom: 0;
+    position: relative;
+    text-shadow: 0 -2px 1px #777;
+    text-transform: uppercase;
+
+    a{
+      color: #f1f1f1;
+      text-decoration: none;
+    }
+
+    #beta-sign{
+      color: #c00;
+      font-size: .2em;
+      line-height: .2em;
+      left: 11.5em;
+      letter-spacing: normal;
+      position: absolute;
+      text-shadow: none;
+      text-transform: none;
+      top: 4em;
+    }
+  }
+  .login-bar{
+    text-align: right;
+    .auth-links{
+      list-style: none;
+      li{
+        display: inline-block;
+      }
+    }
+  }
+}
+
+#main {
+  background: #fff;
+  padding: 1em 0;
+}
+
+#content {
+  min-height: 300px;
+}
+
+footer {
+  border-top: 1px solid #f1f1f1;
+  padding-bottom: 1em;
+  padding-top: 1em;
+  //text-align: center;
+}
+
+nav{
+  ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      display: inline-block;
+      margin-left: 1em;
+    }
+    li:first-child{
+      border-left: none;
+      margin-left: 0;
+    }
+  }
+}
+
+.top-nav{
+  margin: 1.5em 0;
+}
+
+#ajax {
+  border: 1px solid #fff;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+/* FORMS */
+input, textarea, select {
+}
+
+textarea {
+  height: 4em;
+}
+
+#new_todo_list input {
+  //display: block;
+  font-size: 1.5em;
+  //width: 99%;
+}
+
+input[type=submit] {
+  background-image: url('fugue-icons/disk-black.png');
+  background-position: .25em 50%;
+  background-repeat: no-repeat;
+  padding-left: 1.75em;
+}
+/* /FORMS */
+
+.flash-message {
+  //background-color: transparent;
+  background-position: 1em 50%;
+  background-repeat: no-repeat;
+  border-left: 0;
+  border-right: 0;
+  //font-size: 150%;
+  font-weight: bold;
+  left: 0;
+  opacity: 0.95;
+  //padding-left: 3em;
+  padding: 0;
+  position: fixed;
+  text-align: center;
+  //top: 0;
+  top: -2px;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 2px 4px #444;
+}
+
+.flash-message.notice {
+  background-image: url('fugue-icons/information.png');
+}
+
+/* ICONS */
+.icon {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 16px;
+  margin-right: .25em;
+  vertical-align: middle;
+  width: 16px;
+}
+
+a .icon {
+  text-decoration: none;
+}
+
+.icon-facebook {
+  background-image: url('social/facebook.png');
+}
+
+.icon-google {
+  background-image: url('social/google.png');
+}
+
+.icon-home {
+  background-image: url('fugue-icons/home.png');
+}
+
+.icon-user {
+  background-image: url('fugue-icons/user-silhouette.png');
+}
+
+.icon-user-question {
+  background-image: url('fugue-icons/user-silhouette-question.png');
+}
+
+.icon-user-plus {
+  background-image: url('fugue-icons/user--plus.png');
+}
+
+.icon-user-boss {
+  background-image: url('fugue-icons/user-business-boss.png');
+}
+
+.icon-users {
+  background-image: url('fugue-icons/users.png');
+}
+
+.icon-plus {
+  background-image: url('fugue-icons/plus.png');
+}
+
+.icon-plus-circle {
+  background-image: url('fugue-icons/plus-circle.png');
+}
+
+.icon-cross {
+  background-image: url('fugue-icons/cross.png');
+}
+
+.icon-cross-circle {
+  background-image: url('fugue-icons/cross-circle.png');
+}
+
+.icon-cross-small {
+  background-image: url('fugue-icons/cross-small.png');
+}
+
+.icon-pencil {
+  background-image: url('fugue-icons/pencil.png');
+}
+
+.icon-pencil-small {
+  background-image: url('fugue-icons/pencil-small.png');
+}
+
+.icon-slash {
+  background-image: url('fugue-icons/slash.png');
+}
+
+.icon-slash-button {
+  background-image: url('fugue-icons/slash-button.png');
+}
+
+.icon-door-out {
+  background-image: url('fugue-icons/door-open-out.png');
+}
+
+.icon-door-in {
+  background-image: url('fugue-icons/door-open-in.png');
+}
+
+.icon-block {
+  background-image: url('fugue-icons/block.png');
+}
+
+.icon-block-small {
+  background-image: url('fugue-icons/block-small.png');
+}
+
+.icon-block-share {
+  background-image: url('fugue-icons/block-share.png');
+}
+
+.icon-document {
+  background-image: url('fugue-icons/blue-document.png');
+}
+
+.icon-document-plus {
+  background-image: url('fugue-icons/blue-document--plus.png');
+}
+
+.icon-document-list {
+  background-image: url('fugue-icons/blue-document-list.png');
+}
+
+.icon-document-task {
+  background-image: url('fugue-icons/blue-document-task.png');
+}
+
+.icon-tick {
+  background-image: url('fugue-icons/tick.png');
+}
+
+.icon-tick-button {
+  background-image: url('fugue-icons/tick-button.png');
+}
+
+.icon-tick-circle {
+  background-image: url('fugue-icons/tick-circle.png');
+}
+
+.icon-balloon {
+  background-image: url('fugue-icons/balloon-left.png');
+}
+
+.icon-balloon-small {
+  background-image: url('fugue-icons/balloon-small-left.png');
+}
+
+.icon-clock {
+  background-image: url('fugue-icons/clock.png');
+}
+
+.icon-clock-history {
+  background-image: url('fugue-icons/clock-history.png');
+}
+
+.icon-clock-small {
+  background-image: url('fugue-icons/clock-small.png');
+}
+/* /ICONS */
+/* BUTTONS */
+.link-button{
+  background: #f1f1f1;
+  background: -webkit-linear-gradient(top, #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%);
+  background: -moz-linear-gradient(top, #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%);
+  background: linear-gradient(top, #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%);
+  border: 1px solid #d2d2d2;
+  border-radius: 1em;
+  display: inline-block;
+  text-decoration: none;
+  padding: .25em 1em .25em .5em;
+}
+/* /BUTTONS */
+.login-bar {
+  margin: 1.5em 0;
+}
+
+/* UTILS */
+ul.unstyled {
+  list-style: none;
+  padding: 0;
+}
+/* /UTILS */
+/* UI */
+.ui-datepicker {
+  background: #fff;
+  //border: 1px solid;
+  box-shadow: 0em 0em 1em #444;
+  display: none;
+  padding: .5em;
+  .ui-datepicker-prev,
+  .ui-datepicker-next{
+    cursor: pointer;
+  }
+
+  .ui-datepicker-next{
+    float: right;
+  }
+}

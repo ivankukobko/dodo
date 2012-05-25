@@ -1,0 +1,83 @@
+// Place all the styles related to the todo_lists controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#todo-lists{
+  list-style: none;
+  //background: #f1f1f1;
+  //border: 1px solid #d2d2d2;
+  padding: 0;
+  margin: 1em 0;
+  h3, h4, h5{
+    margin: 0;
+  }
+}
+
+.todo-list{
+  margin-bottom: 1em;
+}
+
+
+.todo-list.complete, .todo-item.complete {
+  .title{
+    text-decoration: line-through;
+  }
+}
+
+.todo-item.expired{
+  .title{
+    color: red;
+  }
+}
+
+.todo-list, .todo-item {
+  .actions{
+    display: none;
+  }
+}
+
+.hover, .todo-list:hover, .todo-item:hover{
+  .actions{
+    display: inline-block;
+    a{
+      text-decoration: none;
+    }
+    .new-worklog-form {
+      display: inline;
+      input[type=text]{
+        margin: 0;
+        vertical-align: baseline;
+        width: 4em;
+      }
+    }
+  }
+}
+
+
+
+.is-complete, .title{
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.drag-handle {
+  background: #f1f1f1;
+  border: 1px solid #d2d2d2;
+  cursor: pointer;
+  display: none;
+  height: 1.5em;
+  vertical-align: top;
+  width: 4px;
+}
+
+.sortable {
+  .drag-handle{
+    display: inline-block;
+  }
+}
+
+#todo-list{
+  .item-title{
+    margin-bottom: 0;
+  }
+}

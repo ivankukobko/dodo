@@ -1,0 +1,15 @@
+= form_for [todo_item, worklog], :html => { :class => 'new-worklog-form' } do |f|
+  -#= render :partial => "shared/error_messages", :locals => { :object => todo_item }
+  -#.field
+    -#= f.label :title
+  -#.field
+  = f.text_field :duration, :required => true, :placeholder => 'minutes'
+  -#.field
+    -#= f.label :description
+  -#.field
+    -#= f.text_area :description
+  -#- if todo_list.project
+    -#= f.fields_for :assignee, ( todo_item.assignee || todo_item.build_assignee ) do |a|
+      -#= render :partial => 'assignee_fields', :locals => { :f => a }
+  -#.actions
+  -#= f.submit

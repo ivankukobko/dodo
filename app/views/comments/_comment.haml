@@ -1,0 +1,9 @@
+%article.comment
+  .body= markdown comment.body
+  %hr/
+  .user-bar
+    = link_to comment.user, comment.user
+    \|
+    = l comment.created_at, :format => :long
+    - if comment.user === current_user
+      = link_to 'edit', edit_todo_item_comment_path(comment.todo_item, comment)

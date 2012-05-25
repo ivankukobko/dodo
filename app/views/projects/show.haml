@@ -1,0 +1,37 @@
+= render :partial => 'shared/breadcrumbs', :locals => { :breadcrumb_items => [project] }
+%section#project
+  %h2.item-title
+    = link_to root_url do
+      &larr;
+    = project
+    = link_to project_worklogs_path(project) do
+      %span.icon.icon-clock
+    - if project.collaborators.where(:user_id => current_user).first.is_owner?
+      = link_to edit_project_path(project) do
+        %span.icon.icon-pencil
+      = link_to project_path(project), :method => :delete, :confirm => 'Are you sure?' do
+        %span.icon.icon-cross-circle
+  %hr/
+  .threecol
+    - if project.description
+      .description= markdown project.description
+    %h3 Associates
+    %ul#users
+      = render project.users
+    = link_to new_project_invitation_path(project), :class => 'link-button' do
+      %span.icon.icon-user-plus
+      Invite user
+    - unless project.collaborator(current_user).is_owner?
+      = link_to [project, project.collaborator(current_user) ], :method => :delete, :confirm => 'Are you sure?' do
+        Abandon project
+  .ninecol.last
+    %h3 Todo Lists
+    - if project.todo_lists.any?
+      %ul#todo-lists
+        = render project.todo_lists
+    - else
+      .notice
+        =t :'todo_lists.messages.no_todo_lists_added'
+    = link_to new_project_todo_list_path(project), :class => 'link-button' do
+      %span.icon.icon-document-plus
+      Add todo list
