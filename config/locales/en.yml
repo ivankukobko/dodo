@@ -1,0 +1,104 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+
+  site:
+    copyright: 'Copyleft 2011-2012<br/>Designed and developed by <a href="mailto:admin@dodo.co.ua">Ivan Kukobko</a>'
+    info: 'Dodo is project and task management tool for personal and shared use. Inspired by Basecamp, Todoist and many others. It is in development process and still far from release. '
+    nav:
+      home: 'Dashboard'
+      projects: 'Projects'
+      todo_lists: 'Todo Lists'
+      time_logs: 'Time Logs'
+    email_notifications:
+      registration: 'Welcome to DoDo project!'
+      invitation_to_project: 'You have been invited to project!'
+
+  or: 'or'
+  actions:
+    return: 'go back'
+
+  todo_lists:
+    actions:
+      create:
+        success: 'Todo list was successfully created!'
+      update:
+        success: 'Todo list was successfully updated!'
+    messages:
+      no_todo_lists_added: "Here's no todo lists added at the moment. You can add one by clicking on the link below"
+  todo_items:
+    actions:
+      create:
+        success: 'Todo item was successfully created!'
+      update:
+        success: 'Todo item was successfully updated!'
+      complete:
+        success: 'Task complete!'
+        error: 'Could not complete todo item!'
+      incomplete:
+        success: 'Task incomplete!'
+        error: 'Could not incomplete todo item!'
+    messages:
+      no_todo_items_added: "Here's no todo items added at the moment. You can add one by clicking on the link below"
+
+  projects:
+    actions:
+      create:
+        success: 'Project was successfully created!'
+      update:
+        success: 'Project was successfully updated!'
+      destroy:
+        success: 'Project was deleted!'
+    messages:
+      no_todo_items_added: "Here's no todo items added at the moment. You can add one by clicking on the link below"
+
+  users:
+    create:
+      success: 'User has been successfully created!'
+
+  sessions:
+    create:
+      success: 'Successfully logged in!'
+      error: "Couldn\'t log in. Check you email/password combination"
+    destroy:
+      success: 'Logged out, bye!'
+
+  home:
+    titles:
+      your_projects: 'Your projects'
+      your_todo_lists: 'Your private todo lists'
+      events: 'Your recent events'
+      invites: "You've been invited to these projects"
+      co_workers: 'Your associates'
+
+  helpers:
+    submit:
+      create: "Create a %{model}"
+      update: "Confirm changes to %{model}"
+    placeholder:
+      project:
+        name: 'Name of new project...'
+      todo_list:
+        title: 'Name of new list...'
+      collaborator:
+        email: 'E-mail...'
+
+  activerecord:
+    models:
+      user: "user"
+      todo_list: "todo list"
+      todo_item: "todo item"
+    attributes:
+      todo_list:
+        title: 'The name of the list'
+        description: 'Description'
+      todo_item:
+        title: 'Title'
+        description: 'Description'
+      user:
+        name: "Name"
+        nickname: "Nickname"
+        email: "E-Mail"
+
+

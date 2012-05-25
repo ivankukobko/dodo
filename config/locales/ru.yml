@@ -1,0 +1,105 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+ru:
+
+  site:
+    copyright: 'Copyleft 2011-2012<br/>Дизайн и разработка &mdash; <a href="mailto:admin@dodo.co.ua">Иван Кукобко</a>'
+    info: 'Dodo &mdash; инструмент для персональной или совместной работы над задачами и проектами. Навеян такими проектами как Basecamp, Todoist многими другими. Он находится на этапе активной разработки и все еще далек от завершения.'
+    nav:
+      home: 'Панель управления'
+      projects: 'Проекты'
+      todo_lists: 'Списки задач'
+      time_logs: 'Отчеты'
+    email_notifications:
+      registration: 'Добро пожаловать в проект DoDo!'
+      invitation_to_project: 'Вас пригласили для работы над проектом!'
+
+  or: 'или'
+  actions:
+    return: 'вернуться'
+
+  todo_lists:
+    actions:
+      create:
+        success: 'Список задач успешно создан!'
+      update:
+        success: 'Список задач успешно сохранен!'
+    messages:
+      no_todo_lists_added: "Вы еще не создавали списков задач. Добавьте новый список, щелкнув ниже по ссылке"
+  todo_items:
+    actions:
+      create:
+        success: 'Задача успешно создана!'
+      update:
+        success: 'Задача успешно сохранена!'
+      complete:
+        success: 'Задача выполнена!'
+        error: 'Ошибка при закрытии задачи!'
+      incomplete:
+        success: 'Задача переоткрыта!'
+        error: 'Ошибка при переоткрытии задачи!'
+    messages:
+      no_todo_items_added: "В этом списке нет задач. Вы можете добавить задачу, щелкнув по ссылке ниже"
+
+  projects:
+    actions:
+      create:
+        success: 'Проект успешно создан!'
+      update:
+        success: 'Проект успешно сохранен!'
+      destroy:
+        success: 'Проект удален!'
+    messages:
+      no_todo_items_added: "В этом списке нет проектов. Добавьте новый проект, щелкнув по ссылке ниже"
+
+  users:
+    create:
+      success: 'Учетная запись пользователя создан!'
+
+  sessions:
+    create:
+      success: 'Вход успешно выполнен!'
+      error: "Ошибка авторизации! Проверьте Ваш логин/пароль"
+    destroy:
+      success: 'Вы вышли! До встречи'
+
+  home:
+    titles:
+      your_projects: 'Ваши проекты'
+      your_todo_lists: 'Ваши личные списки задач'
+      events: 'Недавние события'
+      invites: "Вас пригласили в проекты"
+      co_workers: 'Ваши соратники'
+
+  helpers:
+    submit:
+      create: "Создать %{model}"
+      update: "Сохранить изменения в %{model}"
+    placeholder:
+      project:
+        name: 'Название проекта...'
+      todo_list:
+        title: 'Название списка...'
+      collaborator:
+        email: 'эл. почта пользователя...'
+
+  activerecord:
+    models:
+      user: "Пользователь"
+      todo_list: "Список задач"
+      todo_item: "Задача"
+    attributes:
+      todo_list:
+        title: 'Название списка задач'
+        description: 'Подробное описание'
+      todo_item:
+        title: 'Заголовок'
+        description: 'Подробное описание'
+      user:
+        name: "Имя"
+        nickname: "ник"
+        email: "эл. почта"
+        password: 'пароль'
+
+
