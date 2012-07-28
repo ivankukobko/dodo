@@ -2,23 +2,11 @@ class InfoPagesController < ApplicationController
   def index
   end
 
-  def new
-  end
-
   def show
   end
 
-  def create
-  end
-
-  def update
-  end
-
-  def destroy
-  end
-
   def info_pages
-    @info_pages ||= InfoPage.all
+    @info_pages ||= InfoPage.roots
   end
   helper_method :info_pages
 

@@ -2,13 +2,13 @@ Dodo::Application.routes.draw do
 
   root :to => "home#index"
 
-  resources :help, :controller => 'InfoPages'
+  resources :help, :controller => 'InfoPages', :only => [ :index, :show ]
   resources :worklogs
 
   resources :sessions, :only => [:new, :create]
-  match '/logout' => 'sessions#destroy', :as => :logout
-  match '/auth/:provider/callback', :to => 'sessions#create'
-  match '/auth/failure', :to => 'sessions#failure'
+  get '/logout' => 'sessions#destroy', :as => :logout
+  get '/auth/:provider/callback', :to => 'sessions#create'
+  get '/auth/failure', :to => 'sessions#failure'
 
 
   resources :users
