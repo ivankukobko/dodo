@@ -16,6 +16,7 @@ end
 gem 'json'
 gem 'haml'
 gem 'jquery-rails'
+gem 'backbone-on-rails'
 
 gem 'bcrypt-ruby', :require => 'bcrypt'
 

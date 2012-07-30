@@ -1,1 +1,1 @@
-rvm ruby-1.9.3-p0@dodo --create
+rvm ruby-1.9.3@dodo --create
