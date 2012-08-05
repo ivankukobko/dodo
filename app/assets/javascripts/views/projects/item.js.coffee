@@ -17,5 +17,5 @@ class Dodo.Views.ProjectItem extends Backbone.View
   showDetails: (event) ->
     event.preventDefault()
     id = @model.get('id')
-    #Dodo.projects_router.navigate "projects/#{id}", trigger: true
-    new Dodo.Views.ProjectShow(model: @model)
+    Dodo.projects_router.navigate "projects/#{id}", trigger: true
+    #new Dodo.Views.ProjectShow(model: @model)
