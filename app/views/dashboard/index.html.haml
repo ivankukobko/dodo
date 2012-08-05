@@ -1,0 +1,8 @@
+#dashboard
+  %aside
+    #aside-inner{:data => { :projects => projects.to_json(:only => [:id, :name, :description], :methods => [:todo_lists, :todo_items]) }}
+      Loading...
+
+  #views
+    #views-inner
+

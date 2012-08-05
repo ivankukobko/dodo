@@ -1,6 +1,7 @@
 Dodo::Application.routes.draw do
 
-  root :to => "home#index"
+  #root :to => "home#index"
+  root :to => "dashboard#index"
 
   resources :help, :controller => 'InfoPages', :only => [ :index, :show ]
   resources :worklogs

@@ -1,0 +1,43 @@
+!!!
+/[if lt IE 7] <html lang="en" class="no-js ie6">
+/[if IE 7 ]    <html lang="en" class="no-js ie7">
+/[if IE 8 ]    <html lang="en" class="no-js ie8">
+/[if IE 9 ]    <html lang="en" class="no-js ie9">
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+%head
+  %meta{:charset => "utf-8"}/
+  / Always force latest IE rendering engine (even in intranet) &amp; Chrome Frame
+  %meta{"http-equiv"=>"X-UA-Compatible", :content=>"IE=edge,chrome=1"}
+  %title= 'Dodolist'
+  %meta{:content => "", :name => "description"}/
+  %meta{:content => "", :name => "author"}/
+  / Mobile viewport optimized: j.mp/bplateviewport
+  %meta{:name => "viewport", :content => "width=device-width; initial-scale=1.0; maximum-scale=1.0;"}/
+  %meta{:name=>"google-site-verification", :content=>"2MbWrv9nBu8op4F60ZppKIIu2kFA1irO21WW5vbUHYE"}/
+  / Place favicon.ico and apple-touch-icon.png in the root of your domain and delete these references
+  %link{:href => "/favicon.ico", :rel => "shortcut icon" }/
+  %link{:href => "/apple-touch-icon.png", :rel => "apple-touch-icon"}/
+
+  = stylesheet_link_tag 'application'
+  /[if IE]
+    %script{ :src => "http://html5shiv.googlecode.com/svn/trunk/html5.js" }
+  = csrf_meta_tags
+%body.dashboard
+  #page
+    .flash= render 'shared/flash_messages'
+    %header
+      .container
+        .row
+          .threecol
+            %h1#logo
+              = link_to 'Dodo', root_url
+              #beta-sign βετα
+          .fivecol
+          .fourcol.last
+            .login-bar= render 'shared/login_bar'
+    #main
+      = yield
+  = image_tag 'ajax.gif', :id => 'ajax', :style => 'display: none;'
+
+  = javascript_include_tag 'application'
+  = render 'shared/analytics'

@@ -1,0 +1,67 @@
+// Place all the styles related to the dashboard controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body.dashboard {
+  #main{
+    overflow: hidden;
+    padding: 0;
+  }
+}
+#dashboard{
+  background: #f1f1f1;
+  aside, #views{
+    float: left;
+    min-height: 5em;
+  }
+  aside{
+    width: 30%;
+
+    #aside-inner{
+      ul{
+        margin: 0;
+        padding: 0;
+
+        li{
+          border-bottom: 1px solid #d1d1d1;
+          border-top: 1px solid #fff;
+          cursor: pointer;
+
+          a{
+            color: #000;
+            display: block;
+            font-weight: bold;
+            padding: 1em;
+            text-shadow: 1px 1px #fff;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+  #views{
+    background: #f8f8f8;
+    box-shadow: 0 0 8px #444;
+    width: 70%;
+
+    #views-inner{
+      min-height: 300px;
+      padding: 1em;
+
+      #project-details{
+        .todo_lists > ul > li {
+          border: 1px solid;
+        }
+        .todo_items{
+          margin-bottom: 1em;
+        }
+      }
+    }
+  }
+}
+#dashboard:after{
+  clear: both;
+  content: '';
+  display: block;
+  height: 0px;
+  overflow: hidden;
+}

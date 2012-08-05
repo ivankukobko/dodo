@@ -1,0 +1,8 @@
+<div id="project-details">
+    <h2><%= @model.get('name') %></h2>
+    <div class="description">
+        <%= @model.get('description') %>
+    </div>
+    <div class="todo_lists">
+    </div>
+</div>

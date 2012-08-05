@@ -1,0 +1,9 @@
+%footer.container
+  .row
+    .threecol
+      = raw(t :'site.copyright')
+    .sixcol
+      = raw(t :'site.info')
+    .threecol.last
+      = render_cell :help_link, :display
+      (:
