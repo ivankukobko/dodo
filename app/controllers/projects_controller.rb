@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       format.html{}
       format.json{
-        render :json => projects.as_json(:only => [:id, :name, :description], :methods => [:todo_lists, :todo_items])
+        render :json => projects.as_json()
       }
     end
   end

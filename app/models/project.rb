@@ -12,9 +12,12 @@ class Project < ActiveRecord::Base
     name
   end
 
-  #def assign_owner
-    ##collaborators.first.update_attributes( :accepted_at => time.now.utc )
-  #end
+  def as_json options={}
+    super(
+      :only => [:id, :name, :description],
+      :include => [:todo_lists, :todo_items]
+    )
+  end
 
   def collaborator user
     collaborators.find_by_user_id user.id

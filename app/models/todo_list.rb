@@ -11,6 +11,13 @@ class TodoList < ActiveRecord::Base
     title
   end
 
+  def as_json options={}
+    super(
+      :only => [:id, :title, :description],
+      :include => [:todo_items]
+    )
+  end
+
   def is_complete?
     todo_items.count > 0 &&
       ( todo_items.complete.count == todo_items.count )
