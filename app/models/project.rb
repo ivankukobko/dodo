@@ -15,7 +15,9 @@ class Project < ActiveRecord::Base
   def as_json options={}
     super(
       :only => [:id, :name, :description],
-      :include => [:todo_lists, :todo_items]
+      :include => [
+        :todo_lists => { :include => :todo_items }
+      ]
     )
   end
 

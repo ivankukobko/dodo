@@ -13,9 +13,8 @@ class Dodo.Views.ProjectShow extends Backbone.View
     this
 
   appendTodoLists: ->
-    view = new Dodo.Views.TodoListsIndex(
-      el: '.todo_lists'
+    todoListsView = new Dodo.Views.TodoListsIndex(
       collection: @model.todoLists()
     )
-    view.render()
+    $('.todo_lists', @el).append(todoListsView.el)
     this

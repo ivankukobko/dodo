@@ -8,7 +8,6 @@ body.dashboard {
   }
 }
 #dashboard{
-  /*background: #f1f1f1;*/
   background: #fcfcfc;
   aside, #views{
     float: left;
@@ -28,12 +27,9 @@ body.dashboard {
           cursor: pointer;
 
           a{
-            /*color: #555;*/
             display: block;
             font-weight: normal;
             padding: 1em;
-            /*text-shadow: 1px 1px 0 #fff;*/
-            /*text-decoration: none;*/
           }
         }
       }
@@ -41,7 +37,7 @@ body.dashboard {
   }
   #views{
     background: #f8f8f8;
-    box-shadow: 0 0 8px #444;
+    box-shadow: 0 0 8px #555;
     width: 70%;
 
     #views-inner{
@@ -49,12 +45,20 @@ body.dashboard {
       padding: 1em;
 
       #project-details{
-        .todo_lists > ul > li {
-          border: 1px solid;
+        .todo_lists{
+          background: #fefefe;
+          border: 1px solid #f3f3f3;
+          padding: 1em;
         }
         .todo_items{
           margin-bottom: 1em;
         }
+      }
+
+      .todo-lists-list{
+        list-style: none;
+        margin: 0 0 1em 0;
+        padding: 0;
       }
     }
   }

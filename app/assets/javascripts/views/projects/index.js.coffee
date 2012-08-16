@@ -4,8 +4,7 @@ class Dodo.Views.ProjectsIndex extends Backbone.View
   template: JST['projects/index']
 
   initialize: ->
-    #@collection.fetch()
-    #@collection.bind('reset', @render, @)
+    @collection.bind('reset', @render, @)
     @render()
 
   render: ->

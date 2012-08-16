@@ -12,5 +12,5 @@ class Dodo.Views.TodoListItem extends Backbone.View
     todoItemsView = new Dodo.Views.TodoItemsIndex(
       collection: @model.todoItems()
     )
-    $('.todo_items', @el).append(todoItemsView.el)
+    $('.todo_items', @el).html(todoItemsView.el)
     this

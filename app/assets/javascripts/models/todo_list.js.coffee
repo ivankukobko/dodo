@@ -6,7 +6,5 @@ class Dodo.Models.TodoList extends Backbone.Model
 
   todoItems: ->
     new Dodo.Collections.TodoItems(
-      new Dodo.Collections.TodoItems(
-        @project().get('todo_items')
-      ).where('todo_list_id': @get('id'))
+      @get('todo_items')
     )

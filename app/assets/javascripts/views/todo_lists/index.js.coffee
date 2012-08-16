@@ -1,7 +1,11 @@
 class Dodo.Views.TodoListsIndex extends Backbone.View
 
   tagName: 'ul'
+  className: 'todo-lists-list'
   template: JST['todo_lists/index']
+
+  initialize: ->
+    @render()
 
   render: ->
     $(@el).html(@template())
@@ -10,5 +14,5 @@ class Dodo.Views.TodoListsIndex extends Backbone.View
 
   appendItem: (item) =>
     view = new Dodo.Views.TodoListItem(model: item)
-    $(@el).append(view.el)
+    @$el.append(view.el)
     this
