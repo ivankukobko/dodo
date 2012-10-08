@@ -9,7 +9,7 @@ class TodoItem < ActiveRecord::Base
   scope :complete,   :conditions => { :is_complete => true }
   scope :incomplete, :conditions => { :is_complete => false }
 
-  has_paper_trail
+  #has_paper_trail
 
   def to_s
     title

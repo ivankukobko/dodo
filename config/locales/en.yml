@@ -9,7 +9,7 @@ en:
     nav:
       home: 'Dashboard'
       projects: 'Projects'
-      todo_lists: 'Todo Lists'
+      todo_lists: 'Private Todo Lists'
       time_logs: 'Time Logs'
     email_notifications:
       registration: 'Welcome to DoDo project!'

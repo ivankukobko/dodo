@@ -13,8 +13,10 @@ describe HomeController do
 
   context "Authorized user" do
     describe "GET" do
-      user = FactoryGirl.create(:user, email: 'che@guevara.com', password: '111')
-      sign_in user.email, user.password
+      user = FactoryGirl.create(:user)
+      #sign_in user.email, user.password
+      request.session[:user_id] = user.id
+
       get :index
       response.should be_success
     end

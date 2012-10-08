@@ -6,7 +6,7 @@ class Project < ActiveRecord::Base
   has_many :invitations, :dependent => :destroy
   has_many :worklogs, :through => :todo_items
 
-  has_paper_trail
+  #has_paper_trail
 
   def to_s
     name
@@ -19,6 +19,10 @@ class Project < ActiveRecord::Base
         :todo_lists => { :include => :todo_items }
       ]
     )
+  end
+
+  def to_param
+    "#{id}-#{Russian::transliterate(name).parameterize}"
   end
 
   def collaborator user

@@ -37,5 +37,5 @@ Dodo::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-  config.log_tags = [:uuid, :remote_ip]
+  #config.log_tags = [:uuid, :remote_ip]
 end

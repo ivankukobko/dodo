@@ -1,13 +1,8 @@
-- if current_user
-  = link_to root_url do
-    %span.icon.icon-home
-    Dashboard
-  - if breadcrumb_items
-    - for item in breadcrumb_items do
-      \/
-      = link_to item, item
-  %hr
-  -#- if todo_list
-    -#- if !todo_list.new_record?
-      -#&raquo;
-      -#= link_to todo_list.title, todo_list_path(todo_list)
+= link_to root_url do
+  %span.icon.icon-home
+  = t(:'site.nav.home')
+- if breadcrumb_items
+  - for item in breadcrumb_items do
+    \/
+    = link_to item, item
+%hr

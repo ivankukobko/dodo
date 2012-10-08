@@ -57,7 +57,7 @@ class User < ActiveRecord::Base
   end
 
   def name
-    self[:name] || self[:email]
+    self[:name].blank? ? self[:email].split('@')[0].capitalize : self[:name]
   end
 
   def administrator?

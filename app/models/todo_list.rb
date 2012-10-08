@@ -5,7 +5,7 @@ class TodoList < ActiveRecord::Base
 
   scope :unattached, :conditions => { :project_id => nil }
 
-  has_paper_trail
+  #has_paper_trail
 
   def to_s
     title
@@ -18,6 +18,10 @@ class TodoList < ActiveRecord::Base
     )
   end
 
+  def to_param
+    "#{id}-#{Russian::transliterate(title).parameterize}"
+  end
+
   def is_complete?
     todo_items.count > 0 &&
       ( todo_items.complete.count == todo_items.count )
@@ -25,6 +29,10 @@ class TodoList < ActiveRecord::Base
 
   def is_unattached?
     !!project.nil?
+  end
+
+  def assignee
+    self.assignee || build_assignee
   end
 
 end

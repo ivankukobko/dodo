@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.3'
+gem 'rails', '3.2.8'
 gem 'mysql2'
 gem 'heroku'
 
@@ -36,6 +36,7 @@ gem 'russian'
 gem 'ukrainian', :git => 'git://github.com/ivankukobko/ukrainian.git'
 
 gem 'cells'
+gem 'inherited_resources'
 
 group :development, :test do
   gem 'rspec-rails'
