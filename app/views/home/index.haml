@@ -5,7 +5,7 @@
     = render projects
   = link_to new_project_path, :class => 'link-button' do
     %span.icon.icon-plus-circle
-    Add new project
+    = t(:'home.links.add_project')
   -if current_user.invitations.any?
     %h3= t :'home.titles.invites'
     %ul#invitations
@@ -20,7 +20,7 @@
       =t :'todo_lists.messages.no_todo_lists_added'
   = link_to new_todo_list_path, :class => 'link-button' do
     %span.icon.icon-document-plus
-    Add new todo list
+    = t(:'home.links.add_todo_list')
 -#.threecol.last
   -#%h2= t :'home.titles.events'
   -#-if current_user.invitations.any?

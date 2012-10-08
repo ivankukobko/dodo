@@ -24,7 +24,7 @@ Dodo::Application.routes.draw do
   end
 
   resources :projects do
-    resources :todo_lists
+    resources :todo_lists, :path => 'lists'
     resources :collaborators, :only => [ :create, :update, :destroy ]
     resources :invitations, :only => [ :new, :create, :destroy ] do
       member do
@@ -34,7 +34,7 @@ Dodo::Application.routes.draw do
     resources :worklogs
   end
 
-  resources :todo_items do
+  resources :todo_items, :path => 'tasks' do
     member do
       get :complete
       get :incomplete
@@ -46,8 +46,8 @@ Dodo::Application.routes.draw do
     resources :worklogs
   end
 
-  resources :todo_lists do
-    resources :todo_items do
+  resources :todo_lists, :path => 'lists' do
+    resources :todo_items, :path => 'tasks' do
       collection do
         post :sort
       end

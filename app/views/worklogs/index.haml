@@ -6,12 +6,12 @@
       %th Task
       %th List
       %th Project
-      %th{ :width => '100'} User
-      %th{ :width => '100'} Actions
+      %th{ :width => '120'} User
+      %th{ :width => '60'} Actions
   - for worklog in worklogs do
     %tr
       %td= l worklog.log_date, :format => :short
-      %td= minutes_to_units worklog.duration
+      %td= worklog.duration_human
       %td= link_to(worklog.todo_item, worklog.todo_item)
       %td= link_to(worklog.todo_item.todo_list, worklog.todo_item.todo_list) if worklog.todo_item
       %td= link_to(worklog.todo_item.todo_list.project, worklog.todo_item.todo_list.project) if (worklog.todo_item && worklog.todo_item.todo_list.project)

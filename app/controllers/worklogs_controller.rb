@@ -3,9 +3,6 @@ class WorklogsController < ApplicationController
   def index
   end
 
-  def new
-  end
-
   def create
     if worklog.save
       respond_to do |format|
@@ -62,9 +59,9 @@ class WorklogsController < ApplicationController
     @worklog ||= if params[:id]
       current_user.worklogs.find params[:id]
     elsif todo_item
-      params[:worklog][:user_id] = current_user.id
+      params[:worklog][:todo_item_id] = todo_item.id
       params[:worklog][:log_date] = Time.now
-      todo_item.worklogs.build params[:worklog]
+      current_user.worklogs.build params[:worklog]
     end
   end
 

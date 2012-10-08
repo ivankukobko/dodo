@@ -31,8 +31,4 @@ class TodoList < ActiveRecord::Base
     !!project.nil?
   end
 
-  def assignee
-    self.assignee || build_assignee
-  end
-
 end

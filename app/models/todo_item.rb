@@ -31,4 +31,5 @@ class TodoItem < ActiveRecord::Base
       due_date < (Time.now - 1.days)
     end
   end
+
 end
