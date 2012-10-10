@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120125092136) do
+ActiveRecord::Schema.define(:version => 20121010131129) do
 
   create_table "administrators", :force => true do |t|
     t.integer  "user_id"
@@ -147,8 +147,9 @@ ActiveRecord::Schema.define(:version => 20120125092136) do
     t.integer  "todo_item_id"
     t.date     "log_date"
     t.integer  "duration"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.boolean  "is_billed",    :default => false
   end
 
   add_index "worklogs", ["todo_item_id"], :name => "index_worklogs_on_todo_item_id"

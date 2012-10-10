@@ -30,6 +30,20 @@ class WorklogsController < ApplicationController
     redirect_to 'index'
   end
 
+  def bill
+    worklog.is_billed = true
+    worklog.save
+    redirect_to :back
+  end
+
+  def unbill
+    worklog.is_billed = false
+    worklog.save
+    redirect_to :back
+  end
+
+private
+
   # get worklogs for current_project or current_user
   def worklogs
     @worklogs ||= if todo_item

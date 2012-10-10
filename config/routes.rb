@@ -4,7 +4,12 @@ Dodo::Application.routes.draw do
   #root :to => "dashboard#index"
 
   resources :help, :controller => 'InfoPages', :only => [ :index, :show ]
-  resources :worklogs
+  resources :worklogs do
+    member do
+      get 'bill'
+      get 'unbill'
+    end
+  end
 
   resources :sessions, :only => [:new, :create]
   get '/logout' => 'sessions#destroy', :as => :logout
