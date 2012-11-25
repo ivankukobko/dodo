@@ -65,7 +65,7 @@ Dodo::Application.routes.draw do
   end
 
   namespace :admin do
-    resources :help, :controller => :info_pages
+    resources :info_pages, :path => 'help'
   end
 
 

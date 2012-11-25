@@ -13,8 +13,6 @@ class InfoPagesController < ApplicationController
   def info_page
     @info_page ||= if params[:id]
       InfoPage.find_by_permalink params[:id]
-    else
-      InfoPage.new params[:info_page]
     end
   end
   helper_method :info_page

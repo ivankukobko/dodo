@@ -1,0 +1,11 @@
+%header
+  .container
+    .row
+      .threecol
+        %h1#logo
+          = link_to 'Dodo', root_url
+          #beta-sign βετα
+      .fivecol
+        %nav.top-nav= render 'shared/top_nav'
+      .fourcol.last
+        .login-bar= render 'shared/login_bar'

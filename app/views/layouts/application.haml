@@ -26,36 +26,14 @@
 %body
   #page
     .flash= render 'shared/flash_messages'
-    %header
-      .container
-        .row
-          .threecol
-            %h1#logo
-              = link_to 'Dodo', root_url
-              #beta-sign βετα
-          .fivecol
-            %nav.top-nav= render 'shared/top_nav'
-          .fourcol.last
-            .login-bar= render 'shared/login_bar'
+    = render 'shared/header'
     #main
       .container
         #content.row
           = yield
-    %footer.container
-      .row
-        .threecol
-          = raw(t :'site.copyright')
-        .sixcol
-          = raw(t :'site.info')
-        .threecol.last
-          = render_cell :help_link, :display
-          -#- unless help_links.empty?
-            -#%ul.unstyled
-              -#- for page in help_links do
-                -#%li= link_to page, help_path(page)
-          (:
+
+    = render 'shared/footer'
   = image_tag 'ajax.gif', :id => 'ajax', :style => 'display: none;'
 
-  -#= render 'shared/templates'
   = javascript_include_tag 'application'
   = render 'shared/analytics'
