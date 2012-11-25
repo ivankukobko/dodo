@@ -5,5 +5,7 @@
     = link_to comment.user, comment.user
     \|
     = l comment.created_at, :format => :long
+    - if comment.created_at < comment.updated_at
+      (Updated #{l comment.updated_at, :format => :long})
     - if comment.user === current_user
       = link_to 'edit', edit_todo_item_comment_path(comment.todo_item, comment)
