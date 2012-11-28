@@ -11,6 +11,9 @@ group :assets do
   gem 'sass-rails', "~> 3.2"
   gem 'coffee-rails', "~> 3.2"
   gem 'uglifier'
+
+  gem 'compass-rails'
+  gem 'zurb-foundation'
 end
 
 gem 'json'

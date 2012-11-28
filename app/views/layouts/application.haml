@@ -28,9 +28,8 @@
     .flash= render 'shared/flash_messages'
     = render 'shared/header'
     #main
-      .container
-        #content.row
-          = yield
+      #content.row
+        = yield
 
     = render 'shared/footer'
   = image_tag 'ajax.gif', :id => 'ajax', :style => 'display: none;'

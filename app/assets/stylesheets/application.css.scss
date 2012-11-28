@@ -2,23 +2,25 @@
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
- *= require blueprint/src/reset
- *= require blueprint/src/typography
- *= require blueprint/src/forms
- *= require 1140cssgrid/1140.css
- * require dodo/typography
- * require dodo/utils
  *= require_self
  *= require_tree .
 */
 
+@import 'foundation';
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
 body {
   background: #f8f8f8;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5, h6{
-  font-family: 'Georgia', serif;
+h1, h2, h3, h4{
   font-weight: normal;
+}
+
+h5, h6{
+  font-weight: bold;
 }
 
 hr{
@@ -36,7 +38,7 @@ header {
     font-size: 5em;
     font-weight: normal;
     letter-spacing: -0.2em;
-    margin-bottom: 0;
+    margin: 0;
     position: relative;
     text-shadow: 0 -2px 1px #777;
     text-transform: uppercase;
@@ -113,25 +115,23 @@ nav{
   top: 0;
 }
 /* FORMS */
-input, textarea, select {
-}
 
 textarea {
   height: 4em;
 }
 
-#new_todo_list input {
-  //display: block;
-  font-size: 1.5em;
-  //width: 99%;
-}
+/*#new_todo_list input {*/
+  /*//display: block;*/
+  /*font-size: 1.5em;*/
+  /*//width: 99%;*/
+/*}*/
 
-input[type=submit] {
-  background-image: url('fugue-icons/disk-black.png');
-  background-position: .25em 50%;
-  background-repeat: no-repeat;
-  padding-left: 1.75em;
-}
+/*input[type=submit] {*/
+  /*background-image: url('fugue-icons/disk-black.png');*/
+  /*background-position: .25em 50%;*/
+  /*background-repeat: no-repeat;*/
+  /*padding-left: 1.75em;*/
+/*}*/
 /* /FORMS */
 
 .flash-message {

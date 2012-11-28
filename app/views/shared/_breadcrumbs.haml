@@ -1,8 +1,8 @@
-= link_to root_url do
-  %span.icon.icon-home
-  = t(:'site.nav.home')
-- if breadcrumb_items
-  - for item in breadcrumb_items do
-    \/
-    = link_to item, item
-%hr
+%ul.breadcrumbs
+  %li
+    = link_to root_url do
+      %span.icon.icon-home
+      = t(:'site.nav.home')
+  - if breadcrumb_items
+    - for item in breadcrumb_items do
+      %li= link_to item, item

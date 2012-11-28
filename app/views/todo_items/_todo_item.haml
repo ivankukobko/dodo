@@ -3,7 +3,7 @@
   .is-complete
     = form_for [todo_item.todo_list, todo_item] do |f|
       = f.check_box :is_complete
-  %h4.title= todo_item.title
+  %h6.title= todo_item.title
   - if todo_item.assignee
     %span.assignee
       %span.icon.icon-user

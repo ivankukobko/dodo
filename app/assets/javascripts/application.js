@@ -9,6 +9,7 @@
 //= require jquery-ui
 //= require underscore
 //= require backbone
+//= require foundation
 //
 //= require .//dodo
 //

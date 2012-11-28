@@ -4,8 +4,6 @@
 
 #todo-lists{
   list-style: none;
-  //background: #f1f1f1;
-  //border: 1px solid #d2d2d2;
   padding: 0;
   margin: 1em 0;
   h3, h4, h5{
@@ -45,9 +43,10 @@
     .new-worklog-form {
       display: inline;
       input[type=text]{
+        display: inline-block;
         margin: 0;
         vertical-align: baseline;
-        width: 4em;
+        width: 5em;
       }
     }
   }
@@ -57,7 +56,7 @@
 
 .is-complete, .title{
   display: inline-block;
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .drag-handle {

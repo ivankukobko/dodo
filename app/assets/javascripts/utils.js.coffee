@@ -44,7 +44,7 @@ jQuery ->
       sortedItems = $(self).sortable('serialize', { key: 'todo-item[]' })
       console.log(sortedItems)
       $.ajax(
-        url : '/todo_items/sort',
+        url : '/tasks/sort',
         type: 'post',
         dataType: 'script',
         data : sortedItems,

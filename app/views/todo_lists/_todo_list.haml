@@ -1,6 +1,6 @@
 %li
   %article{ :class => "todo-list #{'complete' if todo_list.is_complete?}" }
-    %h3.title
+    %h5.title
       = link_to [todo_list.project, todo_list] do
         - if todo_list.is_complete?
           %span.icon.icon-document-task

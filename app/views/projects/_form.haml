@@ -5,4 +5,6 @@
   .field
     = f.text_area :description, :placeholder => :description
   .actions
-    = f.submit
+    = f.submit class: 'button'
+    = t(:'or')
+    = link_to 'Return', project
