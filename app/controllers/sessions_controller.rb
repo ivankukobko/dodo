@@ -2,8 +2,7 @@ class SessionsController < ApplicationController
 
   skip_before_filter :require_authentication
 
-  def new
-  end
+  def new; end
 
   def create
     # Login through authentication form
