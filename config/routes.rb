@@ -2,6 +2,7 @@ Dodo::Application.routes.draw do
 
   root :to => "home#index"
   #root :to => "dashboard#index"
+  get '/dahboard' => 'dashboard#index'
 
   resources :help, :controller => 'InfoPages', :only => [ :index, :show ]
   resources :worklogs do
@@ -19,8 +20,8 @@ Dodo::Application.routes.draw do
 
 
   resources :users
-  match 'me' => 'users#me', :as => :me
-  match 'me/edit' => 'users#edit', :as => :edit_me
+  get '/me' => 'users#me', :as => :me
+  get '/me/edit' => 'users#edit', :as => :edit_me
   resources :authentications, :only => [ :create, :destroy ]
 
   resources :invitations do

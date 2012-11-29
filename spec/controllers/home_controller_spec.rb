@@ -13,12 +13,12 @@ describe HomeController do
 
   context "Authorized user" do
     describe "GET" do
-      user = FactoryGirl.create(:user)
-      #sign_in user.email, user.password
-      request.session[:user_id] = user.id
-
-      get :index
-      response.should be_success
+      it 'show home page for authorized user' do
+        user = create(:user)
+        request.session[:user_id] = user.id
+        get :index
+        response.should be_success
+      end
     end
   end
 
