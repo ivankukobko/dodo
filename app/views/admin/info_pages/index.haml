@@ -1,6 +1,6 @@
 - for page in info_pages do
   %li
     = link_to page, help_path(page)
-    = link_to '[=]', edit_admin_help_path(page)
-    = link_to '[x]', admin_help_path(page), :confirm => 'Are you sure?', :method => :delete
-= link_to 'Add info page', new_admin_help_path
+    = link_to '[=]', [:edit, :admin, page]
+    = link_to '[x]', admin_info_page_path(page), :confirm => 'Are you sure?', :method => :delete
+= link_to 'Add info page', [:new, :admin, :info_page]

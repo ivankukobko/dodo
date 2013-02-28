@@ -1,10 +1,11 @@
 %header
-  .row
-    .three.columns
-      %h1#logo
-        = link_to 'Dodo', root_url
-        #beta-sign βετα
-    .five.columns
-      %nav.top-nav= render 'shared/top_nav'
-    .four.columns.last
-      .login-bar= render 'shared/login_bar'
+  .container
+    .row
+      .span3
+        %h1#logo
+          = link_to 'Dodo', root_url
+          #beta-sign βετα
+      .span5
+        %nav.top-nav= render 'shared/top_nav'
+      .span4
+        .login-bar= render 'shared/login_bar'

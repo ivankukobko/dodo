@@ -3,7 +3,7 @@
     = link_to user do
       -if !project.nil?
         - if user.is_owner?(project)
-          %span.icon.icon-user-boss
+          %span.icon.icon-user
         - elsif user.accepted_project?(project)
           %span.icon.icon-user
         - else

@@ -1,9 +1,10 @@
 %footer
-  .row
-    .three.columns
-      = raw(t :'site.copyright')
-    .six.columns
-      = raw(t :'site.info')
-    .three.columns
-      = render_cell :help_link, :display
-      (:
+  .container
+    .row
+      .span4
+        = raw(t :'site.copyright')
+      .span4
+        = raw(t :'site.info')
+      .span4
+        = render_cell :help_link, :display
+        (:
