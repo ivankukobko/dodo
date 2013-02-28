@@ -12,8 +12,9 @@ group :assets do
   gem 'coffee-rails', "~> 3.2"
   gem 'uglifier'
 
-  gem 'compass-rails'
-  gem 'zurb-foundation'
+  #gem 'compass-rails'
+  gem 'less-rails'
+  gem 'twitter-bootstrap-rails'
 end
 
 gem 'json'
