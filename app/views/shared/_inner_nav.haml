@@ -1,0 +1,10 @@
+%ul.side-nav{ :id => 'projects' }
+  = render projects
+  %li.divider
+  %li
+    = link_to 'Private todo lists', todo_lists_url
+  %li.divider
+  %li
+    = link_to new_project_path, :class => '' do
+      %span.foundicon-plus
+      Start new project

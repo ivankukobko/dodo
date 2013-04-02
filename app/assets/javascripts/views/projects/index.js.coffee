@@ -17,4 +17,3 @@ class Dodo.Views.ProjectsIndex extends Backbone.View
     $("ul.projects", @el).append(view.el)
     this
 
-

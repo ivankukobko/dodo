@@ -2,92 +2,23 @@
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require foundation_and_overrides
+ *= require foundation_icons_general/general_foundicons
+ *= require foundation_icons_social/social_foundicons
+ *= require_tree ./blocks
+ *= require_tree ./utils
+ *= require layout
+ *= require dashboard
+ *= require comments
+ *= require home
  *= require_self
- *= require_tree .
+
 */
 
 body {
   background: #f8f8f8;
 }
 
-header {
-  background: #f1f1f1;
-  border-bottom: 1px solid #d2d2d2;
-  min-height: 5em;
-
-  h1#logo {
-    color: #f1f1f1;
-    font-size: 5em;
-    font-weight: normal;
-    letter-spacing: -0.2em;
-    margin: 0;
-    position: relative;
-    text-shadow: 0 -2px 1px #777;
-    text-transform: uppercase;
-
-    a{
-      color: #f1f1f1;
-      text-decoration: none;
-    }
-
-    #beta-sign{
-      color: #c00;
-      font-size: .2em;
-      line-height: .2em;
-      left: 11.5em;
-      letter-spacing: normal;
-      position: absolute;
-      text-shadow: none;
-      text-transform: none;
-      top: 4em;
-    }
-  }
-  .login-bar{
-    text-align: right;
-    .auth-links{
-      list-style: none;
-      li{
-        display: inline-block;
-      }
-    }
-  }
-  nav{
-    ul{
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      li {
-        display: inline-block;
-        margin-left: 1em;
-      }
-      li:first-child{
-        border-left: none;
-        margin-left: 0;
-      }
-    }
-  }
-}
-
-#main {
-  background: #fff;
-  padding: 1em 0;
-}
-
-#content {
-  min-height: 300px;
-}
-
-footer {
-  border-top: 1px solid #f1f1f1;
-  padding-bottom: 1em;
-  padding-top: 1em;
-  //text-align: center;
-}
-
-
-.top-nav{
-  margin: 1.5em 0;
-}
 
 #ajax {
   border: 1px solid #fff;
@@ -102,18 +33,6 @@ textarea {
   height: 4em;
 }
 
-/*#new_todo_list input {*/
-  /*//display: block;*/
-  /*font-size: 1.5em;*/
-  /*//width: 99%;*/
-/*}*/
-
-/*input[type=submit] {*/
-  /*background-image: url('fugue-icons/disk-black.png');*/
-  /*background-position: .25em 50%;*/
-  /*background-repeat: no-repeat;*/
-  /*padding-left: 1.75em;*/
-/*}*/
 /* /FORMS */
 
 .flash-message {
@@ -152,22 +71,4 @@ ul.unstyled {
   padding: 0;
 }
 /* /UTILS */
-/* UI */
-.ui-datepicker {
-  background: #fff;
-  //border: 1px solid;
-  box-shadow: 0em 0em 1em #444;
-  display: none;
-  padding: .5em;
-  .ui-datepicker-prev,
-  .ui-datepicker-next{
-    cursor: pointer;
-  }
-
-  .ui-datepicker-next{
-    float: right;
-  }
-}
-/* /UI */
-
 

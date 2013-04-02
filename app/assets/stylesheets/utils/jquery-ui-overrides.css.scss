@@ -1,0 +1,16 @@
+.ui-datepicker {
+  background: #fff;
+  //border: 1px solid;
+  box-shadow: 0em 0em 1em #444;
+  display: none;
+  padding: .5em;
+  .ui-datepicker-prev,
+  .ui-datepicker-next{
+    cursor: pointer;
+  }
+
+  .ui-datepicker-next{
+    float: right;
+  }
+}
+

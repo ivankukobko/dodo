@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.13'
 gem 'mysql2'
 gem 'heroku'
 
@@ -13,8 +13,9 @@ group :assets do
   gem 'uglifier'
 
   #gem 'compass-rails'
-  gem 'less-rails'
-  gem 'twitter-bootstrap-rails'
+  #gem 'less-rails'
+  #gem 'twitter-bootstrap-rails'
+  gem 'zurb-foundation', '~> 4.0.0'
 end
 
 gem 'json'

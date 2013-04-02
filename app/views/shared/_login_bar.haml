@@ -1,7 +1,6 @@
-%ul.auth-links
+%ul.right
   - if current_user
     %li
-      Welcome,
       = link_to me_path do
         %span.icon.icon-user
         = current_user
@@ -18,8 +17,6 @@
     %li
       = link_to "/auth/facebook" do
         %span.icon.icon-facebook
-    -#%li
-      -#= link_to "Вконтакте", "/auth/vkontakte"
     %li
       = link_to "/auth/google" do
         %span.icon.icon-google

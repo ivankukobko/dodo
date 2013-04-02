@@ -1,38 +1,37 @@
-= render :partial => 'shared/breadcrumbs', :locals => { :breadcrumb_items => [todo_list.project, todo_list].compact }
-%section#todo-list
-  %h2.item-title
-    - if todo_list.project
-      = link_to todo_list.project do
-        &larr;
-    - else
-      = link_to root_url do
-        &larr;
+.row
+  .large-12.columns
+    = render :partial => 'shared/breadcrumbs', :locals => { :breadcrumb_items => [todo_list.project, todo_list].compact }
+    %section#todo-list
+      %h2.item-title
+        - if todo_list.project
+          = link_to todo_list.project do
+            &larr;
+        - else
+          = link_to root_url do
+            &larr;
 
-    = todo_list.title
-    - if todo_list.user === current_user
-      = link_to edit_todo_list_path(todo_list) do
-        %span.icon.icon-pencil
-      = link_to todo_list_path(todo_list), :method => :delete, :confirm => 'Are you sure?' do
-        %span.icon.icon-cross
-  %hr/
-  .description
-    = todo_list.description
+        = todo_list.title
+        - if todo_list.user === current_user
+          %small
+            = link_to edit_todo_list_path(todo_list) do
+              %i.foundicon-edit
+            = link_to todo_list_path(todo_list), :method => :delete, :confirm => 'Are you sure?' do
+              %i.foundicon-trash
+      %hr/
+      .row
+        .large-3.columns
+          .description
+            = todo_list.description
 
-  #todo-items.todo-items.sortable
-    - unless todo_list.todo_items.empty?
-      = render todo_list.todo_items
-    - else
-      .notice
-        = t :'todo_items.messages.no_todo_items_added'
-  = link_to new_todo_list_todo_item_path(todo_list), :class => 'button' do
-    %span.icon.icon-document-plus
-    New Todo Item
-  %hr/
-  - if todo_list.project
-    = link_to todo_list.project do
-      &larr;
-      = todo_list.project
-  - else
-    = link_to root_url do
-      &larr; Back to Dashboard
+        .large-9.columns
+          #todo-items.todo-items.sortable
+            - unless todo_list.todo_items.empty?
+              = render todo_list.todo_items
+            - else
+              .alert-box.secondary
+                = t :'todo_items.messages.no_todo_items_added'
+          %hr/
+          = link_to new_todo_list_todo_item_path(todo_list), :class => 'button' do
+            %i.foundicon-plus
+            New Todo Item
 

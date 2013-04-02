@@ -1,24 +1,26 @@
-%table.worklogs
-  %thead
-    %tr
-      %th{ :width => '60'} Date
-      %th{ :width => '100'} Duration
-      %th Task
-      %th List
-      %th Project
-      %th{ :width => '120'} User
-      %th{ :width => '60'} Actions
-  - for worklog in worklogs do
-    %tr{ :class => "#{'billed' if worklog.is_billed?}"}
-      %td= l worklog.log_date, :format => :short
-      %td= worklog.duration_human
-      %td= link_to(worklog.todo_item, worklog.todo_item)
-      %td= link_to(worklog.todo_list, worklog.todo_list) if worklog.todo_item
-      %td= link_to(worklog.project, worklog.project) if (worklog.todo_item && worklog.project)
-      %td= worklog.user
-      %td
-        - if worklog.is_billed?
-          = link_to '[$]', unbill_worklog_path(worklog), :style => 'text-decoration: line-through;'
-        - else
-          = link_to '[$]', bill_worklog_path(worklog)
-        = link_to '[X]', worklog, :method => :delete, :confirm => "#{t('confirm')}"
+.row
+  .large-12.columns
+    %table.worklogs
+      %thead
+        %tr
+          %th{ :width => '60'} Date
+          %th{ :width => '100'} Duration
+          %th Task
+          %th List
+          %th Project
+          %th{ :width => '120'} User
+          %th{ :width => '60'} Actions
+      - for worklog in worklogs do
+        %tr{ :class => "#{'billed' if worklog.is_billed?}"}
+          %td= l worklog.log_date, :format => :short
+          %td= worklog.duration_human
+          %td= link_to(worklog.todo_item, worklog.todo_item)
+          %td= link_to(worklog.todo_list, worklog.todo_list) if worklog.todo_item
+          %td= link_to(worklog.project, worklog.project) if (worklog.todo_item && worklog.project)
+          %td= worklog.user
+          %td
+            - if worklog.is_billed?
+              = link_to '[$]', unbill_worklog_path(worklog), :style => 'text-decoration: line-through;'
+            - else
+              = link_to '[$]', bill_worklog_path(worklog)
+            = link_to '[X]', worklog, :method => :delete, :confirm => "#{t('confirm')}"

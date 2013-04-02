@@ -28,14 +28,15 @@
     %header
       .container
         .row
-          .threecol
+          .large-3.columns
             %h1#logo
               = link_to 'Dodo', root_url
               #beta-sign βετα
-          .fivecol
-          .fourcol.last
+          .large-5.columns
+          .large-4.columns
             .login-bar= render 'shared/login_bar'
-    #main
+    .row
+      #main
       = yield
   = image_tag 'ajax.gif', :id => 'ajax', :style => 'display: none;'
 

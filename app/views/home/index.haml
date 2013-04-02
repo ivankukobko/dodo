@@ -1,8 +1,8 @@
 .row
-  .span6
+  .large-6.columns
     -#= render :partial => 'todo_lists/form', :locals => { :todo_list => TodoList.new }
     %h3{ :title => 'You may invite other users to your projects or be invited to theirs'}= t :'home.titles.your_projects'
-    %ul#projects.nav.nav-stacked
+    %ul#projects.side-nav
       = render projects
     = link_to new_project_path, class: 'button round' do
       %span.icon.icon-plus-circle
@@ -11,7 +11,7 @@
       %h4= t :'home.titles.invites'
       %ul#invitations
         = render current_user.invitations
-  .span6
+  .large-6.columns
     %h3{ :title => 'Only you can see and manage your private todo lists' }= t :'home.titles.your_todo_lists'
     - if todo_lists.any?
       %ul#todo-lists

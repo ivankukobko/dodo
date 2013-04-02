@@ -6,7 +6,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
+//= require foundation
 //= require jquery-ui
 //= require underscore
 //= require backbone
@@ -20,3 +20,5 @@
 //= require_tree .//routers
 
 //= require utils
+
+$(document).foundation();

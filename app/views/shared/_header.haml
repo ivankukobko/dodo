@@ -1,11 +1,9 @@
-%header
-  .container
-    .row
-      .span3
-        %h1#logo
-          = link_to 'Dodo', root_url
-          #beta-sign βετα
-      .span5
-        %nav.top-nav= render 'shared/top_nav'
-      .span4
-        .login-bar= render 'shared/login_bar'
+%nav.top-bar.fixed.contain-to-grid
+  %ul.title-area
+    %li.name
+      %h1
+        = link_to 'Dodo', root_url
+        -##beta-sign βετα
+  %section.top-bar-section
+    = render 'shared/top_nav'
+    = render 'shared/login_bar'

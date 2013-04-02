@@ -1,6 +1,6 @@
 Dodo::Application.routes.draw do
 
-  root :to => "home#index"
+  root :to => "projects#index"
   #root :to => "dashboard#index"
   get '/dashboard' => 'dashboard#index'
 

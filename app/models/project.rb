@@ -6,8 +6,6 @@ class Project < ActiveRecord::Base
   has_many :invitations, :dependent => :destroy
   has_many :worklogs, :through => :todo_items
 
-  #has_paper_trail
-
   def to_s
     name
   end
