@@ -17,21 +17,19 @@
               %i.foundicon-edit
             = link_to todo_list_path(todo_list), :method => :delete, :confirm => 'Are you sure?' do
               %i.foundicon-trash
-      %hr/
-      .row
-        .large-3.columns
-          .description
-            = todo_list.description
-
-        .large-9.columns
-          #todo-items.todo-items.sortable
-            - unless todo_list.todo_items.empty?
-              = render todo_list.todo_items
-            - else
-              .alert-box.secondary
-                = t :'todo_items.messages.no_todo_items_added'
-          %hr/
-          = link_to new_todo_list_todo_item_path(todo_list), :class => 'button' do
-            %i.foundicon-plus
-            New Todo Item
+      .description
+        = todo_list.description
+    %hr/
+.row
+  .large-12.columns
+    #todo-items.todo-items.sortable
+      - unless todo_list.todo_items.empty?
+        = render todo_list.todo_items
+      - else
+        .alert-box.secondary
+          = t :'todo_items.messages.no_todo_items_added'
+    %hr/
+    = link_to new_todo_list_todo_item_path(todo_list), :class => 'button' do
+      %i.foundicon-plus
+      New Todo Item
 

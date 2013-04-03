@@ -29,7 +29,7 @@
                   %ul#todo-lists
                     = render project.todo_lists
                 - else
-                  .notice
+                  .alert-box.secondary
                     =t :'todo_lists.messages.no_todo_lists_added'
                 = link_to new_project_todo_list_path(project), :class => 'button' do
                   %i.foundicon-plus

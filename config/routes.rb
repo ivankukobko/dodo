@@ -44,7 +44,7 @@ Dodo::Application.routes.draw do
   resources :todo_items, :path => 'tasks' do
     member do
       get :complete
-      get :incomplete
+      get :uncomplete
     end
     collection do
       post :sort
@@ -60,7 +60,7 @@ Dodo::Application.routes.draw do
       end
       member do
         get :complete
-        get :incomplete
+        get :uncomplete
       end
     end
   end

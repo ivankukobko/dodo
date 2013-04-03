@@ -22,7 +22,6 @@ jQuery ->
     regexp = new RegExp("new_" + association, "g")
     $(link).parent().before(content.replace(regexp, new_id))
 
-  $('html').removeClass('no-js')
   showFlash()
 
   $.ajaxSetup(
@@ -61,14 +60,9 @@ jQuery ->
       $(@).removeClass('hover')
   )
 
-  $('.todo-item :checkbox').live('change', ->
-    $(@).closest('form').submit()
-  )
-
-  $('.remote-link').live('click', (e) ->
-    e.preventDefault()
-    return false
-  )
+  #$('.todo-item .is_complete').on('click', ->
+    #$(@).closest('.todo-item').toggleClass('complete')
+  #)
 
   $('.datepicker').datepicker(
     'dateFormat': 'yy-mm-dd',

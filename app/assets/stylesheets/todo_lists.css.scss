@@ -17,44 +17,44 @@
 
 
 .todo-list.complete, .todo-item.complete {
-  .title{
+  .item-title{
     text-decoration: line-through;
   }
 }
 
 .todo-item.expired{
-  .title{
+  .item-title a{
     color: red;
   }
 }
 
-.todo-list, .todo-item {
-  .actions{
-    display: none;
-  }
-}
+/*.todo-list, .todo-item {*/
+  /*.actions{*/
+    /*display: none;*/
+  /*}*/
+/*}*/
 
-.hover, .todo-list:hover, .todo-item:hover{
-  .actions{
-    display: inline-block;
-    a{
-      text-decoration: none;
-    }
-    .new-worklog-form {
-      display: inline;
-      input[type=text]{
-        display: inline-block;
-        margin: 0;
-        vertical-align: baseline;
-        width: 5em;
-      }
-    }
-  }
-}
+/*.hover, .todo-list:hover, .todo-item:hover{*/
+  /*.actions{*/
+    /*display: inline-block;*/
+    /*a{*/
+      /*text-decoration: none;*/
+    /*}*/
+    /*.new-worklog-form {*/
+      /*display: inline;*/
+      /*input[type=text]{*/
+        /*display: inline-block;*/
+        /*margin: 0;*/
+        /*vertical-align: baseline;*/
+        /*width: 5em;*/
+      /*}*/
+    /*}*/
+  /*}*/
+/*}*/
 
 
 
-.is-complete, .title{
+.drag-handle, .is-complete, .item-title{
   display: inline-block;
   margin: 0;
 }
@@ -62,11 +62,11 @@
 .drag-handle {
   background: #f1f1f1;
   border: 1px solid #d2d2d2;
-  cursor: pointer;
+  cursor: move;
   display: none;
   height: 1.5em;
   vertical-align: top;
-  width: 4px;
+  width: 8px;
 }
 
 .sortable {
@@ -75,8 +75,13 @@
   }
 }
 
-#todo-list{
-  .item-title{
-    margin-bottom: 0;
-  }
+.item-title{
+  margin-bottom: 0;
+  /*a {*/
+    /*display: inline-block;*/
+    /*white-space:nowrap;*/
+    /*text-overflow: ellipsis;*/
+    /*overflow: hidden;*/
+    /*width: 100%;*/
+  /*}*/
 }

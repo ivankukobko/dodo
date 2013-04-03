@@ -1,24 +1,29 @@
 %article{ :class => "todo-item #{'complete' if todo_item.is_complete?} #{'expired' if todo_item.expired?}", :id => "todo-item_#{todo_item.id}" }
   .row
-    .large-1.small-2.columns
+    .large-10.small-12.columns
       .drag-handle
       .is-complete
-        = form_for [todo_item.todo_list, todo_item] do |f|
-          = f.check_box :is_complete
-    .large-7.small-10.columns
-      %h6= link_to todo_item.title, [todo_item.todo_list, todo_item]
-      - if todo_item.assignee
-        %span.assignee
-          %i.social-foundicon-torso
-          = todo_item.assignee.user
-      - if todo_item.due_date
-        %span.due-date
-          %i.foundicon-clock
-          = due_date_in_words todo_item.due_date
-      - if todo_item.comments.any?
-        %i.social-foundicon-chat
-        %span.comments= todo_item.comments.count
-    .large-4.columns.hide-for-small
+        %h4
+          - if todo_item.is_complete?
+            =link_to [:uncomplete, todo_item.todo_list, todo_item] do |f|
+              %i.foundicon-checkmark
+          - else
+            =link_to [:complete, todo_item.todo_list, todo_item] do |f|
+              %i.foundicon-error
+      %h6.item-title= link_to todo_item.title, [todo_item.todo_list, todo_item]
+      %small
+        - if todo_item.assignee
+          %span.assignee.round.secondary.label
+            %i.social-foundicon-torso
+            = todo_item.assignee.user
+        - if todo_item.due_date
+          %span.due-date
+            %i.foundicon-clock
+            = due_date_in_words todo_item.due_date
+        - if todo_item.comments.any?
+          %i.social-foundicon-chat
+          %span.comments= todo_item.comments.count
+    .large-2.columns.hide-for-small
       .actions
         = link_to todo_item_worklogs_path(todo_item), :class => '' do
           %i.foundicon-clock

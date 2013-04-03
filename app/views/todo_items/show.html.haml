@@ -6,6 +6,14 @@
         = link_to todo_list_path(todo_item.todo_list) do
           &larr;
         = todo_item.title
+        %small
+          = link_to todo_item_worklogs_path(todo_item), :class => '' do
+            %i.foundicon-clock
+          -#= render :partial => 'worklogs/form', :locals => { :todo_item => todo_item, :worklog => Worklog.new }
+          = link_to edit_todo_list_todo_item_path(todo_item.todo_list, todo_item), :class => '', :title => 'Edit' do
+            %i.foundicon-edit
+          = link_to [todo_item.todo_list, todo_item], :confirm => 'Are you sure?', :method => :delete, :class => '', :title => 'Delete' do
+            %i.foundicon-trash
       %hr/
       - if !todo_item.description.blank?
         .description

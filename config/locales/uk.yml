@@ -23,6 +23,7 @@ uk:
   todo_lists:
     actions:
       create:
+        title: 'Create new list'
         success: 'Список задач успешно создан!'
       update:
         success: 'Список задач успешно сохранен!'
@@ -46,6 +47,7 @@ uk:
   projects:
     actions:
       create:
+        title: 'Create new project'
         success: 'Проект успешно создан!'
       update:
         success: 'Проект успешно сохранен!'

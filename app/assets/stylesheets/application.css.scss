@@ -10,6 +10,8 @@
  *= require layout
  *= require dashboard
  *= require comments
+ *= require projects
+ *= require todo_lists
  *= require home
  *= require_self
 
@@ -26,6 +28,11 @@ body {
   position: absolute;
   right: 0;
   top: 0;
+}
+
+h1,h2,h3,h4,h5,h6{
+  /*font-family: Georgia, serif;*/
+  font-weight: normal;
 }
 /* FORMS */
 

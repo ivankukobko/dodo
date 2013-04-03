@@ -23,6 +23,7 @@ en:
   todo_lists:
     actions:
       create:
+        title: 'Create new list'
         success: 'Todo list was successfully created!'
       update:
         success: 'Todo list was successfully updated!'
@@ -46,6 +47,7 @@ en:
   projects:
     actions:
       create:
+        title: 'Create new project'
         success: 'Project was successfully created!'
       update:
         success: 'Project was successfully updated!'
