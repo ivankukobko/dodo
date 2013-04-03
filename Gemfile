@@ -32,6 +32,7 @@ group :assets do
 end
 
 group :development, :test do
+  gem 'thin'
   gem 'mysql2'
   gem 'rspec-rails'
   gem 'rspec-cells'
@@ -43,7 +44,7 @@ end
 
 group :production do
   gem 'pg'
-  gem 'thin'
+  gem 'unicorn'
   gem 'therubyracer'
 end
 
