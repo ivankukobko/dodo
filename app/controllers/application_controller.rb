@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
     if session[:user_id]
       @current_user ||= User.find session[:user_id]
     end
+  rescue
+    @current_user = nil
   end
   helper_method :current_user
 
