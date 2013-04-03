@@ -1,0 +1,16 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require foundation_and_overrides
+ *= require foundation_icons_general/general_foundicons
+ *= require foundation_icons_social/social_foundicons
+ *= require_tree ./blocks
+ *= require_tree ./utils
+ *= require layout
+ *= require dashboard
+ *= require comments
+ *= require projects
+ *= require todo_lists
+ *= require home
+*/
