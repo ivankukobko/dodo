@@ -41,6 +41,8 @@ class ProjectsController < ApplicationController
     redirect_to root_url, :notice => t(:'projects.actions.destroy.success')
   end
 
+  private
+
   def projects
     @projects ||= current_user.projects
   end
@@ -60,4 +62,9 @@ class ProjectsController < ApplicationController
     end
   end
   helper_method :project
+
+  def todo_lists
+    @todo_lists ||= current_user.todo_lists.order('created_at DESC')
+  end
+  helper_method :todo_lists
 end

@@ -3,14 +3,13 @@
     .large-10.small-12.columns
       .drag-handle
       .is-complete
-        %h4
-          - if todo_item.is_complete?
-            =link_to [:uncomplete, todo_item.todo_list, todo_item] do |f|
-              %i.foundicon-checkmark
-          - else
-            =link_to [:complete, todo_item.todo_list, todo_item] do |f|
-              %i.foundicon-error
-      %h6.item-title= link_to todo_item.title, [todo_item.todo_list, todo_item]
+        - if todo_item.is_complete?
+          =link_to [:uncomplete, todo_item.todo_list, todo_item] do |f|
+            %i.foundicon-checkmark
+        - else
+          =link_to [:complete, todo_item.todo_list, todo_item] do |f|
+            %i.foundicon-error
+      .item-title= link_to todo_item.title, [todo_item.todo_list, todo_item]
       %small
         - if todo_item.assignee
           %span.assignee.round.secondary.label

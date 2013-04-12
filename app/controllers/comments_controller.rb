@@ -32,7 +32,7 @@ class CommentsController < ApplicationController
     if comment.destroy
       flash[:notice] = 'Comment destroyed'
     end
-    redirect_to todo_item
+    redirect_to [todo_item.todo_list, todo_item]
   end
 
   def comments

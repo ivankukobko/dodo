@@ -69,7 +69,7 @@ class TodoListsController < ApplicationController
 
   def todo_list
     @todo_list ||= if params[:id]
-      TodoList.find params[:id]
+      current_user.todo_lists.find params[:id]
     else
       TodoList.new params[:todo_list]
     end
