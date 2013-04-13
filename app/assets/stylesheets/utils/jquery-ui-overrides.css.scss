@@ -14,3 +14,9 @@
   }
 }
 
+@import "foundation/foundation-global", "foundation/components/global", "foundation/components/panels";
+.ui-state-highlight {
+  height: 1.5em;
+  line-height: 1.2em;
+  @include panel();
+}

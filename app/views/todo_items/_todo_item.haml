@@ -1,7 +1,6 @@
 %article{ :class => "todo-item #{'complete' if todo_item.is_complete?} #{'expired' if todo_item.expired?}", :id => "todo-item_#{todo_item.id}" }
   .row
     .large-10.small-12.columns
-      .drag-handle
       .is-complete
         - if todo_item.is_complete?
           =link_to [:uncomplete, todo_item.todo_list, todo_item] do |f|

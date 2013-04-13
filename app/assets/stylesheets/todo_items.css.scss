@@ -5,27 +5,14 @@
   margin: 1em 0;
 }
 
-.todo-items {
-  padding: 0;
-  margin-bottom: 1em;
-  .todo-item{
-    margin-bottom: .5em;
-  }
-}
-
 .todo-item{
+  min-height:2em;
+  padding: .25em;
   .comments{
-    //color: #777;
     font-size: 75%;
   }
-  .actions{
-    margin: -8px 0;
-  }
-  form {
-    margin: 0;
-  }
-
 }
+
 #todo-item{
   .item-title{
     margin-bottom: 0;

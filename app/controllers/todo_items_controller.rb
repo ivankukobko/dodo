@@ -16,12 +16,12 @@ class TodoItemsController < ApplicationController
 
   def complete
     todo_item.update_attribute :is_complete, true
-    redirect_to todo_item.todo_list
+    redirect_to todo_item.todo_list, notice: 'Complete'
   end
 
   def uncomplete
     todo_item.update_attribute :is_complete, false
-    redirect_to todo_item.todo_list
+    redirect_to todo_item.todo_list, notice: 'Incomplete'
   end
 
 private

@@ -32,13 +32,13 @@ jQuery ->
   $('.sortable').sortable(
     axis : 'y',
     items : 'article',
-    #forceHelperSize: true,
-    #handle : '.drag-handle',
+    distance: 10
+    forceHelperSize: true,
+    placeholder: "ui-state-highlight"
     containment : 'parent',
     update : (event, ui) ->
-      self = @
+      self = this
       sortedItems = $(self).sortable('serialize', { key: 'todo-item[]' })
-      console.log(sortedItems)
       $.ajax(
         url : '/tasks/sort',
         type: 'post',
@@ -48,6 +48,7 @@ jQuery ->
           $(self).effect('highlight')
       )
   )
+  $('.sortable').disableSelection()
 
   $('.todo-list, .todo-item').hover(
     ->
