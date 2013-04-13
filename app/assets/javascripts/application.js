@@ -10,6 +10,7 @@
 //= require jquery-ui
 //= require underscore
 //= require backbone
+//= require gritter
 //
 //= require .//dodo
 //

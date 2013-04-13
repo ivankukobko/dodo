@@ -2,14 +2,12 @@ jQuery ->
 
   # default flashes display
   showFlash = ->
-    $('.flash-message').stop(true, true).hide()
-    $('.flash-message').slideDown('slow')
-    setTimeout(
-      ->
-        $('.flash-message').slideUp('slow')
-      ,
-      7000
-    )
+    $('.flash-message').each (index) ->
+      $.gritter.add(
+        title: $(@).data('title')
+        text: $(@).html()
+      )
+  showFlash()
 
   # helper method for nested forms
   remove_fields = (link) ->
@@ -22,7 +20,6 @@ jQuery ->
     regexp = new RegExp("new_" + association, "g")
     $(link).parent().before(content.replace(regexp, new_id))
 
-  showFlash()
 
   $.ajaxSetup(
     beforeSend: (e) ->
@@ -35,8 +32,8 @@ jQuery ->
   $('.sortable').sortable(
     axis : 'y',
     items : 'article',
-    forceHelperSize: true,
-    handle : '.drag-handle',
+    #forceHelperSize: true,
+    #handle : '.drag-handle',
     containment : 'parent',
     update : (event, ui) ->
       self = @
@@ -59,10 +56,6 @@ jQuery ->
     ->
       $(@).removeClass('hover')
   )
-
-  #$('.todo-item .is_complete').on('click', ->
-    #$(@).closest('.todo-item').toggleClass('complete')
-  #)
 
   $('.datepicker').datepicker(
     'dateFormat': 'yy-mm-dd',
