@@ -1,32 +1,18 @@
-development:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: dodo_development
+defaults: &defaults
+  adapter: postgresql
+  encoding: unicode
   pool: 5
-  username: root
-  password: root
-  socket: /var/run/mysqld/mysqld.sock
+  username: postgres
+  password: postgres
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
+development:
+  <<: *defaults
+  database: dodo_development
+
 test:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
+  <<: *defaults
   database: dodo_test
-  pool: 5
-  username: root
-  password: root
-  socket: /var/run/mysqld/mysqld.sock
 
 production:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
+  <<: *defaults
   database: dodo_production
-  pool: 5
-  username: root
-  password: root
-  socket: /var/run/mysqld/mysqld.sock

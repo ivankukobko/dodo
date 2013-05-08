@@ -1,13 +1,17 @@
 %article{ :class => "todo-item #{'complete' if todo_item.is_complete?} #{'expired' if todo_item.expired?}", :id => "todo-item_#{todo_item.id}" }
   .row
-    .large-10.small-12.columns
+    .large-1.small-1.columns
+      .drag-handle
+        %i.accessibility-foundicon-braille
+    .large-1.small-1.columns
       .is-complete
         - if todo_item.is_complete?
           =link_to [:uncomplete, todo_item.todo_list, todo_item] do |f|
             %i.foundicon-checkmark
         - else
           =link_to [:complete, todo_item.todo_list, todo_item] do |f|
-            %i.foundicon-error
+            %i.foundicon-checkmark
+    .large-10.small-10.columns
       .item-title= link_to todo_item.title, [todo_item.todo_list, todo_item]
       %small
         - if todo_item.assignee
@@ -21,12 +25,12 @@
         - if todo_item.comments.any?
           %i.social-foundicon-chat
           %span.comments= todo_item.comments.count
-    .large-2.columns.hide-for-small
-      .actions
-        = link_to todo_item_worklogs_path(todo_item), :class => '' do
-          %i.foundicon-clock
-        -#= render :partial => 'worklogs/form', :locals => { :todo_item => todo_item, :worklog => Worklog.new }
-        = link_to edit_todo_list_todo_item_path(todo_item.todo_list, todo_item), :class => '', :title => 'Edit' do
-          %i.foundicon-edit
-        = link_to [todo_item.todo_list, todo_item], :confirm => 'Are you sure?', :method => :delete, :class => '', :title => 'Delete' do
-          %i.foundicon-trash
+    -# .large-3.columns.text-right.hide-for-small
+      -# .actions
+        -# = link_to todo_item_worklogs_path(todo_item), :class => '' do
+          -# %i.foundicon-clock
+        -# -#= render :partial => 'worklogs/form', :locals => { :todo_item => todo_item, :worklog => Worklog.new }
+        -# = link_to edit_todo_list_todo_item_path(todo_item.todo_list, todo_item), :class => '', :title => 'Edit' do
+          -# %i.foundicon-edit
+        -# = link_to [todo_item.todo_list, todo_item], :confirm => 'Are you sure?', :method => :delete, :class => '', :title => 'Delete' do
+          -# %i.foundicon-trash

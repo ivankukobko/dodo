@@ -5,7 +5,7 @@ class TodoList < ActiveRecord::Base
 
   scope :unattached, :conditions => { :project_id => nil }
 
-  validate :title, presence: true
+  validates :title, presence: true
 
   def to_s
     title

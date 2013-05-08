@@ -16,6 +16,8 @@ en:
       registration: 'Welcome to DoDo project!'
       invitation_to_project: 'You have been invited to project!'
 
+  confirm:
+    are_you_sure: 'Are you sure?'
   or: 'or'
   actions:
     return: 'go back'

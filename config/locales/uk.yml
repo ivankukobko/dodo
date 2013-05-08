@@ -16,6 +16,8 @@ uk:
       registration: 'Добро пожаловать в проект DoDo!'
       invitation_to_project: 'Вас пригласили для работы над проектом!'
 
+  confirm:
+    are_you_sure: 'Are you sure?'
   or: 'или'
   actions:
     return: 'вернуться'

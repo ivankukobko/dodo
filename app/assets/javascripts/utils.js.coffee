@@ -29,26 +29,28 @@ jQuery ->
       $('#ajax').fadeOut()
     )
 
+  $
   $('.sortable').sortable(
-    axis : 'y',
-    items : 'article',
+    axis : 'y'
+    items : 'article'
     distance: 10
-    forceHelperSize: true,
+    forceHelperSize: true
     placeholder: "ui-state-highlight"
-    containment : 'parent',
+    containment : 'parent'
+    connectWith: '.connected-sortable'
+    handle: '.drag-handle'
     update : (event, ui) ->
       self = this
       sortedItems = $(self).sortable('serialize', { key: 'todo-item[]' })
       $.ajax(
-        url : '/tasks/sort',
-        type: 'post',
-        dataType: 'script',
-        data : sortedItems,
+        url : '/tasks/sort'
+        type: 'post'
+        dataType: 'script'
+        data : sortedItems
         complete: ->
           $(self).effect('highlight')
       )
-  )
-  $('.sortable').disableSelection()
+  ).disableSelection()
 
   $('.todo-list, .todo-item').hover(
     ->
