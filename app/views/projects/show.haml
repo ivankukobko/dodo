@@ -24,7 +24,6 @@
               .title
                 %a(href='#tasks') Tasks
               .content
-                %h4 Todo Lists
                 - if project.todo_lists.any?
                   %ul#todo-lists
                     = render project.todo_lists

@@ -3,9 +3,6 @@ source 'http://rubygems.org'
 gem 'rails', '3.2.13'
 gem 'heroku'
 
-#gem 'omniauth-twitter'
-#gem 'omniauth-vkontakte'
-#gem 'paper_trail'
 gem 'backbone-on-rails'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'cells'
@@ -19,6 +16,7 @@ gem 'oauth'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-openid'
+gem 'pg'
 gem 'redcarpet'
 gem 'ruby-openid'
 gem 'russian'
@@ -34,7 +32,6 @@ end
 
 group :development, :test do
   gem 'thin'
-  gem 'mysql2'
   gem 'rspec-rails'
   gem 'rspec-cells'
   gem 'rack-test'
@@ -44,8 +41,6 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg'
   gem 'unicorn'
   gem 'therubyracer'
 end
-

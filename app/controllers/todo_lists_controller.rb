@@ -31,7 +31,7 @@ class TodoListsController < ApplicationController
     end
     respond_to do |format|
       if todo_list.save
-        format.html { redirect_to todo_list, :notice => t(:'todo_lists.actions.create.success') }
+        format.html { redirect_to [project, todo_list], :notice => t(:'todo_lists.actions.create.success') }
         format.js { render :json => todo_list, :status => :created, :location => todo_list }
       else
         format.html { render :action => "new" }
@@ -43,7 +43,7 @@ class TodoListsController < ApplicationController
   def update
     respond_to do |format|
       if todo_list.update_attributes(params[:todo_list])
-        format.html { redirect_to todo_list, :notice =>  t(:'todo_lists.actions.update.success') }
+        format.html { redirect_to [project, todo_list], :notice =>  t(:'todo_lists.actions.update.success') }
         format.js { head :ok }
       else
         format.html { render :action => "edit" }
@@ -69,7 +69,12 @@ class TodoListsController < ApplicationController
 
   def todo_list
     @todo_list ||= if params[:id]
-      current_user.todo_lists.find params[:id]
+      #FIXME: no excuses for rescues!
+      begin
+        current_user.todo_lists_in_projects.find params[:id]
+      rescue
+        current_user.todo_lists.find params[:id]
+      end
     else
       TodoList.new params[:todo_list]
     end

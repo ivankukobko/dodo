@@ -1,7 +1,7 @@
 // Place all the styles related to the todo_items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-#todo-items{
+.todo-items{
   margin: 1em 0;
 }
 
@@ -23,4 +23,12 @@
   border-radius: 1em;
   background: #f5f5f5;
   padding: 0.25em 1em;
+}
+
+.is-complete{
+  opacity: 0.33;
+}
+
+.complete .is-complete{
+  opacity: 1;
 }
