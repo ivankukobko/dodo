@@ -4,7 +4,7 @@ class TodoListsController < ApplicationController
       format.html # index.html.erb
       format.js {
         render :json => todo_lists.to_json(
-          :except => [ :user_id ],
+          :except  => [ :user_id ],
           :methods => [ :is_complete? ]
         )
       }

@@ -7,3 +7,4 @@ tmp/
 nbproject
 *.swp
 *.swo
+.DS_Store
