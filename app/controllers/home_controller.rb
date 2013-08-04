@@ -8,7 +8,7 @@ class HomeController < ApplicationController
   helper_method :projects
 
   def todo_lists
-    @todo_lists ||= current_user.todo_lists.unattached
+    @todo_lists ||= current_user.todo_lists.unattached#.joins(:todo_items)
   end
   helper_method :todo_lists
 
