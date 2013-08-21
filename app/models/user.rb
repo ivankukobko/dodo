@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  has_many :todo_lists,  :conditions => [ 'project_id is null' ]
+  has_many :todo_lists#,  :conditions => [ 'project_id is null' ]
   has_many :todo_items,  :through => :todo_lists
   has_many :collaborators, :include => :project
   has_many :projects,    :through => :collaborators

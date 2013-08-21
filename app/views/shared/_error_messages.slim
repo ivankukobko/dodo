@@ -1,0 +1,6 @@
+-if object.errors.any?
+  .alert-box#error_explanation
+    h3= "#{pluralize(object.errors.count, "error")} prohibited this #{object.class} from being saved:"
+    ul
+      - object.errors.full_messages.each do |msg|
+        li= msg

@@ -5,6 +5,8 @@ class TodoItem < ActiveRecord::Base
   accepts_nested_attributes_for :assignee
   has_many :worklogs, :dependent => :destroy
 
+  validates :title, presence: true
+
   default_scope order('is_complete ASC, position ASC, created_at DESC')
   scope :complete,   :conditions => { :is_complete => true }
   scope :incomplete, :conditions => { :is_complete => false }

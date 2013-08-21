@@ -7,8 +7,8 @@
  *= require foundation_icons_social/social_foundicons
  *= require foundation_icons_accessibility/accessibility_foundicons
  *= require gritter
- *= require_tree ./blocks
  *= require_tree ./utils
+ *= require_tree ./blocks
  *= require layout
  *= require dashboard
  *= require comments

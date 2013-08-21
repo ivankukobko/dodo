@@ -3,7 +3,7 @@ class TodoList < ActiveRecord::Base
   belongs_to :user
   has_many :todo_items, :dependent => :destroy
 
-  scope :unattached, :conditions => { :project_id => nil }
+  scope :unattached, where(project_id: nil)
 
   validates :title, presence: true
 

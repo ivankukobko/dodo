@@ -15,8 +15,12 @@
 }
 
 @import "foundation/foundation-global", "foundation/components/global", "foundation/components/panels";
-.ui-state-highlight {
+article.ui-state-highlight {
   height: 1.5em;
   line-height: 1.2em;
+  /* background: #444; */
+  /* outline: 4px solid #444; */
+  /* color: #f0f0f0; */
+  /* font-weight: bold; */
   @include panel();
 }
