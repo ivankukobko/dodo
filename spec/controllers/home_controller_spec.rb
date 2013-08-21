@@ -12,7 +12,7 @@ describe HomeController do
   end
 
   context "Authorized user" do
-    describe "GET" do
+    describe "GET index" do
       it 'show home page for authorized user' do
         user = create(:user)
         request.session[:user_id] = user.id

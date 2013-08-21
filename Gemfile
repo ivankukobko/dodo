@@ -20,6 +20,7 @@ gem 'pg'
 gem 'redcarpet'
 gem 'ruby-openid'
 gem 'russian'
+gem 'slim'
 gem 'ukrainian', :git => 'git://github.com/ivankukobko/ukrainian.git'
 
 group :assets do

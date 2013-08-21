@@ -1,15 +1,15 @@
-%article.comment
+article.comment
   .body= markdown comment.body
-  %hr/
+  hr/
   .user-bar
     = link_to comment.user, comment.user
-    \|
+    '|
     = l comment.created_at, :format => :long
     - if comment.created_at < comment.updated_at
-      (Updated #{l comment.updated_at, :format => :long})
+      ' (Updated #{l comment.updated_at, :format => :long})
     - if comment.user === current_user
       = link_to edit_todo_item_comment_path(comment.todo_item, comment) do
-        %i.foundicon-edit
+        i.foundicon-edit
       = link_to todo_item_comment_path(comment.todo_item, comment),
         method: :delete, data: { confirm: 'Are you sure?'} do
-        %i.foundicon-remove
+        i.foundicon-remove

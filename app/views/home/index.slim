@@ -1,0 +1,27 @@
+.row
+  .large-6.columns
+    h3 title='You may invite other users to your projects or be invited to theirs' = t :'home.titles.your_projects'
+    ul#projects
+      = render projects
+    = link_to new_project_path, class: 'button secondary' do
+      span.icon.icon-plus-circle
+      = t(:'home.links.add_project')
+    -if current_user.invitations.any?
+      h4= t :'home.titles.invites'
+      ul#invitations
+        = render current_user.invitations
+  .large-6.columns
+    h3 title='Only you can see and manage your private todo lists' = t :'home.titles.your_todo_lists'
+    - if todo_lists.any?
+      ul#todo-lists
+        = render todo_lists
+    - else
+      .notice
+        =t :'todo_lists.messages.no_todo_lists_added'
+    = link_to '#', class: 'button secondary',  data: {'reveal-id'=> 'new-list-modal' } do
+      span.icon.icon-document-plus
+      = t(:'home.links.add_todo_list')
+#new-list-modal.reveal-modal.expand
+  = render partial: 'todo_lists/form', locals:{todo_list: TodoList.new}
+  a.close-reveal-modal &#215
+

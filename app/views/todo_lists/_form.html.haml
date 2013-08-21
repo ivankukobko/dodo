@@ -1,4 +1,4 @@
-= form_for project ? [ project, todo_list ] : todo_list do |f|
+= form_for controller.respond_to?(:project) ? [ project, todo_list ] : todo_list do |f|
   = render :partial => "shared/error_messages", :locals => { :object => todo_list }
   .field
     = f.text_field :title, :placeholder => t(:'helpers.placeholder.todo_list.title'), :'data-bind' => 'value: newTodoTitle'

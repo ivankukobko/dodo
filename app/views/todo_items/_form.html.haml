@@ -16,4 +16,4 @@
     = f.fields_for :assignee, ( todo_item.assignee || todo_item.build_assignee ) do |a|
       = render :partial => 'assignee_fields', :locals => { :f => a }
   .actions
-    = f.submit
+    = f.submit :class => 'button'
