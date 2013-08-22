@@ -1,4 +1,4 @@
 li class="project #{'active' if project.id.to_i == params[:id].to_i}"
   article.project
-    = link_to project, project, class: 'project-title'
+    = link_to project, project, title: project, class: 'project-title'
   -#.description= project.description

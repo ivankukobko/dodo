@@ -4,16 +4,16 @@
 en:
 
   site:
-    name: 'DoDo'
+    name: 'dodo'
     copyright: 'Copyleft 2011-2013<br/>Designed and developed by <a href="mailto:ivan.kukobko@gmail.com">Ivan Kukobko</a>'
-    info: 'Dodo is project and task management tool for personal and shared use. Inspired by Basecamp, Todoist and many others. It is in development process and still far from release. '
+    info: 'dodo is project and task management tool for personal and shared use. Inspired by Basecamp, Todoist and many others. It is in development process and still far from release. '
     nav:
       home: 'Dashboard'
       projects: 'Projects'
       todo_lists: 'Private Todo Lists'
       time_logs: 'Time Logs'
     email_notifications:
-      registration: 'Welcome to DoDo project!'
+      registration: 'Welcome to dodo project!'
       invitation_to_project: 'You have been invited to project!'
 
   confirm:

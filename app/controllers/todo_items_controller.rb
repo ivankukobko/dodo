@@ -1,6 +1,6 @@
 class TodoItemsController < ApplicationController
   inherit_resources
-  belongs_to :todo_list
+  belongs_to :todo_list, optional: true
 
   def destroy
     destroy!{ parent_url }
@@ -25,6 +25,10 @@ class TodoItemsController < ApplicationController
   end
 
 private
+
+  def begin_of_association_chain
+    current_user
+  end
 
   def todo_list
     parent
