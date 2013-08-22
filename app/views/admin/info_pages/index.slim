@@ -1,6 +1,15 @@
-- for page in info_pages do
-  li
-    = link_to page, help_path(page)
-    = link_to '[=]', [:edit, :admin, page]
-    = link_to '[x]', admin_info_page_path(page), :confirm => 'Are you sure?', :method => :delete
-= link_to 'Add info page', [:new, :admin, :info_page]
+.row
+  .large-12.columns
+    ul.no-bullet
+      - for page in info_pages do
+        li
+          h2
+            = link_to page, help_path(page)
+            small
+              '&nbsp;
+              = link_to [:edit, :admin, page] do
+                i.foundicon-edit
+              = link_to admin_info_page_path(page), :confirm => 'Are you sure?', :method => :delete do
+                i.foundicon-trash
+
+    = link_to 'Add info page', [:new, :admin, :info_page], class: 'button small'
