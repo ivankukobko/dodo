@@ -63,8 +63,4 @@ class ProjectsController < ApplicationController
   end
   helper_method :project
 
-  def todo_lists
-    @todo_lists ||= current_user.todo_lists.order('created_at DESC')
-  end
-  helper_method :todo_lists
 end

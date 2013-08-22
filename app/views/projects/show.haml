@@ -1,7 +1,7 @@
 .row
-  .large-3.columns
+  .large-4.columns
     = render :partial => '/shared/inner_nav'
-  .large-9.columns
+  .large-8.columns
     = render :partial => 'shared/breadcrumbs', :locals => { :breadcrumb_items => [project] }
     .section-inner
       .row
@@ -19,7 +19,7 @@
                 = link_to project_path(project), :method => :delete, :confirm => 'Are you sure?' do
                   %i.foundicon-trash
           %hr/
-          .section-container.accordion( data-section)
+          .section-container.tabs( data-section)
             %section.section
               .title
                 %a(href='#tasks') Tasks

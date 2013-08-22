@@ -1,0 +1,19 @@
+.section-container.accordion data-section=""
+  section.section.active
+    p.title
+      a href="#" Projects
+    .content
+      ul.side-nav= render projects
+  section.section
+    p.title
+      a href="#" Lists
+    .content
+      ul.side-nav= render todo_lists
+= link_to new_project_path, :class => 'button secondary large-6 small-6 columns' do
+  span.foundicon-add-doc
+  '&nbsp;
+  ' Project
+= link_to new_todo_list_path, :class => 'button secondary large-6 small-6 columns' do
+  span.foundicon-add-doc
+  '&nbsp;
+  ' List

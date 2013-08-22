@@ -3,8 +3,9 @@
     h3 title='You may invite other users to your projects or be invited to theirs' = t :'home.titles.your_projects'
     ul#projects
       = render projects
-    = link_to new_project_path, class: 'button secondary' do
-      span.icon.icon-plus-circle
+    = link_to '#', class: 'button secondary',  data: {'reveal-id'=> 'new-project-modal' } do
+      i.foundicon-add-doc
+      '&nbsp;
       = t(:'home.links.add_project')
     -if current_user.invitations.any?
       h4= t :'home.titles.invites'
@@ -19,8 +20,12 @@
       .notice
         =t :'todo_lists.messages.no_todo_lists_added'
     = link_to '#', class: 'button secondary',  data: {'reveal-id'=> 'new-list-modal' } do
-      span.icon.icon-document-plus
+      i.foundicon-add-doc
+      '&nbsp;
       = t(:'home.links.add_todo_list')
+#new-project-modal.reveal-modal.expand
+  = render partial: 'projects/form', locals:{project: Project.new}
+  a.close-reveal-modal &#215
 #new-list-modal.reveal-modal.expand
   = render partial: 'todo_lists/form', locals:{todo_list: TodoList.new}
   a.close-reveal-modal &#215

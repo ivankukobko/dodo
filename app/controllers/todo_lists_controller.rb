@@ -69,23 +69,11 @@ class TodoListsController < ApplicationController
 
   def todo_list
     @todo_list ||= if params[:id]
-      #FIXME: no excuses for rescues!
-      begin
-        current_user.todo_lists_in_projects.find params[:id]
-      rescue
-        current_user.todo_lists.find params[:id]
-      end
+      current_user.todo_lists.find params[:id]
     else
-      TodoList.new params[:todo_list]
+      current_user.todo_lists.build params[:todo_list], project_id: project.try(:id)
     end
   end
   helper_method :todo_list
-
-  def project
-    @project ||= if params[:project_id]
-      current_user.projects.find params[:project_id]
-    end
-  end
-  helper_method :project
 
 end

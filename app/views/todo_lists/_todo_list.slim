@@ -1,0 +1,11 @@
+li
+  article class="todo-list #{'complete' if todo_list.is_complete?}"
+    = link_to [todo_list.project, todo_list] do
+      - if todo_list.is_complete?
+        span.icon.icon-document-task
+      - else
+        span.icon.icon-document-list
+      = todo_list.title
+      - unless todo_list.todo_items.empty?
+        '&nbsp;
+        span.label.round= "#{todo_list.todo_items.complete.count}/#{todo_list.todo_items.count}"

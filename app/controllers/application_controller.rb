@@ -7,6 +7,21 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def projects
+    @projects ||= current_user.projects.includes(:todo_lists)
+  end
+  helper_method :projects
+
+  def todo_lists
+    @todo_lists ||= current_user.todo_lists.unattached.includes(:todo_items)
+  end
+  helper_method :todo_lists
+
+  def project
+    @project ||= current_user.projects.find_by_id params[:project_id]
+  end
+  helper_method :project
+
   def current_user
     if session[:user_id]
       @current_user ||= User.find session[:user_id]
@@ -44,9 +59,4 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # TODO: move this somewhere outta here!
-  #def help_links
-    #@help_links ||= InfoPage.promoted
-  #end
-  #helper_method :help_links
 end
