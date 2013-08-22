@@ -42,6 +42,10 @@ module Dodo
     # Enable the asset pipeline
     config.assets.enabled = true
     config.assets.paths << "#{ Rails.root }/app/assets/templates"
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif,
+      *.css, *.js, *.eot, *.svg, *.ttf, *.woff,
+      application.css, application.js
+    )
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
