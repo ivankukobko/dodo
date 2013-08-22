@@ -29,8 +29,11 @@
 
 // We use these as default colors throughout
 // $primary-color: #2ba6cb;
+$primary-color: #3498DB;
 // $secondary-color: #e9e9e9;
+$secondary-color: #ECF0F1;
 // $alert-color: #c60f13;
+$alert-color: #E74C3C;
 // $success-color: #5da423;
 
 // We use these to make sure border radius matches unless we want it different.
@@ -970,6 +973,7 @@ $header-font-weight: normal;
 
 // Background color for the top bar
 // $topbar-bg: #111;
+$topbar-bg: #2C3E50;
 
 // Height and margin
 // $topbar-height: 45px;
@@ -984,12 +988,14 @@ $topbar-margin-bottom: 0;
 // $topbar-title-font-size: emCalc(17px);
 
 // Set the link colors and styles for top-level nav
-$topbar-link-color: $primary-color;
+// $topbar-link-color: $primary-color;
+$topbar-link-color: white;
 // $topbar-link-weight: bold;
 // $topbar-link-font-size: emCalc(13px);
 
 // Style the top bar dropdown elements
 // $topbar-dropdown-bg: #333;
+$topbar-dropdown-bg: #2980B9;
 // $topbar-dropdown-link-color: #fff;
 // $topbar-dropdown-toggle-size: 5px;
 // $topbar-dropdown-toggle-color: #fff;

@@ -8,12 +8,12 @@
   .field
     =f.password_field :password
   .actions
-    = f.submit 'login', class: 'button'
-    ' or
-    = link_to 'sign up', new_user_path
+    = f.submit 'Log In', class: 'button tiny secondary'
+    ' &nbsp;or
+    = link_to 'Sign Up', new_user_path
   = link_to "/auth/facebook", class: 'button tiny secondary' do
     span.social-foundicon-facebook
-    ' Login with Facebook
+    ' &nbsp;Login with Facebook
   = link_to "/auth/google", class: 'button tiny secondary' do
     span.social-foundicon-google-plus
-    ' Login with Google
+    ' &nbsp;Login with Google

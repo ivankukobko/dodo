@@ -17,7 +17,7 @@
       ul#todo-lists
         = render todo_lists
     - else
-      .notice
+      .alert-box.secondary
         =t :'todo_lists.messages.no_todo_lists_added'
     = link_to '#', class: 'button secondary',  data: {'reveal-id'=> 'new-list-modal' } do
       i.foundicon-add-doc

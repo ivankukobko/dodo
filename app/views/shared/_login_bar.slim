@@ -1,0 +1,15 @@
+ul.right
+  - if current_user
+    li
+      = link_to me_path do
+        span.icon.icon-user
+        = current_user
+    li
+      = link_to logout_path do
+        span.icon.icon-door-out
+        ' Logout
+  - else
+    li
+      = link_to new_session_path do
+        span.icon.icon-door-in
+        'Login

@@ -1,0 +1,22 @@
+- if current_user
+  ul.left
+    li
+      = link_to todo_items_url do
+        i.foundicon-edit
+        '&nbsp;
+        = t :'site.nav.todo_items'
+    li
+      = link_to todo_lists_url do
+        i.foundicon-page
+        '&nbsp;
+        = t :'site.nav.todo_lists'
+    li
+      = link_to projects_url do
+        i.foundicon-folder
+        '&nbsp;
+        = t :'site.nav.projects'
+    li
+      = link_to worklogs_url do
+        i.foundicon-calendar
+        '&nbsp;
+        = t :'site.nav.time_logs'
