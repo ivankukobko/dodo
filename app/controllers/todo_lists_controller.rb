@@ -69,7 +69,11 @@ class TodoListsController < ApplicationController
 
   def todo_list
     @todo_list ||= if params[:id]
-      current_user.todo_lists.find params[:id]
+      begin
+        current_user.todo_lists.find params[:id]
+      rescue
+        user.todo_lists_in_projects.find params[:id]
+      end
     else
       current_user.todo_lists.build params[:todo_list], project_id: project.try(:id)
     end
