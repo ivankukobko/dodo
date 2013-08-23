@@ -26,9 +26,11 @@ class TodoItemsController < ApplicationController
 
 private
 
-  def begin_of_association_chain
-    current_user
-  end
+  # TODO: make scope for all user's todo items,
+  # both in projects and in standalone lists
+  # def begin_of_association_chain
+    # current_user
+  # end
 
   def todo_list
     parent
