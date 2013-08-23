@@ -9,11 +9,12 @@
       a href="#" Lists
     .content
       ul.side-nav= render todo_lists
-= link_to new_project_path, :class => 'button secondary large-6 small-6 columns' do
-  span.foundicon-add-doc
-  '&nbsp;
-  ' Project
-= link_to new_todo_list_path, :class => 'button secondary large-6 small-6 columns' do
-  span.foundicon-add-doc
-  '&nbsp;
-  ' List
+ul.button-group.round.even-2
+  li= link_to new_project_path, :class => 'button secondary' do
+    span.foundicon-add-doc
+    '&nbsp;
+    ' Project
+  li= link_to new_todo_list_path, :class => 'button secondary' do
+    span.foundicon-add-doc
+    '&nbsp;
+    ' List
