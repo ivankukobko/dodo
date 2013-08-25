@@ -64,6 +64,9 @@ en:
       success: 'User has been successfully created!'
 
   sessions:
+    buttons:
+      log_in: 'Log In'
+      sign_up: 'Sign Up'
     create:
       success: 'Successfully logged in!'
       error: "Couldn\'t log in. Check you email/password combination"

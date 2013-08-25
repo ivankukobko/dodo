@@ -11,16 +11,13 @@ feature 'Sign In', %q{
 
   scenario "Successful Sign In" do
     user = create(:user)
-    fill_in 'Email', :with => user.email
-    fill_in 'Password', :with => user.password
-    click_button 'login'
+    sign_in user.email, user.password
     current_path.should eql(root_path)
+    page.should have_content(I18n.t('sessions.create.success'))
   end
 
   scenario "Unsuccessful Sign In" do
-    fill_in 'Email', :with => 'hacker@getyou.com'
-    fill_in 'Password', :with => 'badpassword'
-    click_on 'login'
+    sign_in 'hacker@getyou.com', 'badpassword'
     current_path.should eql(new_session_path)
     page.should have_content(I18n.t('sessions.create.error'))
   end
