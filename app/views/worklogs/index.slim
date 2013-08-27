@@ -6,7 +6,6 @@
           th width='60' Date
           th width='100' Duration
           th Task
-          th List
           th Project
           th width ='120' User
           th width ='60' Actions
@@ -15,7 +14,6 @@
           td= l worklog.log_date, :format => :short
           td= worklog.duration_human
           td= link_to(worklog.todo_item, worklog.todo_item)
-          td= link_to(worklog.todo_list, worklog.todo_list) if worklog.todo_item
           td= link_to(worklog.project, worklog.project) if (worklog.todo_item && worklog.project)
           td= worklog.user
           td

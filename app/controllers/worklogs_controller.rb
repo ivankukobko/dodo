@@ -6,10 +6,12 @@ class WorklogsController < ApplicationController
   def create
     if worklog.save
       respond_to do |format|
-        format.html { redirect_to [worklog.todo_item.todo_list, worklog.todo_item] }
+        format.html { redirect_to worklog.todo_item }
         format.json { render :json => worklog }
       end
     else
+      p todo_item
+      p worklog.errors
       render :new
     end
   end
@@ -62,6 +64,7 @@ private
       TodoItem.find params[:todo_item_id]
     end
   end
+  helper_method :todo_item
 
   def project
     @project ||= if params[:project_id]
@@ -73,10 +76,12 @@ private
     @worklog ||= if params[:id]
       current_user.worklogs.find params[:id]
     elsif todo_item
-      params[:worklog][:todo_item_id] = todo_item.id
-      params[:worklog][:log_date] = Time.now
-      current_user.worklogs.build params[:worklog]
+      w = current_user.worklogs.build params[:worklog]
+      w.todo_item_id = todo_item.id
+      w.log_date = Time.now
+      w
     end
   end
+  helper_method :worklog
 
 end
