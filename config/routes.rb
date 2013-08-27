@@ -4,7 +4,7 @@ Dodo::Application.routes.draw do
   #root :to => "dashboard#index"
   get '/dashboard' => 'dashboard#index'
 
-  resources :help, :controller => 'InfoPages', :only => [ :index, :show ]
+  resources :info_pages, :path => 'help', :only => [ :index, :show ]
   resources :worklogs do
     member do
       get 'bill'
@@ -39,6 +39,16 @@ Dodo::Application.routes.draw do
       end
     end
     resources :worklogs
+
+    resources :todo_items, :path => 'tasks' do
+      collection do
+        post :sort
+      end
+      member do
+        get :complete
+        get :uncomplete
+      end
+    end
   end
 
   resources :todo_lists, :path => 'lists' do

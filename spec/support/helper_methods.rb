@@ -1,9 +1,9 @@
 module HelperMethods
   def sign_in email, password
     visit "/"
-    fill_in 'email', :with => email
-    fill_in 'password', :with => password
-    click_button I18n.t('login.link.login')
+    fill_in 'Email', :with => email
+    fill_in 'Password', :with => password
+    click_button I18n.t('sessions.buttons.log_in')
   end
 end
 

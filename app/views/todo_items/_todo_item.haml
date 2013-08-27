@@ -6,14 +6,17 @@
     .large-1.small-1.columns
       .is-complete
         - if todo_item.is_complete?
-          =link_to [:uncomplete, todo_item.todo_list, todo_item] do |f|
+          =link_to [:uncomplete, todo_item] do |f|
             %i.foundicon-checkmark
         - else
-          =link_to [:complete, todo_item.todo_list, todo_item] do |f|
+          =link_to [:complete, todo_item] do |f|
             %i.foundicon-checkmark
     .large-10.small-10.columns
-      .item-title= link_to todo_item.title, [todo_item.todo_list, todo_item]
+      .item-title= link_to todo_item.title, todo_item
       %small
+        - if todo_item.lists
+          - todo_item.lists.each do |list|
+            %span.label= list
         - if todo_item.assignee
           %span.assignee.round.secondary.label
             %i.social-foundicon-torso

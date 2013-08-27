@@ -1,7 +1,7 @@
 .row
-  .large-4.columns
+  .large-3.columns
     = render :partial => '/shared/inner_nav'
-  .large-8.columns
+  .large-9.columns
     = render :partial => 'shared/breadcrumbs', :locals => { :breadcrumb_items => [project] }
     .section-inner
       .row
@@ -21,20 +21,24 @@
           %hr/
           .row
             .large-8.columns
-              - if project.todo_lists.any?
-                %ul#todo-lists
-                  = render project.todo_lists
-              - else
-                .alert-box.secondary
-                  =t :'todo_lists.messages.no_todo_lists_added'
-              = link_to new_project_todo_list_path(project), :class => 'button tiny' do
+              -# - if project.todo_lists.any?
+                -# %ul#todo-lists
+                  -# = render project.todo_lists
+              -# - else
+                -# .alert-box.secondary
+                  -# =t :'todo_lists.messages.no_todo_lists_added'
+              = link_to new_project_todo_item_path(project), :class => 'button tiny' do
                 %i.foundicon-plus
-                Add todo list
+                Add task
+
+              - if project.todo_items.any?
+                %ul#tasks
+                  = render project.todo_items
               - if project.description
                 .description= markdown project.description
             .large-4.columns
               %h4 Associates
-              %ul#users
+              %ul.no-bullet#users
                 = render project.users
               = link_to new_project_invitation_path(project), :class => 'button tiny' do
                 %i.foundicon-plus

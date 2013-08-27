@@ -13,22 +13,22 @@
       ul#invitations
         = render current_user.invitations
   .large-6.columns
-    h2 title='Only you can see and manage your private todo lists'
-      = t :'home.titles.your_todo_lists'
-      small
-        = link_to '#', class: 'button tiny secondary',  data: {'reveal-id'=> 'new-list-modal' } do
-          i.foundicon-add-doc
+    h2 title='Only you can see and manage your private tasks'
+      = t :'home.titles.your_todo_items'
+      / small
+        / = link_to '#', class: 'button tiny secondary',  data: {'reveal-id'=> 'new-list-modal' } do
+          / i.foundicon-add-doc
     hr/
-    - if todo_lists.any?
-      ul#todo-lists
-        = render todo_lists
+    - if todo_items.any?
+      ul#tasks
+        = render todo_items
     - else
       .alert-box.secondary
-        ==t :'todo_lists.messages.no_todo_lists_added'
+        ==t :'todo_items.messages.no_todo_items_added'
 #new-project-modal.reveal-modal.expand
   = render partial: 'projects/form', locals:{project: Project.new}
   a.close-reveal-modal &#215
-#new-list-modal.reveal-modal.expand
-  = render partial: 'todo_lists/form', locals:{todo_list: TodoList.new}
-  a.close-reveal-modal &#215
+/ #new-list-modal.reveal-modal.expand
+  / = render partial: 'todo_lists/form', locals:{todo_list: TodoList.new}
+  / a.close-reveal-modal &#215
 

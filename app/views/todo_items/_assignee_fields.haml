@@ -1,4 +1,4 @@
 .field
   = f.label :user_id
 .field
-  = f.select :user_id, todo_list.project.users.collect{|u| [u, u.id]}, :include_blank => true
+  = f.select :user_id, project.users.collect{|u| [u, u.id]}, :include_blank => true

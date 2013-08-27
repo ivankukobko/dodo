@@ -12,6 +12,7 @@ ru:
       projects: 'Проекты'
       todo_lists: 'Списки задач'
       time_logs: 'Отчеты'
+      todo_items: 'Tasks'
     email_notifications:
       registration: 'Добро пожаловать в проект &laquo;dodo&raquo;!'
       invitation_to_project: 'Вас пригласили для работы над проектом!'
@@ -64,6 +65,9 @@ ru:
       success: 'Учетная запись пользователя создан!'
 
   sessions:
+    buttons:
+      log_in: 'Войти'
+      sign_up: 'Зарегистрироваться'
     create:
       success: 'Вход успешно выполнен!'
       error: "Ошибка авторизации! Проверьте Ваш логин/пароль"

@@ -8,19 +8,24 @@ class ApplicationController < ActionController::Base
   protected
 
   def projects
-    @projects ||= current_user.projects.includes(:todo_lists)
+    @projects ||= current_user.projects.includes(:todo_items)
   end
   helper_method :projects
 
-  def todo_lists
-    @todo_lists ||= current_user.todo_lists.unattached.includes(:todo_items)
-  end
-  helper_method :todo_lists
+  # def todo_lists
+    # @todo_lists ||= current_user.todo_lists.unattached.includes(:todo_items)
+  # end
+  # helper_method :todo_lists
 
   def project
     @project ||= current_user.projects.find_by_id params[:project_id]
   end
   helper_method :project
+
+  def todo_items
+    @todo_items ||= current_user.todo_items.unattached
+  end
+  helper_method :todo_items
 
   def current_user
     if session[:user_id]

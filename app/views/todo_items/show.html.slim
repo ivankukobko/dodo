@@ -1,21 +1,24 @@
 .row
   .large-12.columns
-    = render :partial => 'shared/breadcrumbs', :locals => { :breadcrumb_items => [todo_item.todo_list.project, todo_item.todo_list, todo_item].compact }
+    = render :partial => 'shared/breadcrumbs', :locals => { :breadcrumb_items => [todo_item.project, todo_item].compact }
     section#todo-item class="#{'complete' if todo_item.is_complete?}"
       h2.item-title
-        = link_to todo_list_path(todo_item.todo_list) do
-          '&larr;
+        - if todo_item.project
+          = link_to project_path(todo_item.project) do
+            '&larr;
         = todo_item.title
-      ul.button-group.round.even-4
-        li= link_to [todo_item.is_complete ? :uncomplete : :complete, todo_item.todo_list, todo_item], class: 'button secondary success' do
-          i.foundicon-checkmark
-        li= link_to todo_item_worklogs_path(todo_item), class: 'button secondary' do
-          i.foundicon-clock
-        -#= render :partial => 'worklogs/form', :locals => { :todo_item => todo_item, :worklog => Worklog.new }
-        li= link_to edit_todo_list_todo_item_path(todo_item.todo_list, todo_item), class: 'button ', title: 'Edit' do
-          i.foundicon-edit
-        li= link_to [todo_item.todo_list, todo_item], confirm: 'Are you sure?', method: :delete, class: 'button secondary alert', title: 'Delete' do
-          i.foundicon-trash
+      .row
+        .small-12.large-6.columns
+          ul.button-group.round.even-4
+            li= link_to [todo_item.is_complete ? :uncomplete : :complete, todo_item], class: 'button small secondary success' do
+              i.foundicon-checkmark
+            li= link_to todo_item_worklogs_path(todo_item), class: 'button small secondary' do
+              i.foundicon-clock
+            -#= render :partial => 'worklogs/form', :locals => { :todo_item => todo_item, :worklog => Worklog.new }
+            li= link_to edit_todo_item_path(todo_item), class: 'button small ', title: 'Edit' do
+              i.foundicon-edit
+            li= link_to [todo_item], confirm: 'Are you sure?', method: :delete, class: 'button small secondary alert', title: 'Delete' do
+              i.foundicon-trash
       hr/
       - if !todo_item.description.blank?
         .description
@@ -26,4 +29,4 @@
       = render todo_item.comments
     = render :partial => 'comments/form', :locals => { :comment => todo_item.comments.build }
 
-    =link_to raw("&larr;#{todo_item.todo_list.title}"), todo_list_path(todo_item.todo_list)
+    / =link_to raw("&larr;#{todo_item.todo_list.title}"), todo_list_path(todo_item.todo_list)

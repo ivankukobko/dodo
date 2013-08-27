@@ -1,11 +1,11 @@
 class User < ActiveRecord::Base
 
-  has_many :todo_lists#,  :conditions => [ 'project_id is null' ]
-  has_many :todo_items,  :through => :todo_lists
+  # has_many :todo_lists,  :conditions => [ 'project_id is null' ]
+  has_many :todo_items
   has_many :collaborators, :include => :project
   has_many :projects,    :through => :collaborators
   has_many :todo_items_in_projects, :through => :projects, :source => :todo_items
-  has_many :todo_lists_in_projects, :through => :projects, :source => :todo_lists
+  # has_many :todo_lists_in_projects, :through => :projects, :source => :todo_lists
   has_many :invitations, :conditions => [ 'accepted_at is null' ]
   has_many :assignees
   has_many :assigned_todo_items, :through => :assignees, :source => :todo_item
@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   has_one  :administrator
   has_many :authentications, :dependent => :destroy
 
-  # TODO: find out how to make it work with postgre
+  # TODO: find out how to make it work with postgres
   #has_many :co_workers, :through => :projects, :source => :users, :uniq => true
 
   attr_accessor :password
