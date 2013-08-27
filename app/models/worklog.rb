@@ -8,8 +8,8 @@ class Worklog < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :todo_item
-  delegate :todo_list, :to => :todo_item
-  delegate :project, :to => :todo_list
+  # delegate :todo_list, :to => :todo_item
+  delegate :project, :to => :todo_item
 
   validates_presence_of :duration, :user_id, :todo_item_id
 
