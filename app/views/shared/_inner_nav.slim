@@ -8,13 +8,12 @@
     p.title
       a href="#" Lists
     .content
-      ul.side-nav= render todo_lists
-ul.button-group.round.even-2
-  li= link_to new_project_path, :class => 'button secondary' do
-    span.foundicon-add-doc
-    '&nbsp;
-    ' Project
-  li= link_to new_todo_list_path, :class => 'button secondary' do
-    span.foundicon-add-doc
-    '&nbsp;
-    ' List
+      / ul.side-nav= render todo_lists
+= link_to new_project_path, :class => 'button small secondary round expand' do
+  span.foundicon-add-doc
+  '&nbsp;
+  ' Project
+  / li= link_to new_todo_list_path, :class => 'button small secondary' do
+    / span.foundicon-add-doc
+    / '&nbsp;
+    / ' List

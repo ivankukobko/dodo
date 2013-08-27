@@ -1,7 +1,10 @@
 class TodoList < ActiveRecord::Base
   belongs_to :project
   belongs_to :user
-  has_many :todo_items, :dependent => :destroy
+  has_and_belongs_to_many :tasks,
+    class_name: 'TodoItem', join_table: 'tasks_lists',
+    foreign_key: 'list_id', association_foreign_key: 'task_id',
+    uniq: true
 
   scope :unattached, where(project_id: nil)
 

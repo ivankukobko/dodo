@@ -39,6 +39,16 @@ Dodo::Application.routes.draw do
       end
     end
     resources :worklogs
+
+    resources :todo_items, :path => 'tasks' do
+      collection do
+        post :sort
+      end
+      member do
+        get :complete
+        get :uncomplete
+      end
+    end
   end
 
   resources :todo_lists, :path => 'lists' do

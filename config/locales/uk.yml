@@ -12,6 +12,7 @@ uk:
       projects: 'Проекты'
       todo_lists: 'Списки задач'
       time_logs: 'Отчеты'
+      todo_items: 'Tasks'
     email_notifications:
       registration: 'Добро пожаловать в проект &laquo;dodo&raquo;!'
       invitation_to_project: 'Вас пригласили для работы над проектом!'

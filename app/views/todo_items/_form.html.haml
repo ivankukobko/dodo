@@ -1,4 +1,4 @@
-= form_for [todo_list, todo_item] do |f|
+= form_for [project, todo_item] do |f|
   = render :partial => "shared/error_messages", :locals => { :object => todo_item }
   .field
     = f.label :title
@@ -12,8 +12,8 @@
     = f.label :due_date
   .field
     = f.text_field :due_date, :class => 'datepicker'
-  - if todo_list.project
+  - if project || todo_item.project
     = f.fields_for :assignee, ( todo_item.assignee || todo_item.build_assignee ) do |a|
-      = render :partial => 'assignee_fields', :locals => { :f => a }
+      = render :partial => 'assignee_fields', :locals => { :f => a, project: project || todo_item.project }
   .actions
     = f.submit :class => 'button'

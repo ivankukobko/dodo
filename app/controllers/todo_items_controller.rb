@@ -1,9 +1,9 @@
 class TodoItemsController < ApplicationController
   inherit_resources
-  belongs_to :todo_list, optional: true
+  belongs_to :project, optional: true
 
   def destroy
-    destroy!{ parent_url }
+    destroy!{ root_url }
   end
 
   def sort
@@ -16,26 +16,31 @@ class TodoItemsController < ApplicationController
 
   def complete
     todo_item.update_attribute :is_complete, true
-    redirect_to todo_item.todo_list, notice: 'Complete'
+    redirect_to todo_item, notice: 'Complete'
   end
 
   def uncomplete
     todo_item.update_attribute :is_complete, false
-    redirect_to todo_item.todo_list, notice: 'Incomplete'
+    redirect_to todo_item, notice: 'Incomplete'
   end
 
 private
 
-  # TODO: make scope for all user's todo items,
-  # both in projects and in standalone lists
-  # def begin_of_association_chain
-    # current_user
-  # end
-
-  def todo_list
-    parent
+  def begin_of_association_chain
+    current_user
   end
-  helper_method :todo_list
+
+  def collection
+    @todo_items ||= begin_of_association_chain.todo_items << (parent ? begin_of_association_chain.todo_items_in_projects : [])
+  end
+
+  def resource
+    if params[:id]
+      collection.find params[:id]
+    else
+      TodoItem.new params[:todo_item], project_id: params[:project_id]
+    end
+  end
 
   def todo_items
     collection
@@ -46,4 +51,5 @@ private
     resource
   end
   helper_method :todo_item
+
 end
