@@ -1,62 +1,33 @@
 class CommentsController < ApplicationController
-  def index
-  end
-
-  def new
-  end
-
-  def edit
-  end
+  inherit_resources
+  respond_to :html, :js
+  belongs_to :todo_item
 
   def create
-    comment.user = current_user
-    comment.todo_item = todo_item
-    if comment.save
-      flash[:notice] = 'comment added'
-    else
-      flash[:error] = 'cannot create comment'
-    end
-    redirect_to todo_list_todo_item_path(todo_item.todo_list, todo_item)
-  end
-
-  def update
-    if comment.update_attributes(params[:comment])
-      flash[:notice] = 'comment updated'
-    else
-      flash[:error] = 'cannot update comment'
-    end
-    redirect_to todo_list_todo_item_path(todo_item.todo_list, todo_item)
+    # TODO: find out how to set these attributes implicitly
+    @comment = Comment.new params[:comment]
+    @comment.user_id = current_user.id
+    @comment.todo_item_id = params[:todo_item_id]
+    create! {parent_url}
   end
 
   def destroy
-    if comment.destroy
-      flash[:notice] = 'Comment destroyed'
-    end
-    redirect_to [todo_item.todo_list, todo_item]
+    destroy! {parent_url}
   end
 
-  def comments
-    @comments ||= if todo_item.exists?
-      todo_item.comments
-    end
+  def update
+    update! {parent_url}
   end
-  helper_method :comments
+
+  protected
+
+  def begin_of_association_chain
+    current_user
+  end
 
   def comment
-    @comment ||= if params[:id]
-      current_user.comments.find params[:id]
-    else
-      Comment.new params[:comment]
-    end
+    resource
   end
   helper_method :comment
-
-  def todo_item
-    @todo_item ||= if params[:todo_item_id]
-      current_user.todo_items_in_projects.find_by_id(params[:todo_item_id]) ||
-        current_user.todo_items.find_by_id(params[:todo_item_id])
-    end
-  end
-  helper_method :todo_item
 
 end
