@@ -52,7 +52,7 @@ class User < ActiveRecord::Base
   def self.authenticate(email, password)
     if !password.blank? && (user = find_by_email(email))
       if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
-        user.last_sign_it_at = Time.now
+        user.last_sign_in_at = Time.now
         user.save
         user
       end
