@@ -1,0 +1,11 @@
+.row
+  .large-12.columns
+    table width="100%"
+      thead
+        th Name
+        th Email
+        th Created at
+        th Admin?
+        th Actions
+      tbody
+        =render partial: 'user', collection: collection

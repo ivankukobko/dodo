@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   has_many :authentications, :dependent => :destroy
 
   # TODO: find out how to make it work with postgres
-  #has_many :co_workers, :through => :projects, :source => :users, :uniq => true
+  has_many :co_workers, :through => :projects, :source => :users, :uniq => true
 
   attr_accessor :password
 
@@ -52,6 +52,8 @@ class User < ActiveRecord::Base
   def self.authenticate(email, password)
     if !password.blank? && (user = find_by_email(email))
       if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
+        user.last_sign_it_at = Time.now
+        user.save
         user
       end
     end
