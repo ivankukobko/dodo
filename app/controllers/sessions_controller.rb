@@ -21,9 +21,12 @@ class SessionsController < ApplicationController
         # whether there is already a user signed in.
         authentication = Authentication.create_from_hash(auth_hash, current_user)
       end
-      # Log the authorizing user in if he is not yet.
+      # Log the authenticating user in if he is not yet.
       unless current_user
         self.current_user = authentication.user
+        # TODO: move me somewhere to user/auth model
+        current_user.last_sign_in_at = Time.now
+        current_user.save
       end
     end
     redirect_to root_url

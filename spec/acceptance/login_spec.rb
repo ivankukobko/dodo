@@ -14,6 +14,7 @@ feature 'Sign In', %q{
     sign_in user.email, user.password
     current_path.should eql(root_path)
     page.should have_content(I18n.t('sessions.create.success'))
+    user.reload.last_sign_in_at.to_i.should eql(Time.zone.now.to_i)
   end
 
   scenario "Unsuccessful Sign In" do

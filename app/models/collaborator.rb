@@ -2,8 +2,6 @@ class Collaborator < ActiveRecord::Base
   belongs_to :user
   belongs_to :project
 
-  default_scope order('collaborators.created_at ASC')
-
   PROJECT_ROLES = %w(owner collaborator)
 
   def is_owner?
