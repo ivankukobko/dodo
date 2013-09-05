@@ -1,8 +1,11 @@
 .row
+  .large-12.columns
+    = render :partial => 'shared/breadcrumbs', :locals => { :breadcrumb_items => [project] }
+
+.row
   .large-3.columns
     = render :partial => '/shared/inner_nav'
   .large-9.columns
-    = render :partial => 'shared/breadcrumbs', :locals => { :breadcrumb_items => [project] }
     .section-inner
       .row
         .large-12.columns

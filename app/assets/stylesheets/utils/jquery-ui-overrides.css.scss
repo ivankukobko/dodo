@@ -1,4 +1,4 @@
-@import "foundation/foundation-global", "foundation/components/global", "foundation/components/panels";
+/* @import "foundation/foundation-global", "foundation/components/global", "foundation/components/panels"; */
 
 .ui-datepicker {
   background: #fff;
@@ -18,5 +18,7 @@
 article.ui-placeholder {
   height: 1.5em;
   line-height: 1.2em;
-  @include panel();
+  background: #fff;
+  padding: 1em;
+  /* @include panel(); */
 }

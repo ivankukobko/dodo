@@ -1,0 +1,39 @@
+.row
+  .large-12.columns
+    h1
+      = user.name
+      - if current_user === user
+        small
+          = link_to edit_me_path do
+            span.foundicon-edit
+    hr/
+  .large-6.columns
+    p
+      'E-mail:
+      - if current_user === user
+        = user.email
+      - else
+        '[hidden]
+    p
+      'Joined:
+      = l user.created_at, :format => :short
+  .large-6.columns
+    - if current_user === user
+      h3 Connected accounts:
+      ul.no-bullet
+        - for provider in Authentication::PROVIDERS do
+          li
+            - if user.authentications.map(&:provider).include? provider
+              span class="foundicon-checkmark"
+            - else
+              = link_to "/auth/#{provider}" do
+                span class="foundicon-plus"
+            '&nbsp;
+            = provider.capitalize
+            / -#- if user.authentications.map(&:provider).include? provider
+              / -#= link_to authentication_path(user.authentications.find_by_provider(provider)), :method => :delete do
+                / -#%span{ :class=>"icon icon-cross-small" }
+            / -#- else
+              / -#= link_to "/auth/#{provider}" do
+                / -#%span{ :class=>"icon icon-plus-circle" }
+

@@ -36,6 +36,7 @@ $secondary-color: #ECF0F1;
 // $alert-color: #c60f13;
 $alert-color: #E74C3C;
 // $success-color: #5da423;
+$success-color: #2ECC71;
 
 // We use these to make sure border radius matches unless we want it different.
 // $global-radius: 3px;
@@ -94,6 +95,7 @@ $alert-color: #E74C3C;
 $header-font-weight: normal;
 // $header-font-style: normal;
 // $header-font-color: #222;
+$header-font-color: #2c3e50;
 // $header-line-height: 1.4;
 // $header-top-margin: .2em;
 // $header-bottom-margin: .5em;
@@ -386,6 +388,7 @@ $header-font-weight: normal;
 
 // We use this to set the background color for the breadcrumb container.
 // $crumb-bg: lighten($secondary-color, 5%);
+$crumb-bg: lighten($primary-color, 5%);
 
 // We use these to set the padding around the breadcrumbs.
 // $crumb-padding: emCalc(6px) emCalc(14px) emCalc(9px);
@@ -394,20 +397,25 @@ $header-font-weight: normal;
 // We use these to control border styles.
 // $crumb-function-factor: 10%;
 // $crumb-border-size: 1px;
+$crumb-border-size: 0px;
 // $crumb-border-style: solid;
 // $crumb-border-color: darken($crumb-bg, $crumb-function-factor);
 // $crumb-radius: $global-radius;
+$crumb-radius: 0;
 
 // We use these to set various text styles for breadcrumbs.
 // $crumb-font-size: emCalc(11px);
 // $crumb-font-color: $primary-color;
+$crumb-font-color: #fff;
 // $crumb-font-color-current: #333;
+$crumb-font-color-current: $success-color;
 // $crumb-font-color-unavailable: #999;
 // $crumb-font-transform: uppercase;
 // $crumb-link-decor: underline;
 
 // We use these to control the slash between breadcrumbs
 // $crumb-slash-color: #aaa;
+$crumb-slash-color: #fff;
 // $crumb-slash: "/";
 
 //
@@ -676,8 +684,10 @@ $header-font-weight: normal;
 
 // We use these to control the background and border styles
 // $panel-bg: darken(#fff, 5%);
+$panel-bg: lighten($primary-color,5%);
 // $panel-border-style: solid;
 // $panel-border-size: 1px;
+$panel-border-size: 0px;
 
 // We use this % to control how much we darken things on hover
 // $panel-function-factor: 10%;
@@ -689,6 +699,7 @@ $header-font-weight: normal;
 
 // We use these to set default font colors
 // $panel-font-color: #333;
+$panel-font-color: #fff;
 // $panel-font-color-alt: #fff;
 
 //
@@ -832,8 +843,11 @@ $header-font-weight: normal;
 // We use these to control link styles.
 // $side-nav-link-color: $primary-color;
 // $side-nav-link-color-active: lighten(#000, 30%);
+$side-nav-link-color-active: darken(#16A085, 10%);
 // $side-nav-font-size: emCalc(14px);
+$side-nav-font-size: emCalc(22px);
 // $side-nav-font-weight: bold;
+$side-nav-font-weight: normal;
 
 // We use these to control border styles
 // $side-nav-divider-size: 1px;
