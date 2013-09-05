@@ -1,22 +1,23 @@
 class User < ActiveRecord::Base
 
   has_many :todo_lists
-  # has_many :todo_items
   has_many :tasks, class_name: 'TodoItem'
   has_many :collaborators, include: :project
   has_many :projects, through: :collaborators
   has_many :tasks_in_projects, class_name: 'TodoItem', through: :projects, source: :tasks
 
   has_many :todo_items, class_name: 'TodoItem', finder_sql: proc{
-    "SELECT DISTINCT todo_items.* FROM todo_items
-    WHERE (todo_items.user_id = #{id})
-    UNION ALL
+    "
     SELECT DISTINCT todo_items.* FROM todo_items
     JOIN collaborators ON (collaborators.user_id = #{id})
     JOIN projects ON (projects.id = collaborators.project_id)
     WHERE todo_items.project_id = projects.id
+    UNION ALL
+    SELECT DISTINCT todo_items.* FROM todo_items
+    WHERE (todo_items.user_id = #{id})
     "
   }
+
   has_many :invitations, :conditions => [ 'accepted_at is null' ]
   has_many :assignees
   has_many :assigned_todo_items, :through => :assignees, :source => :todo_item
