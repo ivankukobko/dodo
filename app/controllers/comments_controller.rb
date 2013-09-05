@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     # TODO: find out how to set these attributes implicitly
     @comment = Comment.new params[:comment]
     @comment.user_id = current_user.id
-    @comment.todo_item_id = params[:todo_item_id]
+    @comment.todo_item_id = parent.id
     create! {parent_url}
   end
 

@@ -16,12 +16,12 @@ class TodoItemsController < ApplicationController
 
   def complete
     todo_item.update_attribute :is_complete, true
-    redirect_to todo_item, notice: 'Complete'
+    redirect_to parent || :back, notice: 'Complete'
   end
 
   def uncomplete
     todo_item.update_attribute :is_complete, false
-    redirect_to todo_item, notice: 'Incomplete'
+    redirect_to parent || :back, notice: 'Incomplete'
   end
 
 private
@@ -30,15 +30,11 @@ private
     current_user
   end
 
-  def collection
-    @todo_items ||= begin_of_association_chain.todo_items << (parent ? begin_of_association_chain.todo_items_in_projects : [])
-  end
-
   def resource
-    if params[:id]
+    @todo_item ||= if params[:id]
       collection.find params[:id]
     else
-      TodoItem.new params[:todo_item], project_id: params[:project_id]
+      TodoItem.new params[:todo_item], project_id: parent.id, user_id: current_user.id
     end
   end
 

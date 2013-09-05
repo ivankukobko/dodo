@@ -5,6 +5,7 @@ class TodoItem < ActiveRecord::Base
     uniq: true
 
   belongs_to :project
+  belongs_to :user
 
   has_many :comments, :dependent => :destroy
   has_one  :assignee, :dependent => :destroy
@@ -34,7 +35,7 @@ class TodoItem < ActiveRecord::Base
 
   def expired?
     if due_date && !is_complete
-      p "#{title} - #{due_date} - #{Time.now + 1.days}"
+      # p "#{title} - #{due_date} - #{Time.now + 1.days}"
       due_date < (Time.now - 1.days)
     end
   end

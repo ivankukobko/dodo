@@ -2,7 +2,6 @@
 
 .ui-datepicker {
   background: #fff;
-  //border: 1px solid;
   box-shadow: 0em 0em 1em #444;
   display: none;
   padding: .5em;
@@ -16,12 +15,8 @@
   }
 }
 
-article.ui-state-highlight {
+article.ui-placeholder {
   height: 1.5em;
   line-height: 1.2em;
-  /* background: #444; */
-  /* outline: 4px solid #444; */
-  /* color: #f0f0f0; */
-  /* font-weight: bold; */
   @include panel();
 }

@@ -1,9 +1,8 @@
 %article{ :class => "todo-item #{'complete' if todo_item.is_complete?} #{'expired' if todo_item.expired?}", :id => "todo-item_#{todo_item.id}" }
   .row
-    .large-1.small-1.columns
+    .large-12.small-12.columns
       .drag-handle
         %i.accessibility-foundicon-braille
-    .large-1.small-1.columns
       .is-complete
         - if todo_item.is_complete?
           =link_to [:uncomplete, todo_item] do |f|
@@ -11,8 +10,7 @@
         - else
           =link_to [:complete, todo_item] do |f|
             %i.foundicon-checkmark
-    .large-10.small-10.columns
-      .item-title= link_to todo_item.title, todo_item
+      .item-title= link_to todo_item.title, [project, todo_item]
       %small
         - if todo_item.lists
           - todo_item.lists.each do |list|
@@ -20,7 +18,7 @@
         - if todo_item.assignee
           %span.assignee.round.secondary.label
             %i.social-foundicon-torso
-            = todo_item.assignee.user
+            = todo_item.assignee.user || todo_item.user
         - if todo_item.due_date
           %span.due-date
             %i.foundicon-clock

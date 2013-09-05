@@ -2,8 +2,6 @@ Rails.application.config.middleware.use OmniAuth::Builder do
 
   require 'openid/store/filesystem'
 
-  #  http://systemtruststart.com
-
   # Facebook
   provider :facebook, '270592589674726', '5b438f5f13387160693282b60be615c8'
 

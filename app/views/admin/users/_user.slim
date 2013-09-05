@@ -2,5 +2,6 @@ tr
   td= link_to user.name, [:edit, :admin, user]
   td= user.email
   td= user.created_at
+  td= user.last_sign_in_at
   td= user.administrator?
   td= ''

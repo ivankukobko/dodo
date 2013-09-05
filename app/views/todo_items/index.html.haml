@@ -1,3 +1,6 @@
-= render partial: 'todo_item', collection: todo_items
+.row
+  .large-12.columns
+    .tasks.sortable= render partial: 'todo_item', collection: collection.incomplete
+    .tasks-complete= render partial: 'todo_item', collection: collection.complete
 
--#= link_to 'New Todo item', new_todo_item_path
+    = link_to 'New Todo item', new_todo_item_path, class: 'button small'
