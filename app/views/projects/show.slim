@@ -6,43 +6,37 @@
     .section-inner
       .row
         .large-12.columns
-          %h2.item-title
+          h2.item-title
             = link_to root_url do
-              &larr;
+              '&larr;
             = project
-            %small
+            small
               = link_to project_worklogs_path(project) do
-                %i.foundicon-clock
+                i.foundicon-clock
               - if project.collaborators.where(:user_id => current_user).first.is_owner?
                 = link_to edit_project_path(project) do
-                  %i.foundicon-edit
+                  i.foundicon-edit
                 = link_to project_path(project), :method => :delete, :confirm => 'Are you sure?' do
-                  %i.foundicon-trash
-          %hr/
+                  i.foundicon-trash
+          hr/
           .row
             .large-8.columns
-              -# - if project.todo_lists.any?
-                -# %ul#todo-lists
-                  -# = render project.todo_lists
-              -# - else
-                -# .alert-box.secondary
-                  -# =t :'todo_lists.messages.no_todo_lists_added'
               = link_to new_project_todo_item_path(project), :class => 'button tiny' do
-                %i.foundicon-plus
-                Add task
+                i.foundicon-plus
+                'Add task
 
               - if project.todo_items.any?
-                %ul#tasks
+                ul#tasks
                   = render project.todo_items
               - if project.description
                 .description= markdown project.description
             .large-4.columns
-              %h4 Associates
-              %ul.no-bullet#users
+              h4 Associates
+              ul.no-bullet#users
                 = render project.users
               = link_to new_project_invitation_path(project), :class => 'button tiny' do
-                %i.foundicon-plus
-                Invite user
+                i.foundicon-plus
+                'Invite user
               - unless project.collaborator(current_user).is_owner?
                 = link_to [project, project.collaborator(current_user) ], :method => :delete, :confirm => 'Are you sure?' do
-                  Abandon project
+                  'Abandon project

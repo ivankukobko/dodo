@@ -1,6 +1,6 @@
 class TodoItem < ActiveRecord::Base
   has_and_belongs_to_many :lists,
-    class_name: 'TodoList', join_table: "tasks_lists",
+    class_name: 'TodoList', join_table: 'tasks_lists',
     foreign_key: 'task_id', association_foreign_key: 'list_id',
     uniq: true
 

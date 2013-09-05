@@ -39,6 +39,7 @@ en:
         success: 'Todo list was successfully updated!'
     messages:
       no_todo_lists_added: "Here's no todo lists added at the moment. You can add one or more by clicking on the &laquo;Add todo list&raquo; link"
+
   todo_items:
     actions:
       create:

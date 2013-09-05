@@ -16,12 +16,12 @@ class TodoItemsController < ApplicationController
 
   def complete
     todo_item.update_attribute :is_complete, true
-    redirect_to parent || :back, notice: 'Complete'
+    redirect_to parent || :back, notice: t(:'todo_items.actions.complete.success')
   end
 
   def uncomplete
     todo_item.update_attribute :is_complete, false
-    redirect_to parent || :back, notice: 'Incomplete'
+    redirect_to parent || :back, notice: t(:'todo_items.actions.incomplete.success')
   end
 
 private
@@ -32,7 +32,8 @@ private
 
   def resource
     @todo_item ||= if params[:id]
-      collection.find params[:id]
+      # TODO: Find out how inherited_resources works
+      begin_of_association_chain.todo_items.find params[:id]
     else
       TodoItem.new params[:todo_item], project_id: parent.id, user_id: current_user.id
     end
