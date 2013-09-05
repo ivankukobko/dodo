@@ -20,6 +20,12 @@ en:
   confirm:
     are_you_sure: 'Are you sure?'
   or: 'or'
+
+  auth:
+    errors:
+      not_signed_in: 'Please Sign In'
+      not_authorized: 'You are not authorized'
+
   actions:
     add: 'Create'
     return: 'go back'

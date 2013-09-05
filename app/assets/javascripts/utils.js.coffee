@@ -21,13 +21,13 @@ jQuery ->
     $(link).parent().before(content.replace(regexp, new_id))
 
 
-  $.ajaxSetup(
-    beforeSend: (e) ->
-      $('#ajax').fadeIn()
-    ,
-    complete: ->
-      $('#ajax').fadeOut()
-    )
+  # $.ajaxSetup(
+    # beforeSend: (e) ->
+      # $('#ajax').fadeIn()
+    # ,
+    # complete: ->
+      # $('#ajax').fadeOut()
+    # )
 
   $
   $('.sortable').sortable(
@@ -35,7 +35,7 @@ jQuery ->
     items : 'article'
     distance: 10
     forceHelperSize: true
-    placeholder: "ui-state-highlight"
+    placeholder: "ui-placeholder"
     containment : 'parent'
     connectWith: '.connected-sortable'
     handle: '.drag-handle'

@@ -33,23 +33,6 @@
   margin: 0;
 }
 
-.drag-handle {
-  background: #f1f1f1;
-  border: 1px solid #d2d2d2;
-  color: #999;
-  cursor: move;
-  display: none;
-  height: 1.5em;
-  vertical-align: top;
-  text-align: center;
-  width: 1.2em;
-}
-
-.sortable {
-  .drag-handle{
-    display: inline-block;
-  }
-}
 
 .item-title{
   margin-bottom: 0;

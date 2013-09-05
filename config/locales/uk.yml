@@ -19,15 +19,22 @@ uk:
 
   confirm:
     are_you_sure: 'Are you sure?'
+
   or: 'или'
+
   actions:
     add: 'Создать'
     return: 'вернуться'
 
+  auth:
+    errors:
+      not_signed_in: 'Please Sign In'
+      not_authorized: 'You are not authorized'
+
   todo_lists:
     actions:
       create:
-        title: 'Create new list'
+        title: 'Создать список задач'
         success: 'Список задач успешно создан!'
       update:
         success: 'Список задач успешно сохранен!'
@@ -51,7 +58,7 @@ uk:
   projects:
     actions:
       create:
-        title: 'Create new project'
+        title: 'Створити проект'
         success: 'Проект успешно создан!'
       update:
         success: 'Проект успешно сохранен!'

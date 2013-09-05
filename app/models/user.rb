@@ -1,11 +1,22 @@
 class User < ActiveRecord::Base
 
   has_many :todo_lists
-  has_many :todo_items
-  has_many :collaborators, :include => :project
-  has_many :projects,    :through => :collaborators
-  has_many :todo_items_in_projects, :through => :projects, :source => :todo_items
-  # has_many :todo_lists_in_projects, :through => :projects, :source => :todo_lists
+  # has_many :todo_items
+  has_many :tasks, class_name: 'TodoItem'
+  has_many :collaborators, include: :project
+  has_many :projects, through: :collaborators
+  has_many :tasks_in_projects, class_name: 'TodoItem', through: :projects, source: :tasks
+
+  has_many :todo_items, class_name: 'TodoItem', finder_sql: proc{
+    "SELECT DISTINCT todo_items.* FROM todo_items
+    WHERE (todo_items.user_id = #{id})
+    UNION ALL
+    SELECT DISTINCT todo_items.* FROM todo_items
+    JOIN collaborators ON (collaborators.user_id = #{id})
+    JOIN projects ON (projects.id = collaborators.project_id)
+    WHERE todo_items.project_id = projects.id
+    "
+  }
   has_many :invitations, :conditions => [ 'accepted_at is null' ]
   has_many :assignees
   has_many :assigned_todo_items, :through => :assignees, :source => :todo_item
@@ -14,7 +25,6 @@ class User < ActiveRecord::Base
   has_one  :administrator
   has_many :authentications, :dependent => :destroy
 
-  # TODO: find out how to make it work with postgres
   has_many :co_workers, :through => :projects, :source => :users, :uniq => true
 
   attr_accessor :password
@@ -87,19 +97,11 @@ class User < ActiveRecord::Base
   end
 
   def is_owner? project
-    if collaborator = collaborators.find_by_project_id(project.id)
-      collaborator.is_owner?
-    else
-      false
-    end
+    collaborators.find_by_project_id(project.id).is_owner? || false
   end
 
   def is_collaborator? project
-    if collaborator = collaborators.find_by_project_id(project.id)
-      collaborator.is_collaborator?
-    else
-      false
-    end
+    collaborators.find_by_project_id(project.id).is_collaborator? || false
   end
 
   #def news

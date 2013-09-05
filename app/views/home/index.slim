@@ -1,18 +1,22 @@
 .row
-  .large-6.columns
+  .large-4.columns
     h2 title='You may invite other users to your projects or be invited to theirs'
       = t :'home.titles.your_projects'
       small
         = link_to '#', class: 'button tiny secondary',  data: {'reveal-id'=> 'new-project-modal' } do
           i.foundicon-add-doc
     hr/
-    ul#projects
-      = render projects
+    - if projects.any?
+      ul#projects
+        = render projects
+    - else
+      .alert-box.secondary
+        ==t :'todo_items.messages.no_projects_added'
     -if current_user.invitations.any?
       h4= t :'home.titles.invites'
       ul#invitations
         = render current_user.invitations
-  .large-6.columns
+  .large-4.columns
     h2 title='Only you can see and manage your private tasks'
       = t :'home.titles.your_todo_items'
       / small
@@ -22,6 +26,21 @@
     - if todo_items.any?
       ul#tasks
         = render todo_items
+    - else
+      .alert-box.secondary
+        ==t :'todo_items.messages.no_todo_items_added'
+  .large-4.columns
+    h2 title='Only you can see and manage your private tasks'
+      = t :'home.titles.contacts'
+    hr/
+    - if current_user.co_workers.any?
+      ul#users
+        - current_user.co_workers.reject{|u| u === current_user}.each do |user|
+          li
+            = link_to user, user
+            small
+              - user.projects.select{|p| current_user.projects.include? p}.each do |p|
+                span.label= link_to p, p
     - else
       .alert-box.secondary
         ==t :'todo_items.messages.no_todo_items_added'

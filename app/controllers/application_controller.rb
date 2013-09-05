@@ -45,18 +45,11 @@ class ApplicationController < ActionController::Base
   end
 
   def require_authentication
-    unless current_user
-      redirect_to new_session_url
-    end
+    redirect_to(new_session_url, alert: t(:'auth.error.not_signed_in')) and return unless current_user
   end
 
   def require_authorization
-    unless current_user
-      unless current_user.administrator?
-        flash[:error] = 'Unauthorized!'
-        redirect_to root_url
-      end
-    end
+    redirect_to(root_url, alert: t(:'auth.errors.not_authorized')) and return unless current_user.administrator?
   end
 
 end
