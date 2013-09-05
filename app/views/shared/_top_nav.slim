@@ -20,3 +20,9 @@
         i.foundicon-calendar
         '&nbsp;
         = t :'site.nav.time_logs'
+    - if current_user.administrator?
+      li
+        = link_to admin_users_url do
+          i.foundicon-calendar
+          '&nbsp;
+          = t :'site.nav.admin'

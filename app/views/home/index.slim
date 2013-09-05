@@ -5,7 +5,6 @@
       small
         = link_to '#', class: 'button tiny secondary',  data: {'reveal-id'=> 'new-project-modal' } do
           i.foundicon-add-doc
-    hr/
     - if projects.any?
       ul#projects
         = render projects
@@ -22,7 +21,6 @@
       / small
         / = link_to '#', class: 'button tiny secondary',  data: {'reveal-id'=> 'new-list-modal' } do
           / i.foundicon-add-doc
-    hr/
     - if todo_items.any?
       ul#tasks
         = render todo_items
@@ -32,13 +30,15 @@
   .large-4.columns
     h2 title='Only you can see and manage your private tasks'
       = t :'home.titles.contacts'
-    hr/
     - if current_user.co_workers.any?
-      ul#users
+      ul#users.no-bullet
         - current_user.co_workers.reject{|u| u === current_user}.each do |user|
           li
-            = link_to user, user
+            = link_to user do
+              i.social-foundicon-torso
+              = user
             small
+              '&nbsp;
               - user.projects.select{|p| current_user.projects.include? p}.each do |p|
                 span.label= link_to p, p
     - else
