@@ -16,18 +16,7 @@
 }
 
 
-.complete {
-  .item-title{
-    text-decoration: line-through;
-  }
-}
 
-.todo-item.expired{
-  background-color: #C0392B;
-  /* .item-title a{ */
-    /* color: #E74C3C; */
-  /* } */
-}
 
 .drag-handle, .is-complete, .item-title{
   display: inline-block;
