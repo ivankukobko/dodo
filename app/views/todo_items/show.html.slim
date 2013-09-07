@@ -2,14 +2,9 @@
   .large-12.columns
     = render :partial => 'shared/breadcrumbs', :locals => { :breadcrumb_items => [todo_item.project, todo_item].compact }
     section#todo-item class="#{'complete' if todo_item.is_complete?}"
-      h2.item-title
-        - if todo_item.project
-          = link_to project_path(todo_item.project) do
-            '&larr;
-        = todo_item.title
       .row
-        .small-12.large-6.columns
-          ul.button-group.round.even-4
+        .small-12.large-4.columns
+          ul.button-group.even-4
             li= link_to [todo_item.is_complete ? :uncomplete : :complete, todo_item], class: 'button small secondary success' do
               i.foundicon-checkmark
             li= link_to todo_item_worklogs_path(todo_item), class: 'button small secondary' do
@@ -19,6 +14,11 @@
               i.foundicon-edit
             li= link_to [todo_item], confirm: 'Are you sure?', method: :delete, class: 'button small secondary alert', title: 'Delete' do
               i.foundicon-trash
+      h2.item-title
+        - if todo_item.project
+          = link_to project_path(todo_item.project) do
+            '&larr;
+        = todo_item.title
       hr/
       - if !todo_item.description.blank?
         .description

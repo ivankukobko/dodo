@@ -38,7 +38,7 @@ jQuery ->
     placeholder: "ui-placeholder"
     containment : 'parent'
     connectWith: '.connected-sortable'
-    handle: '.drag-handle'
+    # handle: '.drag-handle'
     update : (event, ui) ->
       self = this
       sortedItems = $(self).sortable('serialize', { key: 'todo-item[]' })
