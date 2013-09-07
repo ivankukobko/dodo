@@ -23,9 +23,10 @@
 }
 
 .todo-item.expired{
-  .item-title a{
-    color: red;
-  }
+  background-color: #C0392B;
+  /* .item-title a{ */
+    /* color: #E74C3C; */
+  /* } */
 }
 
 .drag-handle, .is-complete, .item-title{
