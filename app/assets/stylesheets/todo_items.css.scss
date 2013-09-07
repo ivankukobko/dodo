@@ -13,9 +13,21 @@
   }
 }
 
+.complete {
+  opacity: 0.5;
+  .item-title{
+    text-decoration: line-through;
+  }
+}
+
 .todo-item{
   min-height:2em;
   padding: .25em;
+
+  .due-date{
+    display: inline-block;
+    margin-right: 1em;
+  }
 
   .comments{
     font-size: 75%;
@@ -25,8 +37,25 @@
     background: #BDC3C7;
   }
 
-  &.hover {
-    box-shadow: 0 0 2px 0 #000;
+  &.ui-sortable-helper {
+    box-shadow: 0 0 8px 0 #F1C40F;
+  }
+
+  &.expired{
+    .due-date{
+      background-color: #E74C3C;
+      color: #fff;
+      padding: 0 .5em;
+    }
+    /* .item-title a{ */
+    /* color: #E74C3C; */
+  /* } */
+  }
+}
+
+.sortable{
+  .todo-item {
+    cursor: move;
   }
 }
 
@@ -69,3 +98,4 @@
 .complete .is-complete{
   opacity: 1;
 }
+

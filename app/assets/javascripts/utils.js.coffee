@@ -33,6 +33,7 @@ jQuery ->
   $('.sortable').sortable(
     axis : 'y'
     items : 'article'
+    delay: 500
     distance: 10
     forceHelperSize: true
     placeholder: "ui-placeholder"

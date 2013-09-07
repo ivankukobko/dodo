@@ -22,3 +22,8 @@
             - else
               = link_to '[$]', bill_worklog_path(worklog)
             = link_to '[X]', worklog, :method => :delete, :confirm => "#{t('confirm')}"
+    = link_to 'Add work log', '#', data: {'reveal-id' => "new-worklog-modal"}, class: 'button secondary'
+
+#new-worklog-modal.reveal-modal.expand
+  = render partial: 'worklogs/form', locals:{worklog: Worklog.new}
+  a.close-reveal-modal &#215

@@ -1,35 +1,25 @@
 class WorklogsController < ApplicationController
+  inherit_resources
 
-  def index
+  belongs_to :project, optional: true do
+    belongs_to :task, class_name: 'TodoItem', param: :todo_item_id, optional: true
   end
 
-  def create
-    if worklog.save
-      respond_to do |format|
-        format.html { redirect_to worklog.todo_item }
-        format.json { render :json => worklog }
-      end
-    else
-      p todo_item
-      p worklog.errors
-      render :new
-    end
+  def new
+    redirect_to(:back, alert: "Can add logs for tasks only") and return unless todo_item
   end
 
   def update
-    if worklog.update_attributes(params[:worklog])
-      flash[:success] = t('worklog.update.success')
-    else
-      flash[:error] = t('worklog.update.error')
-    end
-    redirect_to 'index'
+    update!{collection_url}
   end
 
-  def destroy
-    if worklog.destroy
-      flash[:success] = t('worklog.destroy.success')
-    end
-    redirect_to 'index'
+  def create
+    build_resource.user_id = current_user.id
+    build_resource.todo_item_id = todo_item.id
+    build_resource.log_date = Time.now
+    p build_resource.valid?
+    p build_resource.errors
+    create!{parent_url}
   end
 
   def bill
@@ -46,42 +36,19 @@ class WorklogsController < ApplicationController
 
 private
 
-  # get worklogs for current_project or current_user
   def worklogs
-    @worklogs ||= if todo_item
-      todo_item.worklogs
-    elsif project
-      project.worklogs
-    else
-      current_user.worklogs
-      #Worklog.all
-    end
+    collection
   end
   helper_method :worklogs
 
-  def todo_item
-    @todo_item ||= if params[:todo_item_id]
-      TodoItem.find params[:todo_item_id]
-    end
-  end
-  helper_method :todo_item
-
-  def project
-    @project ||= if params[:project_id]
-      current_user.projects.find params[:project_id]
-    end
-  end
-
   def worklog
-    @worklog ||= if params[:id]
-      current_user.worklogs.find params[:id]
-    elsif todo_item
-      w = current_user.worklogs.build params[:worklog]
-      w.todo_item_id = todo_item.id
-      w.log_date = Time.now
-      w
-    end
+    params[:id] ? resource : build_resource
   end
   helper_method :worklog
+
+  def todo_item
+    @todo_item ||= parent if parent? && parent.is_a?(TodoItem)
+  end
+  helper_method :todo_item
 
 end
