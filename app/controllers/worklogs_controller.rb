@@ -17,8 +17,6 @@ class WorklogsController < ApplicationController
     build_resource.user_id = current_user.id
     build_resource.todo_item_id = todo_item.id
     build_resource.log_date = Time.now
-    p build_resource.valid?
-    p build_resource.errors
     create!{parent_url}
   end
 
@@ -37,7 +35,7 @@ class WorklogsController < ApplicationController
 private
 
   def begin_of_association_chain
-    current_user
+    current_user unless parent?
   end
 
   def worklogs

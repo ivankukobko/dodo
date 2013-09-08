@@ -1,27 +1,30 @@
 .row
   .large-12.columns
+    - if parent?
+      h2= link_to parent do
+        '&larr;
+        =parent
     table.worklogs
       thead
         tr
-          th width='60' Date
-          th width='100' Duration
+          th width='160' Date
+          th width='70' Duration
           th Task
           th Project
           th width ='120' User
           th width ='60' Actions
       - for worklog in worklogs do
         tr class="#{'billed' if worklog.is_billed?}"
-          td= l worklog.log_date, :format => :short
+          td= l worklog.log_date, :format => :long
           td= worklog.duration_human
           td= link_to(worklog.todo_item, worklog.todo_item)
           td= link_to(worklog.project, worklog.project) if (worklog.todo_item && worklog.project)
           td= worklog.user
           td
-            - if worklog.is_billed?
-              = link_to '[$]', unbill_worklog_path(worklog), :style => 'text-decoration: line-through;'
-            - else
-              = link_to '[$]', bill_worklog_path(worklog)
-            = link_to '[X]', worklog, :method => :delete, :confirm => "#{t('confirm')}"
+            = link_to [worklog.is_billed? ? :unbill : :bill, worklog] do
+              i.foundicon-up-arrow
+            = link_to worklog, title: 'Delete',  method: :delete, confirm: "#{t(:'confirm.are_you_sure')}" do
+              i.foundicon-trash
     - if todo_item
       = link_to 'Add work log', '#', data: {'reveal-id' => "new-worklog-modal"}, class: 'button secondary'
 
