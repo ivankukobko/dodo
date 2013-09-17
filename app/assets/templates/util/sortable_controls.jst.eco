@@ -1,0 +1,11 @@
+<div class="js-controls">
+  <div class="switch script_sort-switch small round">
+    <input id="sorting-off" name="switch-sorting" type="radio" value="0" checked>
+    <label for="sorting-off" onclick="">Sorting off</label>
+
+    <input id="sorting-on" name="switch-sorting" type="radio" value="1" >
+    <label for="sorting-on" onclick="">Sorting on</label>
+
+    <span></span>
+  </div>
+</div>

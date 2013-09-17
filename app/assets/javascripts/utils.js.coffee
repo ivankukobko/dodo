@@ -29,29 +29,28 @@ jQuery ->
       # $('#ajax').fadeOut()
     # )
 
-  $
-  $('.sortable').sortable(
-    axis : 'y'
-    items : 'article'
-    delay: 500
-    distance: 10
-    forceHelperSize: true
-    placeholder: "ui-placeholder"
-    containment : 'parent'
-    connectWith: '.connected-sortable'
-    # handle: '.drag-handle'
-    update : (event, ui) ->
-      self = this
-      sortedItems = $(self).sortable('serialize', { key: 'todo-item[]' })
-      $.ajax(
-        url : '/tasks/sort'
-        type: 'post'
-        dataType: 'script'
-        data : sortedItems
-        complete: ->
-          $(self).effect('highlight')
-      )
-  ).disableSelection()
+  # $('.sortable').sortable(
+    # axis : 'y'
+    # items : 'article'
+    # delay: 500
+    # distance: 10
+    # forceHelperSize: true
+    # placeholder: "ui-placeholder"
+    # containment : 'parent'
+    # connectWith: '.connected-sortable'
+    # # handle: '.drag-handle'
+    # update : (event, ui) ->
+      # self = this
+      # sortedItems = $(self).sortable('serialize', { key: 'todo-item[]' })
+      # $.ajax(
+        # url : '/tasks/sort'
+        # type: 'post'
+        # dataType: 'script'
+        # data : sortedItems
+        # complete: ->
+          # $(self).effect('highlight')
+      # )
+  # ).disableSelection()
 
   $('.todo-list, .todo-item').hover(
     ->

@@ -1,7 +1,7 @@
 .row
   .large-6.large-offset-3.columns
     #tasks
-      .tasks.sortable= render partial: 'todo_item', collection: collection.incomplete
+      .tasks.script_sortable-toggle= render partial: 'todo_item', collection: collection.incomplete
       .tasks-complete= render partial: 'todo_item', collection: collection.complete
 
     = link_to 'New Todo item', new_todo_item_path, class: 'button small'

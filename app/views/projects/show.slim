@@ -29,7 +29,7 @@
                 'Add task
 
               - if project.todo_items.any?
-                ul#tasks.sortable
+                ul#tasks.script_sortable-toggle
                   = render project.todo_items
               - if project.description
                 .description= markdown project.description
