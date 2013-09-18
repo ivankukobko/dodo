@@ -1,6 +1,8 @@
 class WorklogsController < ApplicationController
   inherit_resources
 
+  custom_actions resource: [:bill, :unbill], collection: [:calendar]
+
   belongs_to :project, optional: true do
     belongs_to :task, class_name: 'TodoItem', param: :todo_item_id, optional: true
   end
@@ -30,6 +32,11 @@ class WorklogsController < ApplicationController
     worklog.is_billed = false
     worklog.save
     redirect_to :back
+  end
+
+  def calendar
+    @logs_by_date = collection.group_by(&:log_date)
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 
 private

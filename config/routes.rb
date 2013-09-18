@@ -10,6 +10,9 @@ Dodo::Application.routes.draw do
       get 'bill'
       get 'unbill'
     end
+    collection do
+      get 'calendar'
+    end
   end
 
   resources :sessions, :only => [:new, :create]

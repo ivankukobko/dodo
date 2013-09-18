@@ -1,0 +1,16 @@
+.row
+  .large-12.columns
+    .date-nav
+      = link_to "&laquo;".html_safe, date: @date.prev_month
+      = @date.strftime("%B %Y")
+      = link_to "&raquo;".html_safe, date: @date.next_month
+
+    = calendar @date do |date|
+      span.day= date.day
+      ul.logs.no-bullet
+        - if @logs_by_date[date]
+          - @logs_by_date[date].each do |log|
+            li
+              span.duration= log.duration_human
+              span.task= link_to log.todo_item, log.todo_item
+
