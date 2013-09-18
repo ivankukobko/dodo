@@ -1,7 +1,3 @@
-// Place all the styles related to the Projects controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 table.worklogs
   width: 100%
 
@@ -9,3 +5,49 @@ table.worklogs
     td
       opacity: .5
       text-decoration: line-through
+
+table.calendar
+  border-collapse: collapse
+  border-spacing: 0
+  width: 100%
+  font-size: 75%
+
+  td
+    background: #fff
+    border: 1px solid #ddd
+    margin: 0
+    min-height: 5em
+    padding: 0
+    vertical-align: top
+    width: 8%
+
+    &.notmonth
+      background: #f6f6f6
+      color: #c0c0c0
+
+      span.day
+        opacity: 0.5
+
+  span.day
+    background: #f0f0f0
+    color: #777
+    display: block
+    padding: .5em 1em
+
+  span.duration
+    display: inline-block
+    padding: .25em .25em
+    background: #c0c0c0
+    margin-right: .5em
+    color: #fff
+
+  span.task
+    text-overflow: ellipsis
+    white-space: nowrap
+
+  .logs
+    padding: 1em
+
+    li
+      margin-bottom: .5em
+
