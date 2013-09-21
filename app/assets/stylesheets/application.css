@@ -10,7 +10,6 @@
  *= require_tree ./utils
  *= require_tree ./blocks
  *= require layout
- *= require dashboard
  *= require comments
  *= require projects
  *= require todo_lists

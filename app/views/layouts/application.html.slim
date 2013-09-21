@@ -1,16 +1,8 @@
 doctype html
-/ paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
-/[if lt IE 7 ] <html class=\"ie6\" lang=\"en\">
-/[if IE 7 ]    <html class=\"ie7\" lang=\"en\">
-/[if IE 8 ]    <html class=\"ie8\" lang=\"en\">
-/[if IE 9 ]    <html class=\"ie9\" lang=\"en\">
-/[if (gt IE 9)|!(IE)] <!--> <html lang=\"en\">
+html lang="en"
 
 head
   meta charset="utf-8"
-
-  -# Uncomment to make IE8 render like IE7
-  -# meta http-equiv="X-UA-Compatible" content="IE=7"
 
   -# Set the viewport width to device width for mobile
   meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
@@ -19,7 +11,6 @@ head
   title= t(:'site.name')
   meta content= "" name="description"/
   meta content= "" name="author"/
-  / Mobile viewport optimized: j.mp/bplateviewport
   / meta name="google-site-verification" content="2MbWrv9nBu8op4F60ZppKIIu2kFA1irO21WW5vbUHYE"/
   / Place favicon.ico and apple-touch-icon.png in the root of your domain and delete these references
   / link href="/favicon.ico" rel="shortcut icon"/

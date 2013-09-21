@@ -4,7 +4,7 @@
       - for page in info_pages do
         li
           h2
-            = link_to page, help_path(page)
+            = link_to page, info_page_path(page)
             small
               '&nbsp;
               = link_to [:edit, :admin, page] do

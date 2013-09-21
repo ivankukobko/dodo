@@ -1,0 +1,10 @@
+tr
+  td= link_to project.name, [:admin, project]
+  td
+    - project.users.map do |u|
+      = link_to(u, [:admin, u]).html_safe
+      '&nbsp;
+  td= project.created_at
+  td
+    = link_to 'Edit', [:edit, :admin, project]
+    = link_to 'Delete', [:admin, project], method: :delete, confirm: 'Really?'

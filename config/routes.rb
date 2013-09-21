@@ -55,15 +55,6 @@ Dodo::Application.routes.draw do
   end
 
   resources :todo_lists, :path => 'lists' do
-    # resources :todo_items, :path => 'tasks' do
-      # collection do
-        # post :sort
-      # end
-      # member do
-        # get :complete
-        # get :uncomplete
-      # end
-    # end
   end
 
   resources :todo_items, :path => 'tasks' do
@@ -80,7 +71,10 @@ Dodo::Application.routes.draw do
 
   namespace :admin do
     resources :info_pages, :path => 'help'
-    resources :users
+    resources :users do
+      resources :projects
+    end
+    resources :projects
   end
 
   # The priority is based upon order of creation:
