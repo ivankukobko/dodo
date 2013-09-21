@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
   respond_to :html, :json
 
   def create
-    # FIXME: make more obvious and incapsulated
+    # FIXME: make more obvious and encapsulated
     # way to assign project owner
     resource.users = [current_user]
     create!
