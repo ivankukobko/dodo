@@ -11,7 +11,7 @@ article class="panel todo-item #{'complete' if todo_item.is_complete?} #{'expire
           =link_to [:complete, todo_item] do |f|
             i.foundicon-checkmark
       .item-title= link_to todo_item.title, [project, todo_item]
-      small
+      div.todo-item-details
         - if todo_item.lists
           - todo_item.lists.each do |list|
             span.label= list

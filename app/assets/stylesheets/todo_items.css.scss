@@ -24,6 +24,10 @@
   min-height:2em;
   padding: .25em;
 
+  .todo-item-details {
+    font-size: 80%;
+  }
+
   .due-date{
     display: inline-block;
     margin-right: 1em;
