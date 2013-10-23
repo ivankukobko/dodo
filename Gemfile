@@ -22,6 +22,8 @@ gem 'ruby-openid'
 gem 'russian'
 gem 'slim'
 gem 'ukrainian', :git => 'git://github.com/ivankukobko/ukrainian.git'
+gem 'memcachier'
+gem 'dalli'
 
 group :assets do
   gem 'haml-rails'
