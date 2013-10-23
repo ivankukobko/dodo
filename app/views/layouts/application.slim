@@ -12,9 +12,7 @@ head
   meta content= "" name="description"/
   meta content= "" name="author"/
   / meta name="google-site-verification" content="2MbWrv9nBu8op4F60ZppKIIu2kFA1irO21WW5vbUHYE"/
-  / Place favicon.ico and apple-touch-icon.png in the root of your domain and delete these references
-  / link href="/favicon.ico" rel="shortcut icon"/
-  / link href="/apple-touch-icon.png" rel="apple-touch-icon"/
+  / Place favicon.ico and apple-touch-icon.png in the root of your domain
 
   = stylesheet_link_tag "application"
   = javascript_include_tag "vendor/custom.modernizr"
@@ -30,7 +28,6 @@ body class="page-#{controller_name}"
         = yield
 
     = render 'shared/footer'
-  / = image_tag 'ajax.gif', :id => 'ajax', :style => 'display: none;'
 
   = javascript_include_tag 'application'
   = render 'shared/analytics'

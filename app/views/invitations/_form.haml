@@ -1,5 +1,6 @@
 = form_tag project_invitations_path(project) do
-  .field
-    = text_field_tag :email, '', :placeholder => t(:'helpers.placeholder.collaborator.email')
-  .actions
-    = submit_tag 'Invite'
+  .row.collapse
+    .small-10.columns
+      = text_field_tag :email, '', :placeholder => t(:'helpers.placeholder.collaborator.email')
+    .small-2.columns
+      = submit_tag 'Invite', class: 'button prefix'
