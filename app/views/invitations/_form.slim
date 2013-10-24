@@ -1,0 +1,8 @@
+= form_tag project_invitations_path(project) do
+  .row.collapse
+    .small-8.columns
+      = text_field_tag :email, '', :placeholder => t(:'helpers.placeholder.collaborator.email'), required: true, email: true
+    .small-4.columns
+      = button_tag class: 'button prefix' do
+        i.foundicon-plus
+        ' Invite

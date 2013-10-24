@@ -37,14 +37,8 @@
               h4 Associates
               ul.no-bullet#users
                 = render project.users
-              = link_to new_project_invitation_path(project), data: {'reveal-id' => 'inviteModal'}, :class => 'button tiny expand' do
-                i.foundicon-plus
-                ' Invite user
+              = render 'invitations/form'
               - unless project.collaborator(current_user).is_owner?
                 = link_to [project, project.collaborator(current_user) ], :method => :delete, :confirm => 'Are you sure?', class: 'button alert tiny expand' do
                   i.foundicon-trash
                   ' Abandon project
-#inviteModal.reveal-modal.tiny
-  h2== "Invite user to project &laquo;#{project}&raquo;"
-  = render 'invitations/form'
-  .close-reveal-modal &#215;
