@@ -7,7 +7,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require jquery-ui
+//= require jquery.ui.all
 //= require jquery.ui.touch-punch.min
 //= require underscore
 //= require backbone

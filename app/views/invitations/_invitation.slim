@@ -1,0 +1,13 @@
+li
+  article.invitation
+    strong
+      span.icon.icon-block-small
+      = link_to invitation.project, invitation.project
+    ' by
+    em= link_to invitation.inviter, invitation.inviter
+    br/
+    = link_to accept_invitation_path(invitation) do
+      ' Accept
+    ' |
+    = link_to invitation_path(invitation), :method => :delete, :confirm => 'Are you sure?' do
+      ' Decline

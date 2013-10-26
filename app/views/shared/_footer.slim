@@ -1,12 +1,10 @@
-%footer
+footer
   .container
     .row
       .large-3.columns
-        %p
-          = raw(t :'site.copyright')
+        p= raw(t :'site.copyright')
       .large-6.columns
-        %p
-          = raw(t :'site.info')
+        p= raw(t :'site.info')
       .large-3.columns
         = render_cell :help_link, :display
-        (:
+        ' (:

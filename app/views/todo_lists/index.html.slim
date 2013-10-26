@@ -1,12 +1,12 @@
 .row
   .large-12.columns
-    %a.button(href="#" data-reveal-id="new-list-modal")
-      %i.foundicon-plus
+    a.button(href="#" data-reveal-id="new-list-modal")
+      i.foundicon-plus
       = t(:'todo_lists.actions.create.title')
     .reveal-modal#new-list-modal
-      %a.close-reveal-modal &#215;
-      %h2= t(:'todo_lists.actions.create.title')
+      a.close-reveal-modal &#215;
+      h2= t(:'todo_lists.actions.create.title')
       = render :partial => 'form'
   .large-12.columns
-    %ul#todo-lists
+    ul#todo-lists
       = render todo_lists
