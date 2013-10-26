@@ -9,7 +9,6 @@
               i.foundicon-checkmark
             li= link_to todo_item_worklogs_path(todo_item), class: 'button small secondary' do
               i.foundicon-clock
-            -#= render :partial => 'worklogs/form', :locals => { :todo_item => todo_item, :worklog => Worklog.new }
             li= link_to edit_todo_item_path(todo_item), class: 'button small ', title: 'Edit' do
               i.foundicon-edit
             li= link_to [todo_item], confirm: 'Are you sure?', method: :delete, class: 'button small secondary alert', title: 'Delete' do
@@ -20,13 +19,10 @@
             '&larr;
         = todo_item.title
       hr/
-      - if !todo_item.description.blank?
-        .description
-          = todo_item.description
+      - unless todo_item.description.blank?
+        .description = markdown todo_item.description
         hr/
     #comments
       h3 Comments
       = render todo_item.comments
     = render :partial => 'comments/form', :locals => { :comment => todo_item.comments.build }
-
-    / =link_to raw("&larr;#{todo_item.todo_list.title}"), todo_list_path(todo_item.todo_list)
