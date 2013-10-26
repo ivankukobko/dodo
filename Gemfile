@@ -23,8 +23,8 @@ gem 'redcarpet'
 gem 'ruby-openid'
 gem 'russian'
 gem 'slim'
-gem 'small_calendar', github: 'ivankukobko/small_calendar'
-gem 'ukrainian', github: 'ivankukobko/ukrainian'
+gem 'small_calendar', git: 'https://github.com/ivankukobko/small_calendar.git'
+gem 'ukrainian', git: 'https://github.com/ivankukobko/ukrainian.git'
 
 group :assets do
   gem 'sass-rails', "~> 3.2"

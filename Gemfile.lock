@@ -1,12 +1,12 @@
 GIT
-  remote: git://github.com/ivankukobko/small_calendar.git
+  remote: https://github.com/ivankukobko/small_calendar.git
   revision: 0f58ac0c2c68666c3bd6a00b2a05899e59a4e64b
   specs:
     small_calendar (0.0.1)
       i18n (~> 0.6)
 
 GIT
-  remote: git://github.com/ivankukobko/ukrainian.git
+  remote: https://github.com/ivankukobko/ukrainian.git
   revision: 182708f217a4fcaa9e626e9d5bbdc114849b493e
   specs:
     ukrainian (2.6.0)
